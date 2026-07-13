@@ -1,13 +1,25 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import DashboardLayout from './components/DashboardLayout'
-import WeeklyProgress from './components/WeeklyProgress'
-import './index.css' // Importar los estilos globales
+import AvanGrid from './pages/AvanGrid'
+import StudioQA from './pages/StudioQA'
+import Innovacion from './pages/Innovacion'
+import InteligenciaArtificial from './pages/InteligenciaArtificial'
+import './index.css'
 
 function App() {
   return (
-    <DashboardLayout>
-      <WeeklyProgress />
-    </DashboardLayout>
+    <Router>
+      <DashboardLayout>
+        <Routes>
+          <Route path="/" element={<Navigate to="/avangrid" replace />} />
+          <Route path="/avangrid" element={<AvanGrid />} />
+          <Route path="/studio-qa" element={<StudioQA />} />
+          <Route path="/innovacion" element={<Innovacion />} />
+          <Route path="/ia" element={<InteligenciaArtificial />} />
+        </Routes>
+      </DashboardLayout>
+    </Router>
   )
 }
 

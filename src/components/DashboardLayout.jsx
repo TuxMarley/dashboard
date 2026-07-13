@@ -1,5 +1,6 @@
 import React from 'react';
-import { LayoutDashboard, CheckSquare, Settings, Activity } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { Smartphone, Presentation, Lightbulb, Bot, Activity } from 'lucide-react';
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -17,18 +18,25 @@ const DashboardLayout = ({ children }) => {
         </div>
         
         <nav className="flex-col gap-2 mt-6">
-          <a href="#" className="nav-item active">
-            <LayoutDashboard size={20} />
-            <span>Resumen Semanal</span>
-          </a>
-          <a href="#" className="nav-item">
-            <CheckSquare size={20} />
-            <span>Casos de Prueba</span>
-          </a>
-          <a href="#" className="nav-item">
-            <Settings size={20} />
-            <span>Configuración</span>
-          </a>
+          <NavLink to="/avangrid" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Smartphone size={20} />
+            <span>AvanGrid</span>
+          </NavLink>
+          
+          <NavLink to="/studio-qa" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Presentation size={20} />
+            <span>Studio QA</span>
+          </NavLink>
+          
+          <NavLink to="/innovacion" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Lightbulb size={20} />
+            <span>Innovación y PoCs</span>
+          </NavLink>
+          
+          <NavLink to="/ia" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Bot size={20} />
+            <span>Inteligencia Artificial</span>
+          </NavLink>
         </nav>
         
         <div className="mt-auto system-state-box p-4">
