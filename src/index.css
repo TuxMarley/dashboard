@@ -1,18 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:wght@400;700&display=swap');
 
 :root {
-  --bg-dark: #0a0a0f;
-  --bg-card: rgba(20, 20, 30, 0.6);
-  --bg-card-hover: rgba(30, 30, 45, 0.7);
+  /* NTT DATA Brand Color Palette mapped to Dark Mode */
+  --bg-dark: #070f26; /* NTT DATA Deep Navy */
+  --bg-card: rgba(14, 25, 54, 0.6); /* Slightly lighter navy for cards */
+  --bg-card-hover: rgba(22, 38, 77, 0.7);
   
-  --neon-cyan: #00f3ff;
-  --neon-purple: #b026ff;
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
+  --brand-blue: #0072bc; /* NTT DATA Corporate Blue */
+  --brand-gold: #e6b600; /* NTT DATA Secondary Gold/Yellow */
+  --brand-red: #cd1517;  /* NTT DATA Red */
+  
+  --text-main: #f6f8fd; /* Very light gray-blue for readability */
+  --text-muted: #b8c2cc; /* Medium gray-blue */
   
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   --glass-blur: blur(12px);
+  
+  /* Brand Rounded Borders (NTT style is highly rounded/pill) */
+  --border-radius-pill: 3rem;
+  --border-radius-card: 1.5rem;
 }
 
 * {
@@ -22,26 +29,32 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   min-height: 100vh;
-  /* subtle gradient background */
-  background: radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
-              radial-gradient(circle at 85% 30%, rgba(176, 38, 255, 0.08), transparent 25%),
+  /* subtle brand gradient background */
+  background: radial-gradient(circle at 15% 50%, rgba(0, 114, 188, 0.15), transparent 35%),
+              radial-gradient(circle at 85% 30%, rgba(230, 182, 0, 0.06), transparent 35%),
               var(--bg-dark);
   background-attachment: fixed;
 }
 
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Noto Serif', serif;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
 /* Typography Utilities */
-.text-cyan { color: var(--neon-cyan); }
-.text-purple { color: var(--neon-purple); }
+.text-cyan { color: var(--brand-blue); }
+.text-purple { color: var(--brand-gold); }
 .text-muted { color: var(--text-muted); }
 .font-bold { font-weight: 700; }
 .font-semibold { font-weight: 600; }
-.text-2xl { font-size: 1.5rem; line-height: 2rem; }
-.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-2xl { font-size: 1.625rem; }
+.text-xl { font-size: 1.25rem; }
+.text-sm { font-size: 0.875rem; }
 
 /* Layout Utilities */
 .flex { display: flex; }
@@ -59,23 +72,23 @@ body {
 .mb-4 { margin-bottom: 1rem; }
 .mb-6 { margin-bottom: 1.5rem; }
 
-/* Glassmorphism Card */
+/* Glassmorphism Card (NTT styled - round corners) */
 .glass-card {
   background: var(--bg-card);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: var(--border-radius-card);
   padding: 1.5rem;
   box-shadow: var(--glass-shadow);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .glass-card:hover {
   background: var(--bg-card-hover);
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.15);
-  box-shadow: 0 10px 40px 0 rgba(0,243,255,0.1);
+  transform: translateY(-3px);
+  border-color: rgba(0, 114, 188, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 114, 188, 0.15);
 }
 
 /* Sidebar Specific */
@@ -85,41 +98,52 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background: rgba(10, 10, 15, 0.8);
+  background: rgba(7, 15, 38, 0.85); /* Dark NTT Navy */
   backdrop-filter: blur(20px);
   border-right: 1px solid var(--glass-border);
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.25rem;
   display: flex;
   flex-direction: column;
 }
 
 .main-content {
   margin-left: 280px;
-  padding: 2rem;
+  padding: 2.5rem;
   min-height: 100vh;
 }
 
+/* NTT-style pill buttons/links */
 .nav-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius-pill); /* Pill shaped! */
   color: var(--text-muted);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover {
   background: rgba(255, 255, 255, 0.05);
-  color: var(--neon-cyan);
+  color: var(--brand-blue);
 }
 
 .nav-item.active {
-  background: linear-gradient(90deg, rgba(0, 243, 255, 0.1) 0%, transparent 100%);
-  border-left: 3px solid var(--neon-cyan);
+  background: var(--brand-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 114, 188, 0.3);
+}
+
+/* System State Widget */
+.system-state-box {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--glass-border);
 }
 
 .grid {
@@ -131,6 +155,20 @@ body {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, 1fr);
+}
+
+/* Pill tags */
+.pill-tag {
+  background: rgba(0, 114, 188, 0.15);
+  color: var(--brand-blue);
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 114, 188, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Responsive */

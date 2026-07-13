@@ -24,7 +24,7 @@ const WeeklyProgress = () => {
               <p className="text-sm text-muted">Casos Creados</p>
               <h3 className="text-2xl font-bold">124</h3>
             </div>
-            <div className="p-2 rounded-lg" style={{ background: 'rgba(0, 243, 255, 0.1)' }}>
+            <div className="p-2 rounded-full" style={{ background: 'rgba(0, 114, 188, 0.1)' }}>
               <FileText className="text-cyan" size={24} />
             </div>
           </div>
@@ -37,7 +37,7 @@ const WeeklyProgress = () => {
               <p className="text-sm text-muted">Ejecuciones</p>
               <h3 className="text-2xl font-bold">1,430</h3>
             </div>
-            <div className="p-2 rounded-lg" style={{ background: 'rgba(176, 38, 255, 0.1)' }}>
+            <div className="p-2 rounded-full" style={{ background: 'rgba(230, 182, 0, 0.1)' }}>
               <PlayCircle className="text-purple" size={24} />
             </div>
           </div>
@@ -50,7 +50,7 @@ const WeeklyProgress = () => {
               <p className="text-sm text-muted">Entornos Activos</p>
               <h3 className="text-2xl font-bold">3</h3>
             </div>
-            <div className="p-2 rounded-lg" style={{ background: 'rgba(255, 255, 255, 0.1)' }}>
+            <div className="p-2 rounded-full" style={{ background: 'rgba(255, 255, 255, 0.1)' }}>
               <Server size={24} />
             </div>
           </div>
@@ -63,7 +63,7 @@ const WeeklyProgress = () => {
               <p className="text-sm text-muted">Tareas de IA</p>
               <h3 className="text-2xl font-bold">85</h3>
             </div>
-            <div className="p-2 rounded-lg" style={{ background: 'rgba(0, 243, 255, 0.1)' }}>
+            <div className="p-2 rounded-full" style={{ background: 'rgba(0, 114, 188, 0.1)' }}>
               <Cpu className="text-cyan" size={24} />
             </div>
           </div>
@@ -80,19 +80,19 @@ const WeeklyProgress = () => {
               <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorEjecutados" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--neon-purple)" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="var(--neon-purple)" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="var(--brand-gold)" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="var(--brand-gold)" stopOpacity={0}/>
                   </linearGradient>
                   <linearGradient id="colorIA" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--neon-cyan)" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="var(--neon-cyan)" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="var(--brand-blue)" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="var(--brand-blue)" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="name" stroke="var(--text-muted)" />
                 <YAxis stroke="var(--text-muted)" />
                 <Tooltip contentStyle={{ backgroundColor: 'var(--bg-dark)', border: '1px solid var(--glass-border)', borderRadius: '8px' }} />
-                <Area type="monotone" dataKey="ejecutados" stroke="var(--neon-purple)" fillOpacity={1} fill="url(#colorEjecutados)" />
-                <Area type="monotone" dataKey="ia" stroke="var(--neon-cyan)" fillOpacity={1} fill="url(#colorIA)" />
+                <Area type="monotone" dataKey="ejecutados" stroke="var(--brand-gold)" fillOpacity={1} fill="url(#colorEjecutados)" />
+                <Area type="monotone" dataKey="ia" stroke="var(--brand-blue)" fillOpacity={1} fill="url(#colorIA)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -103,7 +103,7 @@ const WeeklyProgress = () => {
           <div className="flex-col gap-4">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="flex items-start gap-4 p-3 rounded-lg" style={{ background: 'rgba(255, 255, 255, 0.03)' }}>
-                <div className="w-2 h-2 mt-2 rounded-full" style={{ background: i % 2 === 0 ? 'var(--neon-cyan)' : 'var(--neon-purple)', boxShadow: `0 0 8px ${i % 2 === 0 ? 'var(--neon-cyan)' : 'var(--neon-purple)'}` }}></div>
+                <div className="w-2 h-2 mt-2 rounded-full" style={{ background: i % 2 === 0 ? 'var(--brand-blue)' : 'var(--brand-gold)', boxShadow: `0 0 8px ${i % 2 === 0 ? 'var(--brand-blue)' : 'var(--brand-gold)'}` }}></div>
                 <div>
                   <h4 className="font-semibold">{i % 2 === 0 ? 'Script de IA actualizado' : 'Ejecución de Regresión Completada'}</h4>
                   <p className="text-sm text-muted">Hace {i * 2} horas en Entorno QA</p>
