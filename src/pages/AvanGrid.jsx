@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import WeeklyProgress from '../components/WeeklyProgress';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, RadialBarChart, RadialBar } from 'recharts';
-import { FileSpreadsheet, Layers, UserCheck, CalendarDays, Smartphone, Settings, Percent, CheckCircle, HelpCircle } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { FileSpreadsheet, Layers, UserCheck, CalendarDays, Smartphone, Percent, CheckCircle, HelpCircle } from 'lucide-react';
 
 const juneTimelineData = [
   { day: '15 Jun', Jimmy: 1, Nicolas: 0, total: 1 },
-  { day: '19 Jun', Jimmy: 5, Nicolas: 0, total: 5 },
-  { day: '22 Jun', Jimmy: 1, Nicolas: 0, total: 1 },
-  { day: '23 Jun', Jimmy: 4, Nicolas: 0, total: 4 },
-  { day: '24 Jun', Jimmy: 4, Nicolas: 0, total: 4 },
+  { day: '18 Jun', Jimmy: 0, Nicolas: 11, total: 11 },
+  { day: '19 Jun', Jimmy: 5, Nicolas: 4, total: 9 },
+  { day: '22 Jun', Jimmy: 1, Nicolas: 8, total: 9 },
+  { day: '23 Jun', Jimmy: 4, Nicolas: 8, total: 12 },
+  { day: '24 Jun', Jimmy: 4, Nicolas: 1, total: 5 },
   { day: '26 Jun', Jimmy: 11, Nicolas: 0, total: 11 },
   { day: '29 Jun', Jimmy: 4, Nicolas: 0, total: 4 },
   { day: '30 Jun', Jimmy: 9, Nicolas: 4, total: 13 },
 ];
 
 const categoryData = [
+  { name: 'Make a Payment Flow', value: 28 },
   { name: 'Autopay (Pagos)', value: 24 },
   { name: 'Outages (Cortes)', value: 20 },
 ];
@@ -27,7 +29,6 @@ const mobileStats = [
   { module: 'Autopay', androidAuto: 0, androidNo: 0, androidPen: 24, iosAuto: 24, iosNo: 0, iosPen: 0 },
 ];
 
-// Data formatted for chart comparison (Android vs iOS Automated TCs)
 const mobileChartData = [
   { name: 'Payments', Android: 17, iOS: 20 },
   { name: 'Payment Flow', Android: 0, iOS: 30 },
@@ -36,7 +37,7 @@ const mobileChartData = [
   { name: 'Autopay', Android: 0, iOS: 24 },
 ];
 
-const COLORS = ['var(--brand-blue)', 'var(--brand-gold)'];
+const COLORS = ['var(--brand-blue)', 'var(--brand-gold)', 'rgba(255, 255, 255, 0.4)'];
 
 const AvanGrid = () => {
   const [activeTab, setActiveTab] = useState('weekly'); // 'weekly', 'june', or 'mobile'
@@ -97,13 +98,13 @@ const AvanGrid = () => {
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <p className="text-sm text-muted">Total Creados (Junio)</p>
-                  <h3 className="text-2xl font-bold">44</h3>
+                  <h3 className="text-2xl font-bold">72</h3>
                 </div>
                 <div className="p-2 rounded-full" style={{ background: 'rgba(0, 114, 188, 0.1)' }}>
                   <FileSpreadsheet className="text-cyan" size={24} />
                 </div>
               </div>
-              <p className="text-sm text-cyan font-semibold">100% de cobertura QA</p>
+              <p className="text-sm text-cyan font-semibold">Casos consolidados de QA</p>
             </div>
 
             <div className="glass-card">
@@ -116,33 +117,33 @@ const AvanGrid = () => {
                   <UserCheck className="text-purple" size={24} />
                 </div>
               </div>
-              <p className="text-sm text-muted">90.9% del total mensual</p>
+              <p className="text-sm text-muted">55.6% del total mensual</p>
             </div>
 
             <div className="glass-card">
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p className="text-sm text-muted">Creados por Nicolas</p>
-                  <h3 className="text-2xl font-bold">4</h3>
+                  <p className="text-sm text-muted">Creados por Nicolás</p>
+                  <h3 className="text-2xl font-bold">32</h3>
                 </div>
                 <div className="p-2 rounded-full" style={{ background: 'rgba(255, 255, 255, 0.1)' }}>
                   <UserCheck size={24} />
                 </div>
               </div>
-              <p className="text-sm text-muted">9.1% del total mensual</p>
+              <p className="text-sm text-muted">44.4% del total mensual</p>
             </div>
 
             <div className="glass-card">
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <p className="text-sm text-muted">Categoría Líder</p>
-                  <h3 className="text-2xl font-bold">Autopay</h3>
+                  <h3 className="text-2xl font-bold">Payment Flow</h3>
                 </div>
                 <div className="p-2 rounded-full" style={{ background: 'rgba(0, 114, 188, 0.1)' }}>
                   <Layers className="text-cyan" size={24} />
                 </div>
               </div>
-              <p className="text-sm text-cyan">24 Casos Creados</p>
+              <p className="text-sm text-cyan">28 Casos Creados</p>
             </div>
           </div>
 
@@ -198,7 +199,6 @@ const AvanGrid = () => {
 
       {activeTab === 'mobile' && (
         <div className="w-full flex-col gap-6">
-          
           {/* Mobile KPI Cards */}
           <div className="grid grid-cols-4 mb-6">
             <div className="glass-card">
@@ -256,8 +256,6 @@ const AvanGrid = () => {
 
           {/* Table and Chart */}
           <div className="grid grid-cols-2">
-            
-            {/* Chart: Automated TCs by platform */}
             <div className="glass-card">
               <h3 className="font-semibold text-xl mb-4">Casos Automatizados por Módulo</h3>
               <div style={{ width: '100%', height: 300 }}>
@@ -274,7 +272,6 @@ const AvanGrid = () => {
               </div>
             </div>
 
-            {/* Table: Detailed breakdown */}
             <div className="glass-card flex-col" style={{ overflow: 'hidden' }}>
               <h3 className="font-semibold text-xl mb-4">Desglose Detallado de Módulos (CMP)</h3>
               <div style={{ overflowX: 'auto', flex: 1 }}>
@@ -292,7 +289,6 @@ const AvanGrid = () => {
                   <tbody>
                     {mobileStats.map((item, idx) => (
                       <React.Fragment key={idx}>
-                        {/* Android row */}
                         <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.02)' }}>
                           <td className="py-2 font-semibold text-white" rowSpan={2}>{item.module}</td>
                           <td className="py-2 text-muted">Android</td>
@@ -301,7 +297,6 @@ const AvanGrid = () => {
                           <td className="py-2 text-center text-cyan">{item.androidAuto}</td>
                           <td className="py-2 text-center">{item.androidPen}</td>
                         </tr>
-                        {/* iOS row */}
                         <tr style={{ borderBottom: '1px solid var(--glass-border)' }}>
                           <td className="py-2 text-muted">iOS</td>
                           <td className="py-2 text-center">{item.iosAuto + item.iosNo + item.iosPen}</td>
@@ -315,9 +310,7 @@ const AvanGrid = () => {
                 </table>
               </div>
             </div>
-
           </div>
-
         </div>
       )}
     </div>
