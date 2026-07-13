@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import WeeklyProgress from '../components/WeeklyProgress';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { FileSpreadsheet, Layers, UserCheck, CalendarDays } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, RadialBarChart, RadialBar } from 'recharts';
+import { FileSpreadsheet, Layers, UserCheck, CalendarDays, Smartphone, Settings, Percent, CheckCircle, HelpCircle } from 'lucide-react';
 
 const juneTimelineData = [
   { day: '15 Jun', Jimmy: 1, Nicolas: 0, total: 1 },
@@ -19,10 +19,27 @@ const categoryData = [
   { name: 'Outages (Cortes)', value: 20 },
 ];
 
+const mobileStats = [
+  { module: 'Payments', androidAuto: 17, androidNo: 7, androidPen: 0, iosAuto: 20, iosNo: 4, iosPen: 0 },
+  { module: 'Payment Flow', androidAuto: 0, androidNo: 4, androidPen: 47, iosAuto: 30, iosNo: 21, iosPen: 0 },
+  { module: 'Login', androidAuto: 0, androidNo: 8, androidPen: 0, iosAuto: 0, iosNo: 8, iosPen: 0 },
+  { module: 'Outages', androidAuto: 0, androidNo: 0, androidPen: 60, iosAuto: 43, iosNo: 18, iosPen: 0 },
+  { module: 'Autopay', androidAuto: 0, androidNo: 0, androidPen: 24, iosAuto: 24, iosNo: 0, iosPen: 0 },
+];
+
+// Data formatted for chart comparison (Android vs iOS Automated TCs)
+const mobileChartData = [
+  { name: 'Payments', Android: 17, iOS: 20 },
+  { name: 'Payment Flow', Android: 0, iOS: 30 },
+  { name: 'Login', Android: 0, iOS: 0 },
+  { name: 'Outages', Android: 0, iOS: 43 },
+  { name: 'Autopay', Android: 0, iOS: 24 },
+];
+
 const COLORS = ['var(--brand-blue)', 'var(--brand-gold)'];
 
 const AvanGrid = () => {
-  const [activeTab, setActiveTab] = useState('weekly'); // 'weekly' or 'june'
+  const [activeTab, setActiveTab] = useState('weekly'); // 'weekly', 'june', or 'mobile'
 
   return (
     <div>
@@ -32,7 +49,7 @@ const AvanGrid = () => {
           <p className="text-muted text-sm mt-1">Automatización mobile, integración continua y ejecución de pruebas.</p>
         </div>
         
-        {/* Toggle button */}
+        {/* Toggle buttons (3 choices) */}
         <div className="flex p-1 rounded-full" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
           <button 
             className="px-4 py-2 text-sm font-semibold transition-all duration-300"
@@ -56,14 +73,24 @@ const AvanGrid = () => {
           >
             Reporte Junio (Real)
           </button>
+          <button 
+            className="px-4 py-2 text-sm font-semibold transition-all duration-300"
+            style={{ 
+              borderRadius: 'var(--border-radius-pill)',
+              background: activeTab === 'mobile' ? 'var(--brand-blue)' : 'transparent',
+              color: activeTab === 'mobile' ? '#fff' : 'var(--text-muted)'
+            }}
+            onClick={() => setActiveTab('mobile')}
+          >
+            Automatización Mobile
+          </button>
         </div>
       </div>
 
-      {activeTab === 'weekly' ? (
-        <WeeklyProgress />
-      ) : (
+      {activeTab === 'weekly' && <WeeklyProgress />}
+
+      {activeTab === 'june' && (
         <div className="w-full flex-col gap-6">
-          
           {/* June Widgets */}
           <div className="grid grid-cols-4 mb-6">
             <div className="glass-card">
@@ -121,17 +148,8 @@ const AvanGrid = () => {
 
           {/* June Charts */}
           <div className="grid grid-cols-2">
-            
-            {/* June Bar Chart Timeline */}
             <div className="glass-card">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="font-semibold text-xl">Línea de Tiempo de Creación</h3>
-                <div className="flex items-center gap-1 text-xs text-muted">
-                  <CalendarDays size={14} />
-                  <span>Junio 2026</span>
-                </div>
-              </div>
-              
+              <h3 className="font-semibold text-xl mb-4">Línea de Tiempo de Creación</h3>
               <div style={{ width: '100%', height: 300 }}>
                 <ResponsiveContainer>
                   <BarChart data={juneTimelineData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
@@ -139,30 +157,20 @@ const AvanGrid = () => {
                     <YAxis stroke="var(--text-muted)" />
                     <Tooltip contentStyle={{ backgroundColor: 'var(--bg-dark)', border: '1px solid var(--glass-border)', borderRadius: '8px' }} />
                     <Legend />
-                    <Bar dataKey="Jimmy" stackId="a" fill="var(--brand-blue)" radius={[0, 0, 0, 0]} />
+                    <Bar dataKey="Jimmy" stackId="a" fill="var(--brand-blue)" />
                     <Bar dataKey="Nicolas" stackId="a" fill="var(--brand-gold)" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
             </div>
 
-            {/* June Pie Chart Categories */}
             <div className="glass-card flex-col">
               <h3 className="font-semibold text-xl mb-4">Casos por Categoría</h3>
-              
               <div className="flex items-center justify-between h-full" style={{ minHeight: '260px' }}>
                 <div style={{ width: '50%', height: 240 }}>
                   <ResponsiveContainer>
                     <PieChart>
-                      <Pie
-                        data={categoryData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        paddingAngle={5}
-                        dataKey="value"
-                      >
+                      <Pie data={categoryData} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
                         {categoryData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
@@ -171,8 +179,6 @@ const AvanGrid = () => {
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
-
-                {/* Categories Legend */}
                 <div className="flex-col gap-4" style={{ width: '45%' }}>
                   {categoryData.map((entry, index) => (
                     <div key={index} className="flex-col p-3 rounded-xl mb-2" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)' }}>
@@ -185,7 +191,129 @@ const AvanGrid = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
 
+      {activeTab === 'mobile' && (
+        <div className="w-full flex-col gap-6">
+          
+          {/* Mobile KPI Cards */}
+          <div className="grid grid-cols-4 mb-6">
+            <div className="glass-card">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <p className="text-sm text-muted">Progreso Global</p>
+                  <h3 className="text-2xl font-bold">50.6%</h3>
+                </div>
+                <div className="p-2 rounded-full" style={{ background: 'rgba(0, 114, 188, 0.1)' }}>
+                  <Percent className="text-cyan" size={24} />
+                </div>
+              </div>
+              <p className="text-sm text-cyan font-semibold">134 / 265 Casos Auto.</p>
+            </div>
+
+            <div className="glass-card">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <p className="text-sm text-muted">Casos Automatizados</p>
+                  <h3 className="text-2xl font-bold text-white">134</h3>
+                </div>
+                <div className="p-2 rounded-full" style={{ background: 'rgba(74, 222, 128, 0.1)' }}>
+                  <CheckCircle style={{ color: '#4ade80' }} size={24} />
+                </div>
+              </div>
+              <p className="text-sm text-muted">En validación de QA</p>
+            </div>
+
+            <div className="glass-card">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <p className="text-sm text-muted">Casos No Automáticos</p>
+                  <h3 className="text-2xl font-bold">70</h3>
+                </div>
+                <div className="p-2 rounded-full" style={{ background: 'rgba(230, 182, 0, 0.1)' }}>
+                  <HelpCircle className="text-purple" size={24} />
+                </div>
+              </div>
+              <p className="text-sm text-muted">Excluidos de automatización</p>
+            </div>
+
+            <div className="glass-card">
+              <div className="flex justify-between items-start mb-2">
+                <div>
+                  <p className="text-sm text-muted">Total General TCs</p>
+                  <h3 className="text-2xl font-bold">335</h3>
+                </div>
+                <div className="p-2 rounded-full" style={{ background: 'rgba(255, 255, 255, 0.1)' }}>
+                  <Smartphone size={24} />
+                </div>
+              </div>
+              <p className="text-sm text-muted">Base de pruebas total</p>
+            </div>
+          </div>
+
+          {/* Table and Chart */}
+          <div className="grid grid-cols-2">
+            
+            {/* Chart: Automated TCs by platform */}
+            <div className="glass-card">
+              <h3 className="font-semibold text-xl mb-4">Casos Automatizados por Módulo</h3>
+              <div style={{ width: '100%', height: 300 }}>
+                <ResponsiveContainer>
+                  <BarChart data={mobileChartData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                    <XAxis dataKey="name" stroke="var(--text-muted)" />
+                    <YAxis stroke="var(--text-muted)" />
+                    <Tooltip contentStyle={{ backgroundColor: 'var(--bg-dark)', border: '1px solid var(--glass-border)', borderRadius: '8px' }} />
+                    <Legend />
+                    <Bar dataKey="Android" fill="var(--brand-gold)" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="iOS" fill="var(--brand-blue)" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* Table: Detailed breakdown */}
+            <div className="glass-card flex-col" style={{ overflow: 'hidden' }}>
+              <h3 className="font-semibold text-xl mb-4">Desglose Detallado de Módulos (CMP)</h3>
+              <div style={{ overflowX: 'auto', flex: 1 }}>
+                <table className="w-full text-sm" style={{ borderCollapse: 'collapse', textAlign: 'left' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '1px solid var(--glass-border)', color: 'var(--text-muted)' }}>
+                      <th className="py-2">Módulo</th>
+                      <th className="py-2">Plataforma</th>
+                      <th className="py-2 text-center">Total</th>
+                      <th className="py-2 text-center text-purple">No Auto</th>
+                      <th className="py-2 text-center text-cyan">Auto</th>
+                      <th className="py-2 text-center">Pendiente</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {mobileStats.map((item, idx) => (
+                      <React.Fragment key={idx}>
+                        {/* Android row */}
+                        <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.02)' }}>
+                          <td className="py-2 font-semibold text-white" rowSpan={2}>{item.module}</td>
+                          <td className="py-2 text-muted">Android</td>
+                          <td className="py-2 text-center">{item.androidAuto + item.androidNo + item.androidPen}</td>
+                          <td className="py-2 text-center">{item.androidNo}</td>
+                          <td className="py-2 text-center text-cyan">{item.androidAuto}</td>
+                          <td className="py-2 text-center">{item.androidPen}</td>
+                        </tr>
+                        {/* iOS row */}
+                        <tr style={{ borderBottom: '1px solid var(--glass-border)' }}>
+                          <td className="py-2 text-muted">iOS</td>
+                          <td className="py-2 text-center">{item.iosAuto + item.iosNo + item.iosPen}</td>
+                          <td className="py-2 text-center">{item.iosNo}</td>
+                          <td className="py-2 text-center text-cyan">{item.iosAuto}</td>
+                          <td className="py-2 text-center">{item.iosPen}</td>
+                        </tr>
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>
