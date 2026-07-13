@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
             <Activity size={24} />
           </div>
           <div>
-            <h2 className="font-bold text-xl" style={{ letterSpacing: '-0.5px' }}>QA Nexus</h2>
+            <h2 className="font-bold text-lg" style={{ letterSpacing: '-0.5px', lineHeight: '1.2' }}>Radar de trabajo de Jimmy</h2>
             <p className="text-sm text-cyan font-semibold">NTT DATA Agent</p>
           </div>
         </div>
