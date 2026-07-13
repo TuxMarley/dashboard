@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Smartphone, Presentation, Lightbulb, Bot, Activity } from 'lucide-react';
+import { Smartphone, Presentation, Lightbulb, Bot, Activity, Award } from 'lucide-react';
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -36,6 +36,13 @@ const DashboardLayout = ({ children }) => {
           <NavLink to="/ia" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Bot size={20} />
             <span>Inteligencia Artificial</span>
+          </NavLink>
+          
+          <div className="my-2 border-t border-[rgba(255,255,255,0.05)]"></div>
+
+          <NavLink to="/career" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <Award size={20} />
+            <span>Mapa de Talento</span>
           </NavLink>
         </nav>
         

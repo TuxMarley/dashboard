@@ -5,6 +5,7 @@ import AvanGrid from './pages/AvanGrid'
 import StudioQA from './pages/StudioQA'
 import Innovacion from './pages/Innovacion'
 import InteligenciaArtificial from './pages/InteligenciaArtificial'
+import CareerPath from './pages/CareerPath'
 import './index.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/studio-qa" element={<StudioQA />} />
           <Route path="/innovacion" element={<Innovacion />} />
           <Route path="/ia" element={<InteligenciaArtificial />} />
+          <Route path="/career" element={<CareerPath />} />
         </Routes>
       </DashboardLayout>
     </Router>
