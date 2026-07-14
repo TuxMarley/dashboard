@@ -112,7 +112,7 @@ const WeeklyProgress = () => {
       </div>
 
       <div className="glass-card flex-col gap-4 border-l-4 border-l-cyan bg-[rgba(0,114,188,0.05)]">
-        <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
+        <div className="flex flex-col md:flex-row gap-6 items-start w-full">
           <div className="flex-1 flex-col gap-4">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-xl bg-[rgba(0,114,188,0.15)]">
@@ -129,7 +129,7 @@ const WeeklyProgress = () => {
               Con este avance, garantizamos una <strong className="text-white">trazabilidad del 100%</strong> sin intervención manual.
             </p>
           </div>
-          <div className="w-full lg:w-96 shrink-0 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
+          <div className="w-full md:w-72 shrink-0 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
             <img src="/zephyr_code.png" alt="Evidencia Código Zephyr" className="w-full h-auto object-cover" />
           </div>
         </div>
