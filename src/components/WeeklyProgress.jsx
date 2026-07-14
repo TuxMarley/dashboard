@@ -70,7 +70,7 @@ const WeeklyProgress = () => {
       </div>
 
       {/* Main Chart and Summary info */}
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-2 mb-6">
         <div className="glass-card h-full">
           <h3 className="font-semibold text-xl mb-4 font-serif">Ejecuciones por OPCO y Módulo</h3>
           <div style={{ width: '100%', height: 300 }}>
@@ -109,6 +109,24 @@ const WeeklyProgress = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* New Integration Milestone: Zephyr Integration */}
+      <div className="glass-card flex-col gap-4 border-l-4 border-l-cyan bg-[rgba(0,114,188,0.05)]">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-xl bg-[rgba(0,114,188,0.15)]">
+            <Laptop className="text-cyan animate-pulse" size={24} />
+          </div>
+          <div>
+            <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito de Integración</span>
+            <h3 className="text-lg font-bold text-white">Integración Completa con Jira/Zephyr</h3>
+          </div>
+        </div>
+        <p className="text-sm text-[rgba(255,255,255,0.85)] leading-relaxed">
+          Se completó con éxito la integración del ciclo de automatización de pruebas mobile con <strong className="text-cyan">Zephyr</strong>. 
+          A partir de ahora, cada ejecución del pipeline crea automáticamente el ciclo en la plataforma, registra el resultado de todos los casos de prueba y asocia evidencias capturadas por cada caso exitoso (Passed). 
+          Con este avance, garantizamos una <strong className="text-white">trazabilidad del 100%</strong> sin intervención manual.
+        </p>
       </div>
       
     </div>
