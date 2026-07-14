@@ -129,8 +129,8 @@ const WeeklyProgress = () => {
               Con este avance, garantizamos una <strong className="text-white">trazabilidad del 100%</strong> sin intervención manual.
             </p>
           </div>
-          <div className="w-full md:w-72 shrink-0 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
-            <img src="/zephyr_code.png" alt="Evidencia Código Zephyr" className="w-full h-auto object-cover" />
+          <div className="w-40 h-40 shrink-0 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
+            <img src="/zephyr_code.png" alt="Evidencia Código Zephyr" className="w-full h-full object-cover object-left-top" />
           </div>
         </div>
       </div>
