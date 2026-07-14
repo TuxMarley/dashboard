@@ -111,22 +111,28 @@ const WeeklyProgress = () => {
         </div>
       </div>
 
-      {/* New Integration Milestone: Zephyr Integration */}
       <div className="glass-card flex-col gap-4 border-l-4 border-l-cyan bg-[rgba(0,114,188,0.05)]">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-[rgba(0,114,188,0.15)]">
-            <Laptop className="text-cyan animate-pulse" size={24} />
+        <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
+          <div className="flex-1 flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-[rgba(0,114,188,0.15)]">
+                <Laptop className="text-cyan animate-pulse" size={24} />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito de Integración (14/07)</span>
+                <h3 className="text-lg font-bold text-white">Integración Completa con Jira/Zephyr</h3>
+              </div>
+            </div>
+            <p className="text-sm text-[rgba(255,255,255,0.85)] leading-relaxed">
+              Se completó con éxito la integración del ciclo de automatización de pruebas mobile con <strong className="text-cyan">Zephyr</strong>. 
+              A partir de ahora, cada ejecución del pipeline crea automáticamente el ciclo en la plataforma, registra el resultado de todos los casos de prueba y asocia evidencias capturadas por cada caso exitoso (Passed). 
+              Con este avance, garantizamos una <strong className="text-white">trazabilidad del 100%</strong> sin intervención manual.
+            </p>
           </div>
-          <div>
-            <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito de Integración (14/07)</span>
-            <h3 className="text-lg font-bold text-white">Integración Completa con Jira/Zephyr</h3>
+          <div className="w-full lg:w-96 shrink-0 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-2xl">
+            <img src="/zephyr_code.png" alt="Evidencia Código Zephyr" className="w-full h-auto object-cover" />
           </div>
         </div>
-        <p className="text-sm text-[rgba(255,255,255,0.85)] leading-relaxed">
-          Se completó con éxito la integración del ciclo de automatización de pruebas mobile con <strong className="text-cyan">Zephyr</strong>. 
-          A partir de ahora, cada ejecución del pipeline crea automáticamente el ciclo en la plataforma, registra el resultado de todos los casos de prueba y asocia evidencias capturadas por cada caso exitoso (Passed). 
-          Con este avance, garantizamos una <strong className="text-white">trazabilidad del 100%</strong> sin intervención manual.
-        </p>
       </div>
       
     </div>
