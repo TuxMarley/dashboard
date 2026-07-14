@@ -4,7 +4,7 @@ import { Calendar, Users, Lightbulb, ShieldAlert, Clock, AlertTriangle } from 'l
 const Innovacion = () => {
   return (
     <div className="w-full flex-col gap-6">
-      <h2 className="text-2xl font-bold mb-4 font-serif">Innovación y PoCs</h2>
+      <h2 className="text-2xl font-bold mb-4 font-serif">Asesorías QA</h2>
       <p className="text-muted mb-6">Pruebas de concepto y pilotos de Inteligencia Artificial para el equipo QA.</p>
       
       <div className="glass-card mb-6">

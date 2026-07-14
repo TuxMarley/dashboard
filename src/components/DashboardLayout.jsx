@@ -30,7 +30,7 @@ const DashboardLayout = ({ children }) => {
           
           <NavLink to="/innovacion" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Lightbulb size={20} />
-            <span>Innovación y PoCs</span>
+            <span>Asesorías QA</span>
           </NavLink>
           
           <NavLink to="/ia" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
