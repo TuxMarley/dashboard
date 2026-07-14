@@ -118,7 +118,7 @@ const WeeklyProgress = () => {
             <Laptop className="text-cyan animate-pulse" size={24} />
           </div>
           <div>
-            <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito de Integración</span>
+            <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito de Integración (14/07)</span>
             <h3 className="text-lg font-bold text-white">Integración Completa con Jira/Zephyr</h3>
           </div>
         </div>
