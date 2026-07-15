@@ -66,6 +66,56 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        {/* Comunidad IA Generativa Chile Card */}
+        <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            
+            {/* Text details */}
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <BrainCircuit size={20} />
+                <span>Comunidad GenAI Chile</span>
+              </div>
+              
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Comunidad de IA Generativa Chile: Reunión de Coordinación</h4>
+              
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Jueves 2 de Julio de 2026</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Participación en la primera reunión de coordinación presencial y remota de la comunidad de IA Generativa en Chile, liderada por Daniel Povedano. Inclusión oficial como Referente de Inteligencia Artificial en Chile para liderar y coordinar futuras tareas, casos de uso e iniciativas tecnológicas de IA.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Inclusión formal como Referente de IA para liderar y coordinar futuras tareas de IA en el país.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Reunión de alineamiento estratégico de comunidad con líderes técnicos y referentes de la GDN-e.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Session Screenshot */}
+            <div className="flex-col items-center" style={{ flex: '1 1 250px', minWidth: '220px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img 
+                  src="/ia_community_july_2.jpg" 
+                  alt="Reunión Comunidad IA Generativa Chile" 
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Captura de la reunión de coordinación liderada por Daniel Povedano</p>
+            </div>
+
+          </div>
+        </div>
+
         {/* IA Session Podcaster Card */}
         <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
