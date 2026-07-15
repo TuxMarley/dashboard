@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WeeklyProgress from '../components/WeeklyProgress';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { FileSpreadsheet, Layers, UserCheck, CalendarDays, Smartphone, Percent, CheckCircle, HelpCircle } from 'lucide-react';
@@ -41,6 +41,19 @@ const COLORS = ['var(--brand-blue)', 'var(--brand-gold)', 'rgba(255, 255, 255, 0
 
 const AvanGrid = () => {
   const [activeTab, setActiveTab] = useState('weekly'); // 'weekly', 'june', or 'mobile'
+  const [todayTasks, setTodayTasks] = useState([]);
+
+  useEffect(() => {
+    fetch('/daily_tasks.json')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        return [];
+      })
+      .then(data => setTodayTasks(data))
+      .catch(() => setTodayTasks([]));
+  }, []);
 
   return (
     <div>
@@ -87,6 +100,32 @@ const AvanGrid = () => {
           </button>
         </div>
       </div>
+
+      {/* Daily Tasks Notification if available */}
+      {todayTasks && todayTasks.length > 0 && (
+        <div className="glass-card mb-6" style={{ borderColor: 'rgba(0, 180, 216, 0.4)', borderWidth: '1px' }}>
+          <h3 className="font-semibold text-lg text-cyan mb-3 flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan animate-pulse"></span>
+            Actualización del Día ({todayTasks[0].date}) - Tareas Finalizadas
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {todayTasks.map((task, idx) => (
+              <div key={idx} className="p-3 rounded-xl flex justify-between items-start" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)' }}>
+                <div>
+                  <span className="text-xs bg-cyan text-dark font-bold px-2 py-0.5 rounded mr-2" style={{ backgroundColor: 'var(--brand-blue)', color: '#fff' }}>{task.key}</span>
+                  <span className="text-xs text-muted">{task.sheet}</span>
+                  <p className="text-sm font-semibold mt-1 text-white">{task.name}</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(0,114,188,0.2)', color: 'var(--brand-blue-light)' }}>
+                    {task.assigned}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {activeTab === 'weekly' && <WeeklyProgress />}
 
