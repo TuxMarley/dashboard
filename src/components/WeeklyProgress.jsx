@@ -1,6 +1,6 @@
 import React from 'react';
 import { PlayCircle, FileText, Smartphone, Laptop } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 // Data representing executions this week by OPCO and Module
 // BGC: 15 (Make a Payment iOS) + 7 (Login iOS) + 7 (Login Android) = 29 cases

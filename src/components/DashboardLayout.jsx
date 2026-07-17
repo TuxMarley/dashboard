@@ -1,12 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Smartphone, Presentation, Lightbulb, Bot, Activity, Award } from 'lucide-react';
+import { Smartphone, Presentation, Lightbulb, Bot, Activity, Award, Menu, X } from 'lucide-react';
+import { getIsoWeek } from '../utils/dashboard';
 
 const DashboardLayout = ({ children }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const week = getIsoWeek(new Date());
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="flex w-full min-h-screen">
-      {/* Sidebar */}
-      <aside className="sidebar">
+      <button
+        className="menu-toggle"
+        type="button"
+        aria-label={isMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+        aria-expanded={isMenuOpen}
+        aria-controls="dashboard-navigation"
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        {isMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+      {isMenuOpen && <button className="sidebar-backdrop" type="button" aria-label="Cerrar menú" onClick={closeMenu} />}
+
+      <aside className={`sidebar ${isMenuOpen ? 'sidebar-open' : ''}`}>
         <div className="flex items-center gap-4 mb-6 px-4">
           <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
             <Activity size={24} />
@@ -17,30 +33,30 @@ const DashboardLayout = ({ children }) => {
           </div>
         </div>
         
-        <nav className="flex-col gap-2 mt-6">
-          <NavLink to="/avangrid" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        <nav id="dashboard-navigation" className="dashboard-nav">
+          <NavLink to="/avangrid" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Smartphone size={20} />
             <span>AvanGrid</span>
           </NavLink>
           
-          <NavLink to="/studio-qa" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/studio-qa" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Presentation size={20} />
             <span>Studio QA</span>
           </NavLink>
           
-          <NavLink to="/innovacion" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/innovacion" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Lightbulb size={20} />
             <span>Asesorías QA</span>
           </NavLink>
           
-          <NavLink to="/ia" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/ia" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Bot size={20} />
             <span>Inteligencia Artificial</span>
           </NavLink>
           
           <div className="my-2 border-t border-[rgba(255,255,255,0.05)]"></div>
 
-          <NavLink to="/career" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/career" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Award size={20} />
             <span>Mapa de Talento</span>
           </NavLink>
@@ -64,7 +80,7 @@ const DashboardLayout = ({ children }) => {
           </div>
           <div className="flex gap-4">
             <div className="pill-tag">
-              <span>Semana 28, 2026</span>
+              <span>Semana {week}, {new Date().getFullYear()}</span>
             </div>
           </div>
         </header>

@@ -1,16 +1,47 @@
-# React + Vite
+# Radar de trabajo de Jimmy
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Dashboard personal para visualizar avances de automatización QA, formaciones, iniciativas de IA y mapa de talento.
 
-Currently, two official plugins are available:
+## Desarrollo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requiere Node.js 22 o superior.
 
-## React Compiler
+```bash
+npm ci
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Comandos disponibles:
 
-## Expanding the Oxlint configuration
+- `npm run lint`: revisa el código con Oxlint.
+- `npm run test`: ejecuta pruebas de lógica con el runner nativo de Node.
+- `npm run build`: genera la versión de producción en `dist`.
+- `npm run check`: ejecuta lint, pruebas y build; es la verificación usada por CI.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Actualización de tareas diarias
+
+El dashboard lee `public/daily_tasks.json`. Para regenerarlo desde el libro de AvanGrid:
+
+```bash
+python -m pip install -r requirements.txt
+python update_dashboard_tasks.py
+```
+
+También se puede ejecutar una fecha o rutas específicas:
+
+```bash
+python update_dashboard_tasks.py --date 2026-07-17
+python update_dashboard_tasks.py --excel "ruta/al/libro.xlsx" --output "public/daily_tasks.json"
+```
+
+## Despliegue
+
+Netlify ejecuta `npm run build` y publica `dist`. Las redirecciones configuradas en `netlify.toml` permiten abrir directamente cada ruta de React.
+
+Cada push a `main` también ejecuta lint, pruebas y build mediante GitHub Actions.
+
+## Privacidad
+
+El sitio de Netlify y el repositorio actual son públicos. No subas datos sensibles, credenciales, información de clientes, archivos internos ni evidencias que no puedan compartirse públicamente.
+
+Los documentos internos deben mantenerse fuera del repositorio público. Si alguno ya fue publicado, eliminarlo en un commit nuevo no borra el historial: revisa primero si el repositorio debe pasar a privado y si corresponde limpiar el historial de Git.

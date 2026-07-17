@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Local analysis artifacts
+autopay_week_results.txt
+cell_colors.txt
+qa_validation_dates.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

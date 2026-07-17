@@ -1,22 +1,35 @@
-import openpyxl
-import json
+import argparse
 import datetime
-import os
+import json
+from pathlib import Path
 
-# Define file paths
-excel_path = r"C:\Dev\Dashboard\documentos\avangrid\Native Mobile - CMP Regression Automation.xlsx"
-json_output_path = r"C:\Dev\Dashboard\public\daily_tasks.json"
+import openpyxl
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+DEFAULT_EXCEL_PATH = PROJECT_ROOT / "documentos" / "avangrid" / "Native Mobile - CMP Regression Automation.xlsx"
+DEFAULT_JSON_PATH = PROJECT_ROOT / "public" / "daily_tasks.json"
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Exporta las tareas QA marcadas para una fecha a JSON.")
+    parser.add_argument("--excel", type=Path, default=DEFAULT_EXCEL_PATH, help="Ruta al libro de Excel.")
+    parser.add_argument("--output", type=Path, default=DEFAULT_JSON_PATH, help="Archivo JSON de salida.")
+    parser.add_argument("--date", type=datetime.date.fromisoformat, default=datetime.date.today(), help="Fecha a procesar (AAAA-MM-DD).")
+    return parser.parse_args()
 
 def main():
-    if not os.path.exists(excel_path):
-        print(f"Error: Excel file not found at {excel_path}")
-        return
+    args = parse_args()
+    excel_path = args.excel
+    json_output_path = args.output
+
+    if not excel_path.is_file():
+        raise FileNotFoundError(f"Excel file not found: {excel_path}")
 
     # Load workbook
     wb = openpyxl.load_workbook(excel_path, data_only=False)
     
     # Get current date
-    today = datetime.date.today()
+    today = args.date
     day_num_str = str(today.day)
     month_name = today.strftime("%B")  # e.g. "July"
     
@@ -88,8 +101,8 @@ def main():
                     })
 
     # Save results to JSON file
-    os.makedirs(os.path.dirname(json_output_path), exist_ok=True)
-    with open(json_output_path, "w", encoding="utf-8") as f:
+    json_output_path.parent.mkdir(parents=True, exist_ok=True)
+    with json_output_path.open("w", encoding="utf-8") as f:
         json.dump(today_tasks, f, indent=2, ensure_ascii=False)
         
     print(f"\nSuccessfully found {len(today_tasks)} tasks. Saved to {json_output_path}")

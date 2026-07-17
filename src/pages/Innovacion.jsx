@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Users, Lightbulb, ShieldAlert, Clock, AlertTriangle } from 'lucide-react';
+import { Calendar, Users, Lightbulb, Clock, AlertTriangle } from 'lucide-react';
 
 const Innovacion = () => {
   return (

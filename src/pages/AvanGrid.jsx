@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import WeeklyProgress from '../components/WeeklyProgress';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { FileSpreadsheet, Layers, UserCheck, CalendarDays, Smartphone, Percent, CheckCircle, HelpCircle } from 'lucide-react';
+import { FileSpreadsheet, Layers, UserCheck, Smartphone, Percent, CheckCircle, HelpCircle } from 'lucide-react';
+import { normalizeTasks } from '../utils/dashboard';
 
 const juneTimelineData = [
   { day: '15 Jun', Jimmy: 1, Nicolas: 0, total: 1 },
@@ -42,17 +43,19 @@ const COLORS = ['var(--brand-blue)', 'var(--brand-gold)', 'rgba(255, 255, 255, 0
 const AvanGrid = () => {
   const [activeTab, setActiveTab] = useState('weekly'); // 'weekly', 'june', or 'mobile'
   const [todayTasks, setTodayTasks] = useState([]);
+  const [taskLoadError, setTaskLoadError] = useState(false);
 
   useEffect(() => {
-    fetch('/daily_tasks.json')
+    fetch(`${import.meta.env.BASE_URL}daily_tasks.json`)
       .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        return [];
+        if (!response.ok) throw new Error('No se pudieron cargar las tareas diarias');
+        return response.json();
       })
-      .then(data => setTodayTasks(data))
-      .catch(() => setTodayTasks([]));
+      .then(data => setTodayTasks(normalizeTasks(data)))
+      .catch(() => {
+        setTodayTasks([]);
+        setTaskLoadError(true);
+      });
   }, []);
 
   return (
@@ -64,9 +67,11 @@ const AvanGrid = () => {
         </div>
         
         {/* Toggle buttons (3 choices) */}
-        <div className="flex p-1 rounded-full" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
+        <div className="tab-list" role="tablist" aria-label="Vistas de AvanGrid">
           <button 
-            className="px-4 py-2 text-sm font-semibold transition-all duration-300"
+            className="tab-button"
+            role="tab"
+            aria-selected={activeTab === 'weekly'}
             style={{ 
               borderRadius: 'var(--border-radius-pill)',
               background: activeTab === 'weekly' ? 'var(--brand-blue)' : 'transparent',
@@ -77,7 +82,9 @@ const AvanGrid = () => {
             Vista Semanal
           </button>
           <button 
-            className="px-4 py-2 text-sm font-semibold transition-all duration-300"
+            className="tab-button"
+            role="tab"
+            aria-selected={activeTab === 'june'}
             style={{ 
               borderRadius: 'var(--border-radius-pill)',
               background: activeTab === 'june' ? 'var(--brand-blue)' : 'transparent',
@@ -88,7 +95,9 @@ const AvanGrid = () => {
             Reporte Junio (Real)
           </button>
           <button 
-            className="px-4 py-2 text-sm font-semibold transition-all duration-300"
+            className="tab-button"
+            role="tab"
+            aria-selected={activeTab === 'mobile'}
             style={{ 
               borderRadius: 'var(--border-radius-pill)',
               background: activeTab === 'mobile' ? 'var(--brand-blue)' : 'transparent',
@@ -125,6 +134,10 @@ const AvanGrid = () => {
             ))}
           </div>
         </div>
+      )}
+
+      {taskLoadError && (
+        <p className="data-notice" role="status">No fue posible cargar la actualización diaria. El resto del dashboard sigue disponible.</p>
       )}
 
       {activeTab === 'weekly' && <WeeklyProgress />}

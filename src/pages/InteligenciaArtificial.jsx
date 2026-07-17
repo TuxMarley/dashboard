@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, BrainCircuit, CheckCircle2, Presentation, ShieldAlert } from 'lucide-react';
+import { Calendar, BrainCircuit, CheckCircle2, Presentation } from 'lucide-react';
 
 const InteligenciaArtificial = () => {
   return (
