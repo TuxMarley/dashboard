@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, BrainCircuit, CheckCircle2, Presentation } from 'lucide-react';
+import { Bot, Calendar, BrainCircuit, CheckCircle2, Presentation } from 'lucide-react';
 
 const InteligenciaArtificial = () => {
   return (
@@ -12,6 +12,47 @@ const InteligenciaArtificial = () => {
           <h3 className="font-semibold text-xl">Eventos y Herramientas Presentadas</h3>
           <div className="pill-tag" style={{ background: 'rgba(0, 114, 188, 0.15)', color: 'var(--brand-blue)', borderColor: 'rgba(0, 114, 188, 0.3)' }}>
             <span>Hitos Recientes</span>
+          </div>
+        </div>
+
+        {/* GitHub Copilot autonomous QA agent card */}
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Bot size={20} />
+                <span>GitHub Copilot en acción</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Agente autónomo para automatización web</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Implementación de ingeniería de inteligencia artificial para automatizar pruebas web de forma autónoma mediante un agente especializado en GitHub Copilot. El agente explora la aplicación real, analiza y extrae sus elementos, diseña los casos de prueba y los automatiza para ejecutar una revisión completa del módulo.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Navegación real de la UI con Playwright MCP para generar pruebas con evidencia.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Práctica implementada con agentes, instrucciones, skills y MCP, incluyendo ejecución y reparación del test.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col items-center" style={{ flex: '1 1 250px', minWidth: '220px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/metlife_copilot_agent.png"
+                  alt="Flujo de trabajo del agente de GitHub Copilot para automatización web"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Flujo de trabajo autónomo con GitHub Copilot, Playwright MCP y evidencias</p>
+            </div>
           </div>
         </div>
 
