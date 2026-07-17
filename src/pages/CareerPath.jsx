@@ -43,7 +43,7 @@ const CareerPath = () => {
                 {item.type === 'current' && <Star className="text-gold mb-2 mx-auto drop-shadow-md" size={24} fill="currentColor" />}
                 {item.type === 'next' && (index === 3 ? <Users className="text-purple-400 mb-2 mx-auto" size={20} /> : <Award className="text-purple-400 mb-2 mx-auto" size={20} />)}
                 {item.type === 'entry' && <Code className="mb-2 mx-auto" size={20} />}
-                <p className="font-bold text-sm leading-tight">{item.role}</p>
+                <p className={`font-bold text-sm leading-tight ${item.type === 'current' ? 'current-role-title' : ''}`}>{item.role}</p>
                 {item.type === 'current' && <span className="text-[10px] font-black text-bg-dark bg-gold px-2 py-0.5 rounded-full mt-2 inline-block uppercase tracking-wider">MI ROL ACTUAL</span>}
               </div>
               {index < arr.length - 1 && (

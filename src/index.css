@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 /* Typography Utilities */
 .text-cyan { color: var(--brand-blue); }
 .text-purple { color: var(--brand-gold); }
+.text-gold { color: var(--brand-gold); }
 .text-muted { color: var(--text-muted); }
 .font-bold { font-weight: 700; }
 .font-semibold { font-weight: 600; }
@@ -249,6 +250,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .tab-button[aria-selected="true"] {
   color: #fff;
   background: var(--brand-blue);
+}
+
+.current-role-title {
+  color: var(--brand-gold);
+  text-shadow: 0 0 12px rgba(230, 182, 0, 0.45);
 }
 
 .data-notice {
