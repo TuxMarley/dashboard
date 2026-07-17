@@ -159,10 +159,10 @@ const InteligenciaArtificial = () => {
 
         {/* IA Session Podcaster Card */}
         <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
-          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+          <div className="flex-col gap-6">
             
             {/* Text details */}
-            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+            <div className="flex-col">
               <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
                 <Presentation size={20} />
                 <span>IA Sessions</span>
@@ -192,7 +192,7 @@ const InteligenciaArtificial = () => {
             </div>
 
             {/* Session Afiche/Screenshot */}
-            <div className="flex-col items-center" style={{ flex: '1 1 250px', minWidth: '220px' }}>
+            <div className="flex-col items-center" style={{ width: '100%', maxWidth: '420px', alignSelf: 'center' }}>
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
                 <img 
                   src="/ia_session_june_23.jpg" 
