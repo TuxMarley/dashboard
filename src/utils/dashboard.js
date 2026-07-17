@@ -20,3 +20,19 @@ export function normalizeTasks(value) {
     && typeof task.assigned === 'string'
   ))
 }
+
+export function normalizeTaskHistory(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
+
+  const days = value.days && typeof value.days === 'object' ? value.days : value
+
+  return Object.fromEntries(
+    Object.entries(days)
+      .filter(([date]) => /^\d{4}-\d{2}-\d{2}$/.test(date))
+      .map(([date, tasks]) => [date, normalizeTasks(tasks)]),
+  )
+}
+
+export function getLatestTaskDate(history) {
+  return Object.keys(history).sort().at(-1) ?? ''
+}

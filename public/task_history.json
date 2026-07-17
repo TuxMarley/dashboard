@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-15T00:00:00+00:00",
+  "days": {
+    "2026-07-15": [
+      {
+        "date": "2026-07-15",
+        "sheet": "Autopay",
+        "key": "MSTREG-T22575",
+        "name": "MNDC-2174 - CMP - Android - Feature is visible only when Account is CMP and eBill = true and Autopay = false",
+        "assigned": "Jimmy"
+      },
+      {
+        "date": "2026-07-15",
+        "sheet": "Autopay",
+        "key": "MSTREG-T22576",
+        "name": "MNDC-2174 - CMP - Android - Feature hidden when eBill=false even if CMP=true",
+        "assigned": "Jimmy"
+      },
+      {
+        "date": "2026-07-15",
+        "sheet": "Autopay",
+        "key": "MSTREG-T22577",
+        "name": "MNDC-2174 - CMP - Android - Attempt to add Credit Card is blocked for CMP eBill user",
+        "assigned": "Jimmy"
+      }
+    ]
+  }
+}

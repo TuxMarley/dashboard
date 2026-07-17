@@ -20,7 +20,9 @@ Comandos disponibles:
 
 ## Actualización de tareas diarias
 
-El dashboard lee `public/daily_tasks.json`. Para regenerarlo desde el libro de AvanGrid:
+El dashboard conserva cada ejecución en `public/task_history.json` y muestra por defecto la fecha más reciente. `public/daily_tasks.json` se mantiene como una vista compatible de esa última actualización.
+
+Para regenerar las tareas desde el libro de AvanGrid:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -33,6 +35,8 @@ También se puede ejecutar una fecha o rutas específicas:
 python update_dashboard_tasks.py --date 2026-07-17
 python update_dashboard_tasks.py --excel "ruta/al/libro.xlsx" --output "public/daily_tasks.json"
 ```
+
+Al procesar una fecha que ya existe, se reemplaza solamente el registro de ese día; las fechas anteriores se conservan. En el dashboard se puede seleccionar cualquier día disponible desde el bloque **Tareas finalizadas**.
 
 ## Despliegue
 

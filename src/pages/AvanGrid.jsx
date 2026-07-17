@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WeeklyProgress from '../components/WeeklyProgress';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { FileSpreadsheet, Layers, UserCheck, Smartphone, Percent, CheckCircle, HelpCircle } from 'lucide-react';
-import { normalizeTasks } from '../utils/dashboard';
+import { getLatestTaskDate, normalizeTaskHistory, normalizeTasks } from '../utils/dashboard';
 
 const juneTimelineData = [
   { day: '15 Jun', Jimmy: 1, Nicolas: 0, total: 1 },
@@ -43,20 +43,43 @@ const COLORS = ['var(--brand-blue)', 'var(--brand-gold)', 'rgba(255, 255, 255, 0
 const AvanGrid = () => {
   const [activeTab, setActiveTab] = useState('weekly'); // 'weekly', 'june', or 'mobile'
   const [todayTasks, setTodayTasks] = useState([]);
+  const [taskHistory, setTaskHistory] = useState({});
+  const [selectedTaskDate, setSelectedTaskDate] = useState('');
   const [taskLoadError, setTaskLoadError] = useState(false);
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}daily_tasks.json`)
+    fetch(`${import.meta.env.BASE_URL}task_history.json`)
       .then(response => {
-        if (!response.ok) throw new Error('No se pudieron cargar las tareas diarias');
+        if (!response.ok) throw new Error('No se pudo cargar el historial de tareas');
         return response.json();
       })
-      .then(data => setTodayTasks(normalizeTasks(data)))
+      .then(data => {
+        const history = normalizeTaskHistory(data);
+        const latestDate = getLatestTaskDate(history);
+
+        setTaskHistory(history);
+        setSelectedTaskDate(latestDate);
+        setTodayTasks(history[latestDate] ?? []);
+      })
       .catch(() => {
-        setTodayTasks([]);
-        setTaskLoadError(true);
+        fetch(`${import.meta.env.BASE_URL}daily_tasks.json`)
+          .then(response => {
+            if (!response.ok) throw new Error('No se pudieron cargar las tareas diarias');
+            return response.json();
+          })
+          .then(data => setTodayTasks(normalizeTasks(data)))
+          .catch(() => setTaskLoadError(true));
       });
   }, []);
+
+  const taskDates = Object.keys(taskHistory).sort().reverse();
+  const selectedTasks = taskHistory[selectedTaskDate] ?? todayTasks;
+
+  const handleTaskDateChange = (event) => {
+    const date = event.target.value;
+    setSelectedTaskDate(date);
+    setTodayTasks(taskHistory[date] ?? []);
+  };
 
   return (
     <div>
@@ -111,15 +134,25 @@ const AvanGrid = () => {
       </div>
 
       {/* Daily Tasks Notification if available */}
-      {todayTasks && todayTasks.length > 0 && (
+      {selectedTasks.length > 0 && (
         <div className="glass-card mb-6" style={{ borderColor: 'rgba(0, 180, 216, 0.4)', borderWidth: '1px' }}>
-          <h3 className="font-semibold text-lg text-cyan mb-3 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan animate-pulse"></span>
-            Actualización del Día ({todayTasks[0].date}) - Tareas Finalizadas
-          </h3>
+          <div className="task-history-header">
+            <h3 className="font-semibold text-lg text-cyan flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan animate-pulse"></span>
+              Tareas finalizadas ({selectedTaskDate || selectedTasks[0].date})
+            </h3>
+            {taskDates.length > 1 && (
+              <label className="task-date-picker" htmlFor="task-history-date">
+                <span>Ver día</span>
+                <select id="task-history-date" value={selectedTaskDate} onChange={handleTaskDateChange}>
+                  {taskDates.map((date) => <option key={date} value={date}>{date}</option>)}
+                </select>
+              </label>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {todayTasks.map((task, idx) => (
-              <div key={idx} className="p-3 rounded-xl flex justify-between items-start" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)' }}>
+            {selectedTasks.map((task) => (
+              <div key={task.key} className="p-3 rounded-xl flex justify-between items-start" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)' }}>
                 <div>
                   <span className="text-xs bg-cyan text-dark font-bold px-2 py-0.5 rounded mr-2" style={{ backgroundColor: 'var(--brand-blue)', color: '#fff' }}>{task.key}</span>
                   <span className="text-xs text-muted">{task.sheet}</span>

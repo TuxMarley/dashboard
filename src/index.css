@@ -260,6 +260,30 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   background: rgba(230, 182, 0, 0.08);
 }
 
+.task-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-date-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.task-date-picker select {
+  border: 1px solid var(--glass-border);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  color: var(--text-main);
+  background: var(--bg-dark);
+}
+
 .loading-state,
 .empty-state {
   max-width: 42rem;
@@ -328,4 +352,5 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .md\:grid-cols-2 { grid-template-columns: 1fr; }
   .tab-list { width: 100%; overflow-x: auto; }
   .tab-button { white-space: nowrap; }
+  .task-history-header { align-items: flex-start; flex-direction: column; }
 }

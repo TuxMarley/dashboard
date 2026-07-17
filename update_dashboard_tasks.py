@@ -8,12 +8,14 @@ import openpyxl
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_EXCEL_PATH = PROJECT_ROOT / "documentos" / "avangrid" / "Native Mobile - CMP Regression Automation.xlsx"
 DEFAULT_JSON_PATH = PROJECT_ROOT / "public" / "daily_tasks.json"
+DEFAULT_HISTORY_PATH = PROJECT_ROOT / "public" / "task_history.json"
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Exporta las tareas QA marcadas para una fecha a JSON.")
     parser.add_argument("--excel", type=Path, default=DEFAULT_EXCEL_PATH, help="Ruta al libro de Excel.")
     parser.add_argument("--output", type=Path, default=DEFAULT_JSON_PATH, help="Archivo JSON de salida.")
+    parser.add_argument("--history", type=Path, default=DEFAULT_HISTORY_PATH, help="Archivo JSON con el historial por día.")
     parser.add_argument("--date", type=datetime.date.fromisoformat, default=datetime.date.today(), help="Fecha a procesar (AAAA-MM-DD).")
     return parser.parse_args()
 
@@ -21,6 +23,7 @@ def main():
     args = parse_args()
     excel_path = args.excel
     json_output_path = args.output
+    history_output_path = args.history
 
     if not excel_path.is_file():
         raise FileNotFoundError(f"Excel file not found: {excel_path}")
@@ -100,12 +103,28 @@ def main():
                         "assigned": assigned
                     })
 
-    # Save results to JSON file
+    # Save the latest snapshot for backwards compatibility.
     json_output_path.parent.mkdir(parents=True, exist_ok=True)
     with json_output_path.open("w", encoding="utf-8") as f:
         json.dump(today_tasks, f, indent=2, ensure_ascii=False)
-        
-    print(f"\nSuccessfully found {len(today_tasks)} tasks. Saved to {json_output_path}")
+
+    # Keep all previous dates. Re-running a date replaces only that day's snapshot.
+    history = {"version": 1, "days": {}}
+    if history_output_path.is_file():
+        with history_output_path.open("r", encoding="utf-8") as f:
+            existing_history = json.load(f)
+        if isinstance(existing_history, dict) and isinstance(existing_history.get("days"), dict):
+            history = existing_history
+
+    history["version"] = 1
+    history["updatedAt"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    history["days"][today.isoformat()] = today_tasks
+
+    history_output_path.parent.mkdir(parents=True, exist_ok=True)
+    with history_output_path.open("w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
+
+    print(f"\nSuccessfully found {len(today_tasks)} tasks. Saved latest snapshot to {json_output_path} and history to {history_output_path}")
 
 if __name__ == "__main__":
     main()
