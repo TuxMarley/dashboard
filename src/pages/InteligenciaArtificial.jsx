@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Calendar, BrainCircuit, CheckCircle2, Presentation } from 'lucide-react';
+import { Bot, Calendar, BrainCircuit, CheckCircle2, Newspaper, Presentation } from 'lucide-react';
 
 const InteligenciaArtificial = () => {
   return (
@@ -12,6 +12,52 @@ const InteligenciaArtificial = () => {
           <h3 className="font-semibold text-xl">Eventos y Herramientas Presentadas</h3>
           <div className="pill-tag" style={{ background: 'rgba(0, 114, 188, 0.15)', color: 'var(--brand-blue)', borderColor: 'rgba(0, 114, 188, 0.3)' }}>
             <span>Hitos Recientes</span>
+          </div>
+        </div>
+
+        {/* Scheduled AI news radar card */}
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex-col gap-6">
+            <div className="flex-col">
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Newspaper size={20} />
+                <span>Referentes IA GDNE</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Radar IA: noticias destacadas automatizadas</h4>
+
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Tarea realizada el 21 de julio de 2026</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Creación de un agente programado para que, cada mañana a las 09:00, consulte los repositorios oficiales de OpenAI, Google/Gemini y Anthropic. El agente recopila las novedades más destacadas para nutrir con información verificada al grupo de Inteligencia Artificial de GDNE.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Monitoreo diario de fuentes oficiales para identificar lanzamientos y actualizaciones relevantes.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Resumen listo para compartir con el equipo de referentes IA de GDNE.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col items-center" style={{ width: '100%', maxWidth: '920px', alignSelf: 'center' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/radar_ia_july_21.png"
+                  alt="Evidencia del agente programado Radar IA con noticias de OpenAI, Anthropic y Google Gemini"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia del informe generado por el agente programado Radar IA</p>
+            </div>
           </div>
         </div>
 
