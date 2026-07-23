@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Smartphone, Presentation, Lightbulb, Bot, Activity, Award, Menu, X } from 'lucide-react';
+import { Smartphone, Presentation, Lightbulb, Bot, Activity, Award, Menu, X, ShieldCheck } from 'lucide-react';
 import { getIsoWeek } from '../utils/dashboard';
 
 const DashboardLayout = ({ children }) => {
@@ -52,6 +52,11 @@ const DashboardLayout = ({ children }) => {
           <NavLink to="/ia" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Bot size={20} />
             <span>Inteligencia Artificial</span>
+          </NavLink>
+
+          <NavLink to="/metlife" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <ShieldCheck size={20} />
+            <span>MetLife</span>
           </NavLink>
           
           <div className="my-2 border-t border-[rgba(255,255,255,0.05)]"></div>

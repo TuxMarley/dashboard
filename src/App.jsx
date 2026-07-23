@@ -8,6 +8,7 @@ const StudioQA = lazy(() => import('./pages/StudioQA'))
 const Innovacion = lazy(() => import('./pages/Innovacion'))
 const InteligenciaArtificial = lazy(() => import('./pages/InteligenciaArtificial'))
 const CareerPath = lazy(() => import('./pages/CareerPath'))
+const MetLife = lazy(() => import('./pages/MetLife'))
 
 const NotFound = () => (
   <section className="glass-card empty-state" aria-labelledby="not-found-title">
@@ -28,6 +29,7 @@ function App() {
             <Route path="/studio-qa" element={<StudioQA />} />
             <Route path="/innovacion" element={<Innovacion />} />
             <Route path="/ia" element={<InteligenciaArtificial />} />
+            <Route path="/metlife" element={<MetLife />} />
             <Route path="/career" element={<CareerPath />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

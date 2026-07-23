@@ -257,6 +257,83 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   text-shadow: 0 0 12px rgba(230, 182, 0, 0.45);
 }
 
+.metlife-tag,
+.metlife-accent {
+  color: #8ee6b0;
+}
+
+.metlife-tag {
+  border-color: rgba(74, 222, 128, 0.35);
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.task-count {
+  min-width: 5.25rem;
+  padding: 0.65rem;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-radius: 1rem;
+  color: #8ee6b0;
+  background: rgba(74, 222, 128, 0.1);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.task-count span {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.metlife-details,
+.metlife-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.metlife-detail,
+.metlife-panel {
+  padding: 1rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.metlife-detail {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.metlife-detail strong,
+.metlife-detail span {
+  display: block;
+}
+
+.metlife-detail strong { font-size: 0.875rem; }
+.metlife-detail span { margin-top: 0.25rem; color: var(--text-muted); font-size: 0.75rem; }
+
+.metlife-grid { grid-template-columns: 1.3fr 0.7fr; }
+.metlife-panel h4 { margin-bottom: 0.75rem; color: var(--text-main); font-size: 0.95rem; }
+.metlife-panel h4 svg { vertical-align: text-bottom; }
+.metlife-panel ul { display: grid; gap: 0.65rem; list-style: none; }
+.metlife-panel li { display: flex; gap: 0.5rem; align-items: flex-start; color: var(--text-muted); font-size: 0.875rem; line-height: 1.45; }
+.metlife-panel li svg { flex: 0 0 auto; margin-top: 0.1rem; color: #8ee6b0; }
+.metlife-panel p { line-height: 1.5; }
+.metlife-panel p + p { margin-top: 0.75rem; }
+
+.metlife-evidence {
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  background: #121212;
+}
+
+.metlife-evidence img { display: block; width: 100%; height: auto; }
+.metlife-evidence figcaption { padding: 0.75rem 1rem; color: var(--text-muted); font-size: 0.75rem; }
+
 .data-notice {
   margin-bottom: 1.5rem;
   padding: 0.75rem 1rem;
@@ -359,4 +436,6 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .tab-list { width: 100%; overflow-x: auto; }
   .tab-button { white-space: nowrap; }
   .task-history-header { align-items: flex-start; flex-direction: column; }
+  .metlife-details,
+  .metlife-grid { grid-template-columns: 1fr; }
 }
