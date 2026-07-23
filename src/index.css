@@ -566,6 +566,16 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   opacity: 0.72;
 }
 
+.talent-role--official {
+  border-top-color: var(--talent-blue);
+  background: linear-gradient(145deg, rgba(69, 179, 245, 0.11), rgba(69, 179, 245, 0.02));
+}
+
+.talent-role--official svg,
+.talent-role--official p {
+  color: var(--talent-blue);
+}
+
 .talent-role--current {
   border-top-color: var(--talent-gold);
   background: linear-gradient(145deg, rgba(230, 182, 0, 0.13), rgba(230, 182, 0, 0.025));
@@ -576,14 +586,22 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   color: #f3cf37;
 }
 
+.talent-role--official span,
 .talent-role--current span {
   width: fit-content;
   margin-top: auto;
-  color: #f3cf37;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.talent-role--official span {
+  color: var(--talent-blue);
+}
+
+.talent-role--current span {
+  color: #f3cf37;
 }
 
 .talent-role--future {
@@ -711,6 +729,27 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   text-wrap: pretty;
 }
 
+.talent-profile__verdict {
+  margin-top: 1.15rem;
+  padding: 1rem;
+  border-left: 3px solid var(--talent-gold);
+  background: rgba(230, 182, 0, 0.07);
+}
+
+.talent-profile__verdict strong {
+  color: var(--talent-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.talent-profile__verdict p {
+  margin-top: 0.4rem;
+  color: #d8deea;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
 .talent-responsibilities,
 .talent-competencies ul,
 .talent-achievement-list,
@@ -786,111 +825,40 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   font-weight: 600;
 }
 
+.talent-growth {
+  margin-top: 1.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(184, 194, 204, 0.2);
+}
+
+.talent-growth > span {
+  display: block;
+  color: var(--talent-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.talent-growth > strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: #fff;
+  font-size: 0.88rem;
+}
+
+.talent-growth p {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
 .talent-achievements-layout {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
-
-.talent-evidence {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.talent-evidence__header,
-.talent-maturity {
-  padding: 1.35rem;
-  border: 1px solid var(--talent-line);
-  border-radius: 1rem;
-  background: var(--talent-surface);
-}
-
-.talent-evidence__header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.talent-evidence__header h3 {
-  margin: .2rem 0 0;
-  color: #fff;
-  font-size: 1.15rem;
-}
-
-.talent-evidence__header > p {
-  max-width: 42rem;
-  margin: 0;
-  color: var(--text-muted);
-  font-size: .85rem;
-  line-height: 1.55;
-}
-
-.talent-evidence__grid,
-.talent-maturity__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.talent-evidence-card,
-.talent-maturity-card {
-  padding: 1.15rem;
-  border: 1px solid var(--talent-line);
-  border-radius: .9rem;
-  background: var(--talent-surface-soft);
-}
-
-.talent-evidence-card__meta {
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  color: var(--talent-blue);
-  font-size: .75rem;
-  font-weight: 700;
-}
-
-.talent-evidence-card h4,
-.talent-maturity-card h4 {
-  margin: .7rem 0 .45rem;
-  color: #fff;
-  font-size: .95rem;
-}
-
-.talent-evidence-card p,
-.talent-maturity-card p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: .82rem;
-  line-height: 1.55;
-}
-
-.talent-evidence-card strong {
-  display: block;
-  margin-top: .9rem;
-  color: #cfd8fc;
-  font-size: .76rem;
-  line-height: 1.45;
-}
-
-.talent-evidence-card span {
-  display: inline-block;
-  margin-top: .75rem;
-  padding: .25rem .55rem;
-  border-radius: 999px;
-  color: var(--talent-blue);
-  background: rgba(69, 179, 245, .1);
-  font-size: .7rem;
-  font-weight: 700;
-}
-
-.talent-maturity {
-  display: grid;
-  gap: 1rem;
-}
-
-.talent-maturity-card--current { border-left: 3px solid var(--talent-blue); }
-.talent-maturity-card--next { border-left: 3px solid var(--talent-gold); }
 
 .talent-achievement-panel {
   padding: 1.5rem;
@@ -1298,17 +1266,6 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   }
 
   .talent-achievements-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .talent-evidence__header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: .75rem;
-  }
-
-  .talent-evidence__grid,
-  .talent-maturity__grid {
     grid-template-columns: 1fr;
   }
 
