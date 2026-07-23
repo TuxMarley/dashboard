@@ -27,3 +27,6 @@ qa_validation_dates.txt
 *.njsproj
 *.sln
 *.sw?
+
+# graphify-axet
+.graphify/

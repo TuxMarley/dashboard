@@ -25,10 +25,10 @@ const MetLife = () => (
             Creación de un agente para analizar los reportes entregados por el equipo de desarrollo, revisar el repositorio y aplicar las remediaciones sugeridas antes de su migración desde AWS a GitHub.
           </p>
         </div>
-        <div className="task-count" aria-label="Dos reportes analizados y saneados">2<br /><span>reportes</span></div>
+        <div className="task-count" aria-label="Tres reportes analizados y saneados">3<br /><span>reportes</span></div>
       </div>
 
-      <div className="metlife-details">
+        <div className="metlife-details">
         <div className="metlife-detail">
           <Calendar size={18} className="metlife-accent" />
           <div><strong>22 de julio de 2026</strong><span>Fecha de ejecución</span></div>
@@ -41,6 +41,15 @@ const MetLife = () => (
           <GitBranch size={18} className="metlife-accent" />
           <div><strong>Preparado para migración</strong><span>Sanitización previa a subida a GitHub</span></div>
         </div>
+        </div>
+
+      <div className="metlife-update" role="status">
+        <div className="metlife-update-date"><Calendar size={18} /> 23 de julio de 2026</div>
+        <div>
+          <h4>Actualización: nuevo repositorio procesado</h4>
+          <p>Se ejecutó el agente con un nuevo reporte y un repositorio de mayor tamaño. El análisis y la sanitización finalizaron correctamente, dejando el repositorio listo para la siguiente etapa de migración a GitHub.</p>
+        </div>
+        <CheckCircle2 className="metlife-update-icon" size={26} aria-label="Proceso completado" />
       </div>
 
       <div className="metlife-grid">
