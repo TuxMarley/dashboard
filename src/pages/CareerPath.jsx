@@ -5,6 +5,7 @@ import {
   Award,
   BookOpen,
   Briefcase,
+  Calendar,
   CheckCircle2,
   ChevronRight,
   Code2,
@@ -152,9 +153,61 @@ const timeline = [
   },
 ];
 
+const evidenceItems = [
+  {
+    title: 'Automatización mobile y trazabilidad de delivery',
+    date: 'Junio-julio 2026',
+    description: '40 de 72 casos QA creados en junio, 134 casos mobile automatizados y una integración Jira/Zephyr que registra ciclos, resultados y evidencias automáticamente.',
+    alignment: 'Senior: Assurance & Testing, orientación a la calidad y gestión de métodos y herramientas.',
+    status: 'Evidencia consolidada',
+  },
+  {
+    title: 'Frameworks de automatización reutilizables',
+    date: 'Julio 2026',
+    description: 'Creación de ArgusPy para BHP con Python, pytest, Playwright, Page Object Model, multiambiente y reportes compatibles con Allure.',
+    alignment: 'Senior: diseño de soluciones de prueba escalables. Lead: definición de marcos y herramientas.',
+    status: 'Evidencia de transición a Lead',
+  },
+  {
+    title: 'IA aplicada a la calidad',
+    date: 'Junio-julio 2026',
+    description: 'CAOO, agente autónomo con GitHub Copilot y Radar IA programado: iniciativas que aplican IA para generar, revisar y difundir conocimiento útil para QA.',
+    alignment: 'Senior: IA responsable y mejora continua. Lead: adopción de nuevas tecnologías de prueba.',
+    status: 'Evidencia consolidada',
+  },
+  {
+    title: 'Transferencia de conocimiento y comunidad',
+    date: 'Junio-julio 2026',
+    description: 'Participación como podcaster en IA Sessions, referente de IA en Chile y formación programada de Argus y agentes IA para el equipo.',
+    alignment: 'Senior: difusión de buenas prácticas. Lead: desarrollo de personas y coordinación técnica.',
+    status: 'Evidencia de transición a Lead',
+  },
+  {
+    title: 'Asesoramiento y mejora de entregables',
+    date: 'Julio 2026',
+    description: 'Asesoría para KOSIN y agente de sanitización MetLife: 3 repositorios analizados, remediados y preparados para migración.',
+    alignment: 'Senior: asesoramiento técnico y resolución de problemas. Lead: interlocución y viabilidad de soluciones.',
+    status: 'Evidencia en desarrollo',
+  },
+];
+
+const maturityAssessment = [
+  {
+    title: 'Tramo 2 - Maduro y con autonomía',
+    description: 'La ejecución sostenida de automatización, frameworks y entregables con IA demuestra autonomía en el rol Senior. El foco de desarrollo es perfeccionar el alcance e identificar el siguiente desafío.',
+    state: 'current',
+  },
+  {
+    title: 'Preparación hacia Tramo 3 - Salto',
+    description: 'Hay evidencia puntual de Lead en marcos, formación e innovación. Para sostener una preparación de salto se requiere demostrar adopción transversal, métricas de impacto, coordinación técnica y estimaciones de forma continuada.',
+    state: 'next',
+  },
+];
+
 const tabs = [
   { id: 'profile', label: 'Perfil actual', icon: UserRound },
   { id: 'achievements', label: 'Logros y cumplimiento', icon: Briefcase },
+  { id: 'evidence', label: 'Reporte actualizado', icon: CheckCircle2 },
   { id: 'nextSteps', label: 'Proyección y próximos pasos', icon: Rocket },
 ];
 
@@ -201,7 +254,7 @@ const CareerPath = () => {
         <div className="talent-map__intro">
           <p className="talent-map__kicker">Mapa de talento</p>
           <h2 id="talent-map-title">Mi rol actual y proyección en QA</h2>
-          <p>Análisis del Job Role: Senior Technical Software Quality</p>
+          <p>Análisis del Job Role: Senior Technical Software Quality · actualizado al 23 de julio de 2026</p>
         </div>
 
         <aside className="talent-map__objective" aria-label="Objetivo del mapa de talento">
@@ -298,7 +351,7 @@ const CareerPath = () => {
                 <Star size={18} aria-hidden="true" />
                 <h3 id="competencies-title">Competencias clave</h3>
               </div>
-              <p className="talent-competencies__intro">Nivel actual: consolidado en cada competencia prioritaria.</p>
+              <p className="talent-competencies__intro">Nivel de referencia del rol Senior: 3/4 en Assurance & Testing y orientación a la calidad.</p>
 
               <ul>
                 {competencies.map((competency) => (
@@ -331,6 +384,50 @@ const CareerPath = () => {
               heading="Capacidades que ya aporto"
               subtitle="Propias del rol Lead Technical QA"
             />
+          </section>
+        )}
+
+        {activeTab === 'evidence' && (
+          <section
+            id="talent-panel-evidence"
+            role="tabpanel"
+            aria-labelledby="talent-tab-evidence"
+            className="talent-evidence"
+          >
+            <header className="talent-evidence__header">
+              <div>
+                <p className="talent-map__kicker">Reporte de evidencia</p>
+                <h3>Actualización basada en trabajo realizado</h3>
+              </div>
+              <p>Contrasta los hitos registrados en el dashboard con el Mapa de Talento GDNe y Growth Mindset. Es una autoevaluación informada; la categoría se valida por el proceso formal.</p>
+            </header>
+
+            <div className="talent-evidence__grid">
+              {evidenceItems.map((item) => (
+                <article className="talent-evidence-card" key={item.title}>
+                  <div className="talent-evidence-card__meta"><Calendar size={15} aria-hidden="true" /> {item.date}</div>
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
+                  <strong>{item.alignment}</strong>
+                  <span>{item.status}</span>
+                </article>
+              ))}
+            </div>
+
+            <div className="talent-maturity" aria-label="Evaluación Growth Mindset">
+              <div className="talent-section-title">
+                <TrendingUp size={19} aria-hidden="true" />
+                <h3>Lectura Growth Mindset</h3>
+              </div>
+              <div className="talent-maturity__grid">
+                {maturityAssessment.map((item) => (
+                  <article className={`talent-maturity-card talent-maturity-card--${item.state}`} key={item.title}>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </section>
         )}
 

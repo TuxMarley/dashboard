@@ -792,6 +792,106 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   gap: 1.25rem;
 }
 
+.talent-evidence {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.talent-evidence__header,
+.talent-maturity {
+  padding: 1.35rem;
+  border: 1px solid var(--talent-line);
+  border-radius: 1rem;
+  background: var(--talent-surface);
+}
+
+.talent-evidence__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.talent-evidence__header h3 {
+  margin: .2rem 0 0;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.talent-evidence__header > p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .85rem;
+  line-height: 1.55;
+}
+
+.talent-evidence__grid,
+.talent-maturity__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.talent-evidence-card,
+.talent-maturity-card {
+  padding: 1.15rem;
+  border: 1px solid var(--talent-line);
+  border-radius: .9rem;
+  background: var(--talent-surface-soft);
+}
+
+.talent-evidence-card__meta {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  color: var(--talent-blue);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.talent-evidence-card h4,
+.talent-maturity-card h4 {
+  margin: .7rem 0 .45rem;
+  color: #fff;
+  font-size: .95rem;
+}
+
+.talent-evidence-card p,
+.talent-maturity-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+.talent-evidence-card strong {
+  display: block;
+  margin-top: .9rem;
+  color: #cfd8fc;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.talent-evidence-card span {
+  display: inline-block;
+  margin-top: .75rem;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  color: var(--talent-blue);
+  background: rgba(69, 179, 245, .1);
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.talent-maturity {
+  display: grid;
+  gap: 1rem;
+}
+
+.talent-maturity-card--current { border-left: 3px solid var(--talent-blue); }
+.talent-maturity-card--next { border-left: 3px solid var(--talent-gold); }
+
 .talent-achievement-panel {
   padding: 1.5rem;
 }
@@ -1198,6 +1298,17 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   }
 
   .talent-achievements-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-evidence__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .talent-evidence__grid,
+  .talent-maturity__grid {
     grid-template-columns: 1fr;
   }
 
