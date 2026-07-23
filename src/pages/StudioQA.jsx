@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, CheckCircle2, Clock, BookOpen, Code2, User, Rocket } from 'lucide-react';
+import { Calendar, Clock, BookOpen, User, Rocket } from 'lucide-react';
 
 const StudioQA = () => {
   return (
@@ -55,56 +55,6 @@ const StudioQA = () => {
           </div>
         </div>
 
-      </div>
-
-      <div className="glass-card mb-6 flex-col gap-6">
-        <div className="flex justify-between items-center mb-2">
-          <h3 className="font-semibold text-xl">Asesorías QA</h3>
-          <div className="pill-tag" style={{ background: 'rgba(0, 114, 188, 0.15)', color: 'var(--brand-blue)', borderColor: 'rgba(0, 114, 188, 0.3)' }}>
-            <span>Framework BHP</span>
-          </div>
-        </div>
-
-        {/* ArgusPy framework card */}
-        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
-          <div className="flex-col gap-6">
-            <div className="flex-col">
-              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
-                <Code2 size={20} />
-                <span>Automatización web con IA</span>
-              </div>
-
-              <h4 className="font-serif font-bold text-2xl text-white mb-2">ArgusPy: framework Python para BHP</h4>
-
-              <p className="text-sm text-muted mb-4 leading-relaxed">
-                Creación de ArgusPy, el framework que utilizará BHP para automatizar pruebas web con Python e inteligencia artificial. La solución entrega una base profesional, reutilizable y preparada para acelerar el diseño, mantenimiento y ejecución de pruebas automatizadas.
-              </p>
-
-              <div className="flex-col gap-2">
-                <div className="flex items-center gap-2 text-sm text-white">
-                  <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Arquitectura con Python 3.10+, pytest, Playwright y Page Object Model reutilizable.</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-white mt-1">
-                  <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Configuración multiambiente, localizadores accesibles y reportes compatibles con Allure.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-col items-center" style={{ width: '100%', maxWidth: '920px', alignSelf: 'center' }}>
-              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
-                <img
-                  src="/arguspy_framework.png"
-                  alt="Documentación del framework ArgusPy para automatización web con Python"
-                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                  style={{ display: 'block' }}
-                />
-              </div>
-              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la estructura y características del framework ArgusPy</p>
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
