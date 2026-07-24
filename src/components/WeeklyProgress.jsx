@@ -84,22 +84,24 @@ const WeeklyProgress = () => {
           </div>
         </div>
 
-        <div className="glass-card flex-col gap-4">
-          <h3 className="font-semibold text-xl mb-4 font-serif">Detalle de la Tarea Semanal</h3>
-          <div className="flex-col gap-3">
-            <div className="p-3 rounded-2xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
-              <h4 className="font-bold text-white mb-2">Migración y Automatización — SCG</h4>
-              <ul className="text-sm text-muted flex-col gap-1 pl-4">
-                <li>Make a Payment Flow (15 casos)</li>
-                <li>Login (7 casos)</li>
-                <li>Total: 22 casos migrados y automatizados</li>
-              </ul>
+        <section className="glass-card weekly-summary" aria-labelledby="weekly-summary-title">
+          <p className="section-kicker">Resultado de la semana</p>
+          <h3 id="weekly-summary-title">Migración y automatización — SCG</h3>
+          <p className="weekly-summary__lead">22 casos preparados para ejecución y seguimiento dentro del ciclo de automatización.</p>
+          <dl className="weekly-summary__metrics">
+            <div>
+              <dt>Payment Flow</dt>
+              <dd>15 <span>casos</span></dd>
             </div>
-          </div>
-        </div>
+            <div>
+              <dt>Login</dt>
+              <dd>7 <span>casos</span></dd>
+            </div>
+          </dl>
+        </section>
       </div>
 
-      <div className="glass-card border-l-4 border-l-cyan bg-[rgba(0,114,188,0.05)]" style={{ display: 'flex', flexDirection: 'row', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+      <section className="glass-card weekly-milestone" aria-labelledby="weekly-milestone-title" style={{ display: 'flex', flexDirection: 'row', gap: '1.5rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div className="flex items-center gap-2">
             <div className="p-2 rounded-xl bg-[rgba(0,114,188,0.15)] flex items-center justify-center">
@@ -107,7 +109,7 @@ const WeeklyProgress = () => {
             </div>
             <div className="flex-col">
               <span className="text-[10px] font-bold text-cyan uppercase tracking-wider">Hito semanal — SCG</span>
-              <h3 className="text-lg font-bold text-white" style={{ margin: 0 }}>Migración y Automatización Completadas</h3>
+              <h3 id="weekly-milestone-title" className="text-lg font-bold text-white" style={{ margin: 0 }}>Migración y Automatización Completadas</h3>
             </div>
           </div>
           <p className="text-sm text-[rgba(255,255,255,0.85)] leading-relaxed" style={{ margin: 0 }}>
@@ -118,7 +120,7 @@ const WeeklyProgress = () => {
         <div style={{ width: '150px', height: '150px', flexShrink: 0, borderRadius: '1rem', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.1)', boxShadow: 'var(--glass-shadow)', margin: '0 auto' }}>
           <img src="/zephyr_code.png" alt="Evidencia Código Zephyr" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'left top' }} />
         </div>
-      </div>
+      </section>
       
     </div>
   );

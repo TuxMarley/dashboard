@@ -30,3 +30,27 @@ qa_validation_dates.txt
 
 # graphify-axet
 .graphify/
+
+# Local AI assistant configuration, skills, and generated workspaces
+.codex/
+.agents/
+skills/
+
+# Test, browser automation, and coverage output
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+blob-report/
+
+# Tool caches and temporary files
+.cache/
+.temp/
+tmp/
+*.tmp
+*.bak
+*.orig
+
+# Operating-system generated files
+Thumbs.db
+Desktop.ini

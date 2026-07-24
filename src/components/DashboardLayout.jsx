@@ -22,18 +22,18 @@ const DashboardLayout = ({ children }) => {
       </button>
       {isMenuOpen && <button className="sidebar-backdrop" type="button" aria-label="Cerrar menú" onClick={closeMenu} />}
 
-      <aside className={`sidebar ${isMenuOpen ? 'sidebar-open' : ''}`}>
-        <div className="flex items-center gap-4 mb-6 px-4">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'var(--brand-blue)', color: '#fff' }}>
-            <Activity size={24} />
+      <aside className={`sidebar ${isMenuOpen ? 'sidebar-open' : ''}`} aria-label="Navegación principal">
+        <div className="brand-lockup">
+          <div className="brand-mark" aria-hidden="true">
+            <Activity size={22} strokeWidth={2.25} />
           </div>
           <div>
-            <h2 className="font-bold text-lg" style={{ letterSpacing: '-0.5px', lineHeight: '1.2' }}>Radar de trabajo de Jimmy</h2>
-            <p className="text-sm text-cyan font-semibold">NTT DATA Agent</p>
+            <p className="brand-eyebrow">NTT DATA Agent</p>
+            <h2>Radar de trabajo<br />de Jimmy</h2>
           </div>
         </div>
-        
-        <nav id="dashboard-navigation" className="dashboard-nav">
+
+        <nav id="dashboard-navigation" className="dashboard-nav" aria-label="Secciones del dashboard">
           <NavLink to="/avangrid" onClick={closeMenu} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Smartphone size={20} />
             <span>AvanGrid</span>
@@ -67,30 +67,31 @@ const DashboardLayout = ({ children }) => {
           </NavLink>
         </nav>
         
-        <div className="mt-auto system-state-box p-4">
-          <p className="text-sm font-semibold text-purple mb-2">Estado del Sistema</p>
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <span className="w-2 h-2 rounded-full" style={{ background: 'var(--brand-blue)', boxShadow: '0 0 8px var(--brand-blue)' }}></span>
-            Servicios Operativos
+        <div className="system-state-box">
+          <p>Estado del sistema</p>
+          <div>
+            <span className="status-dot" aria-hidden="true"></span>
+            Servicios operativos
           </div>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="main-content w-full">
-        <header className="flex justify-between items-center mb-6">
+      <main id="main-content" className="main-content w-full">
+        <header className="dashboard-header">
           <div>
-            <h1 className="text-2xl font-bold">Resumen de Actividades</h1>
-            <p className="text-muted text-sm mt-1">Monitoreo de tareas de QA, automatización e Inteligencia Artificial.</p>
+            <p className="page-kicker">Panel operativo</p>
+            <h1>Resumen de actividades</h1>
+            <p>Monitoreo de tareas de QA, automatización e Inteligencia Artificial.</p>
           </div>
-          <div className="flex gap-4">
-            <div className="pill-tag">
-              <span>Semana {week}, {new Date().getFullYear()}</span>
-            </div>
+          <div className="week-indicator" aria-label={`Semana ${week} del año ${new Date().getFullYear()}`}>
+            <span>Semana</span>
+            <strong>{week}</strong>
+            <small>{new Date().getFullYear()}</small>
           </div>
         </header>
-        
-        <div className="w-full">
+
+        <div className="dashboard-body">
           {children}
         </div>
       </main>

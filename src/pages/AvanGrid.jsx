@@ -82,14 +82,14 @@ const AvanGrid = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-between items-center mb-6">
+    <div className="avangrid-dashboard">
+      <div className="section-heading">
         <div>
-          <h2 className="text-2xl font-bold font-serif">AvanGrid (Antigravity)</h2>
-          <p className="text-muted text-sm mt-1">Automatización mobile, integración continua y ejecución de pruebas.</p>
+          <p className="section-kicker">Programa activo</p>
+          <h2>AvanGrid <span>(Antigravity)</span></h2>
+          <p>Automatización mobile, integración continua y ejecución de pruebas.</p>
         </div>
-        
-        {/* Toggle buttons (3 choices) */}
+
         <div className="tab-list" role="tablist" aria-label="Vistas de AvanGrid">
           <button 
             className="tab-button"
@@ -135,12 +135,12 @@ const AvanGrid = () => {
 
       {/* Daily Tasks Notification if available */}
       {selectedTasks.length > 0 && (
-        <div className="glass-card mb-6" style={{ borderColor: 'rgba(0, 180, 216, 0.4)', borderWidth: '1px' }}>
+        <section className="glass-card task-feed">
           <div className="task-history-header">
-            <h3 className="font-semibold text-lg text-cyan flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-cyan animate-pulse"></span>
-              Tareas finalizadas ({selectedTaskDate || selectedTasks[0].date})
-            </h3>
+            <div>
+              <p className="section-kicker">Seguimiento diario</p>
+              <h3>Tareas finalizadas <span>{selectedTaskDate || selectedTasks[0].date}</span></h3>
+            </div>
             {taskDates.length > 1 && (
               <label className="task-date-picker" htmlFor="task-history-date">
                 <span>Ver día</span>
@@ -152,21 +152,17 @@ const AvanGrid = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {selectedTasks.map((task) => (
-              <div key={task.key} className="p-3 rounded-xl flex justify-between items-start" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)' }}>
-                <div>
-                  <span className="text-xs bg-cyan text-dark font-bold px-2 py-0.5 rounded mr-2" style={{ backgroundColor: 'var(--brand-blue)', color: '#fff' }}>{task.key}</span>
-                  <span className="text-xs text-muted">{task.sheet}</span>
-                  <p className="text-sm font-semibold mt-1 text-white">{task.name}</p>
+              <article key={task.key} className="task-item">
+                <div className="task-item__meta">
+                  <span className="task-key">{task.key}</span>
+                  <span>{task.sheet}</span>
                 </div>
-                <div className="text-right">
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(0,114,188,0.2)', color: 'var(--brand-blue-light)' }}>
-                    {task.assigned}
-                  </span>
-                </div>
-              </div>
+                <p>{task.name}</p>
+                <span className="task-assignee">{task.assigned}</span>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
       {taskLoadError && (
