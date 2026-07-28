@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-15T00:00:00+00:00",
+  "updatedAt": "2026-07-28T00:00:00-04:00",
   "days": {
     "2026-07-15": [
       {
@@ -23,6 +23,16 @@
         "key": "MSTREG-T22577",
         "name": "MNDC-2174 - CMP - Android - Attempt to add Credit Card is blocked for CMP eBill user",
         "assigned": "Jimmy"
+      }
+    ],
+    "2026-07-28": [
+      {
+        "date": "2026-07-28",
+        "sheet": "CNG Gas · Manage Payment",
+        "key": "CNG-STG-AUTH0",
+        "name": "Primera ejecución de la regresión Auth0 en STG para la OPCO CNG. Se detectó un error durante la validación del módulo Manage Payment.",
+        "assigned": "Jimmy",
+        "status": "En análisis con QA y Desarrollo"
       }
     ]
   }

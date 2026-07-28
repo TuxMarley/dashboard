@@ -1496,6 +1496,19 @@ body {
   font-weight: 700;
 }
 
+.task-status {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(230, 182, 0, 0.4);
+  border-radius: 9999px;
+  color: var(--brand-gold);
+  background: rgba(230, 182, 0, 0.1);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
 .task-key {
   color: #fff;
   background: var(--brand-blue);

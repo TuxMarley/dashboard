@@ -158,6 +158,7 @@ const AvanGrid = () => {
                   <span>{task.sheet}</span>
                 </div>
                 <p>{task.name}</p>
+                {task.status && <span className="task-status">{task.status}</span>}
                 <span className="task-assignee">{task.assigned}</span>
               </article>
             ))}
