@@ -36,3 +36,57 @@ export function normalizeTaskHistory(value) {
 export function getLatestTaskDate(history) {
   return Object.keys(history).sort().at(-1) ?? ''
 }
+
+export function normalizeMetlifeHistory(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {}
+
+  const days = value.days && typeof value.days === 'object' ? value.days : value
+
+  return Object.fromEntries(
+    Object.entries(days)
+      .filter(([date, tasks]) => /^\d{4}-\d{2}-\d{2}$/.test(date) && Array.isArray(tasks))
+      .map(([date, tasks]) => [
+        date,
+        tasks
+          .filter((task) => (
+            task
+            && typeof task.id === 'string'
+            && typeof task.type === 'string'
+            && typeof task.title === 'string'
+            && Number.isFinite(task.hours)
+            && task.hours >= 0
+          ))
+          .map((task) => ({
+            id: task.id,
+            date,
+            type: task.type,
+            title: task.title,
+            hours: task.hours,
+          })),
+      ])
+      .filter(([, tasks]) => tasks.length > 0),
+  )
+}
+
+export function getLatestMetlifeDate(history) {
+  return Object.keys(history).sort().at(-1) ?? ''
+}
+
+export function getMetlifeSummary(history) {
+  const tasks = Object.values(history).flat()
+  const hoursByType = new Map()
+
+  for (const task of tasks) {
+    hoursByType.set(task.type, (hoursByType.get(task.type) ?? 0) + task.hours)
+  }
+
+  const primaryType = [...hoursByType.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? 'Sin actividad'
+
+  return {
+    days: Object.keys(history).length,
+    tasks: tasks.length,
+    totalHours: tasks.reduce((total, task) => total + task.hours, 0),
+    primaryType,
+  }
+}

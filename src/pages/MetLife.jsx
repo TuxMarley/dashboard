@@ -1,80 +1,228 @@
-import { Calendar, CheckCircle2, FileSearch, GitBranch, ShieldCheck, Users } from 'lucide-react'
+/**
+ * THESIS: MetLife se entiende como una bitácora diaria, no como un informe estático.
+ * OWN-WORLD: Azul profundo heredado, líneas sobrias y verde MetLife solo para selección y tiempo.
+ * STORY: Ver el último día, dimensionar el esfuerzo y recorrer fechas anteriores sin abrir Excel.
+ * FIRST VIEWPORT: Encabezado, resumen lineal y registro dividido entre historial y detalle.
+ * FORM: Extensión Operate del dashboard; historial cronológico compacto y detalle plano.
+ */
+import { useEffect, useMemo, useState } from 'react'
+import { CalendarDays, Clock3, History, RefreshCw } from 'lucide-react'
+import {
+  getLatestMetlifeDate,
+  getMetlifeSummary,
+  normalizeMetlifeHistory,
+} from '../utils/dashboard'
 
-const MetLife = () => (
-  <div className="w-full flex-col gap-6">
-    <div className="flex justify-between items-center mb-6">
-      <div>
-        <h2 className="text-2xl font-bold font-serif">MetLife</h2>
-        <p className="text-muted text-sm mt-1">Tareas de agentes, reportes y preparación técnica para migración de repositorios.</p>
-      </div>
-      <div className="pill-tag metlife-tag">
-        <ShieldCheck size={16} />
-        <span>Seguridad y migración</span>
-      </div>
-    </div>
+const fullDateFormatter = new Intl.DateTimeFormat('es-CL', {
+  dateStyle: 'full',
+  timeZone: 'UTC',
+})
 
-    <section className="glass-card flex-col gap-6" aria-labelledby="metlife-task-title">
-      <div className="flex justify-between items-start gap-4">
+const shortDateFormatter = new Intl.DateTimeFormat('es-CL', {
+  day: 'numeric',
+  month: 'short',
+  timeZone: 'UTC',
+})
+
+const weekdayFormatter = new Intl.DateTimeFormat('es-CL', {
+  weekday: 'long',
+  timeZone: 'UTC',
+})
+
+function asUtcDate(date) {
+  return new Date(`${date}T12:00:00Z`)
+}
+
+function formatHours(hours) {
+  return `${new Intl.NumberFormat('es-CL', { maximumFractionDigits: 1 }).format(hours)} h`
+}
+
+function capitalize(value) {
+  return value ? `${value.charAt(0).toUpperCase()}${value.slice(1)}` : ''
+}
+
+const MetLife = () => {
+  const [history, setHistory] = useState({})
+  const [selectedDate, setSelectedDate] = useState('')
+  const [loadState, setLoadState] = useState('loading')
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}metlife_task_history.json`)
+      .then((response) => {
+        if (!response.ok) throw new Error('No se pudo cargar el registro de MetLife')
+        return response.json()
+      })
+      .then((data) => {
+        const normalizedHistory = normalizeMetlifeHistory(data)
+        setHistory(normalizedHistory)
+        setSelectedDate(getLatestMetlifeDate(normalizedHistory))
+        setLoadState('ready')
+      })
+      .catch(() => setLoadState('error'))
+  }, [])
+
+  const dates = useMemo(() => Object.keys(history).sort().reverse(), [history])
+  const selectedTasks = history[selectedDate] ?? []
+  const summary = useMemo(() => getMetlifeSummary(history), [history])
+  const selectedHours = selectedTasks.reduce((total, task) => total + task.hours, 0)
+  const maxDailyHours = Math.max(
+    1,
+    ...dates.map((date) => history[date].reduce((total, task) => total + task.hours, 0)),
+  )
+
+  return (
+    <div className="metlife-daily">
+      <header className="section-heading metlife-heading">
         <div>
-          <div className="flex items-center gap-2 text-sm metlife-accent font-semibold mb-2">
-            <ShieldCheck size={20} />
-            <span>Agente de revisión de repositorios</span>
+          <p className="section-kicker">Registro operativo</p>
+          <h2>MetLife</h2>
+          <p>Actividad diaria y tiempo dedicado, con historial extraído de la hoja Registro.</p>
+        </div>
+        <div className="metlife-source" aria-label="Origen de los datos">
+          <RefreshCw size={15} aria-hidden="true" />
+          <span>Extraído de hoja Registro</span>
+        </div>
+      </header>
+
+      {loadState === 'loading' && (
+        <section className="metlife-loading" aria-live="polite" aria-label="Cargando registro de MetLife">
+          <span />
+          <span />
+          <span />
+        </section>
+      )}
+
+      {loadState === 'error' && (
+        <section className="metlife-message" role="status">
+          <History size={22} aria-hidden="true" />
+          <div>
+            <h3>No pudimos cargar el historial</h3>
+            <p>El resto del dashboard sigue disponible. Regenera el extracto de MetLife e inténtalo nuevamente.</p>
           </div>
-          <h3 id="metlife-task-title" className="font-serif font-bold text-2xl text-white mb-2">Sanitización y preparación de repositorios para migración a GitHub</h3>
-          <p className="text-sm text-muted leading-relaxed">
-            Creación de un agente para analizar los reportes entregados por el equipo de desarrollo, revisar el repositorio y aplicar las remediaciones sugeridas antes de su migración desde AWS a GitHub.
-          </p>
-        </div>
-        <div className="task-count" aria-label="Tres reportes analizados y saneados">3<br /><span>reportes</span></div>
-      </div>
+        </section>
+      )}
 
-        <div className="metlife-details">
-        <div className="metlife-detail">
-          <Calendar size={18} className="metlife-accent" />
-          <div><strong>22 de julio de 2026</strong><span>Fecha de ejecución</span></div>
-        </div>
-        <div className="metlife-detail">
-          <FileSearch size={18} className="metlife-accent" />
-          <div><strong>2 reportes analizados y saneados</strong><span>Revisión de hallazgos y acciones</span></div>
-        </div>
-        <div className="metlife-detail">
-          <GitBranch size={18} className="metlife-accent" />
-          <div><strong>Preparado para migración</strong><span>Sanitización previa a subida a GitHub</span></div>
-        </div>
-        </div>
+      {loadState === 'ready' && dates.length === 0 && (
+        <section className="metlife-message" role="status">
+          <CalendarDays size={22} aria-hidden="true" />
+          <div>
+            <h3>Aún no hay actividades registradas</h3>
+            <p>Cuando la hoja Registro contenga tareas con fecha y horas, aparecerán aquí por día.</p>
+          </div>
+        </section>
+      )}
 
-      <div className="metlife-update" role="status">
-        <div className="metlife-update-date"><Calendar size={18} /> 23 de julio de 2026</div>
-        <div>
-          <h4>Actualización: nuevo repositorio procesado</h4>
-          <p>Se ejecutó el agente con un nuevo reporte y un repositorio de mayor tamaño. El análisis y la sanitización finalizaron correctamente, dejando el repositorio listo para la siguiente etapa de migración a GitHub.</p>
-        </div>
-        <CheckCircle2 className="metlife-update-icon" size={26} aria-label="Proceso completado" />
-      </div>
+      {loadState === 'ready' && dates.length > 0 && (
+        <>
+          <section className="metlife-overview" aria-label="Resumen del registro de MetLife">
+            <div className="metlife-overview__lead">
+              <Clock3 size={22} aria-hidden="true" />
+              <div>
+                <strong>{formatHours(summary.totalHours)}</strong>
+                <span>registradas en el periodo</span>
+              </div>
+            </div>
+            <dl className="metlife-overview__facts">
+              <div>
+                <dt>Días con actividad</dt>
+                <dd>{summary.days}</dd>
+              </div>
+              <div>
+                <dt>Tareas registradas</dt>
+                <dd>{summary.tasks}</dd>
+              </div>
+              <div>
+                <dt>Foco principal</dt>
+                <dd>{summary.primaryType}</dd>
+              </div>
+            </dl>
+          </section>
 
-      <div className="metlife-grid">
-        <div className="metlife-panel">
-          <h4>Flujo ejecutado por el agente</h4>
-          <ul>
-            <li><CheckCircle2 size={16} /> Analiza el reporte técnico entregado por el equipo Dev.</li>
-            <li><CheckCircle2 size={16} /> Revisa el repositorio y contrasta los hallazgos reportados.</li>
-            <li><CheckCircle2 size={16} /> Aplica las correcciones sugeridas para limpieza y sanitización.</li>
-            <li><CheckCircle2 size={16} /> Valida el estado resultante y prepara el repositorio para su migración a GitHub.</li>
-          </ul>
-        </div>
-        <div className="metlife-panel">
-          <h4><Users size={18} /> Terminología de la reunión</h4>
-          <p>“Limpieza y sanitización de repositorios para migración”.</p>
-          <p className="text-muted text-sm">La migración y el push a GitHub se realizan después de completar las acciones de saneamiento y las validaciones correspondientes.</p>
-        </div>
-      </div>
+          <label className="metlife-mobile-picker" htmlFor="metlife-history-date">
+            <span>Consultar día</span>
+            <select
+              id="metlife-history-date"
+              value={selectedDate}
+              onChange={(event) => setSelectedDate(event.target.value)}
+            >
+              {dates.map((date) => (
+                <option key={date} value={date}>
+                  {fullDateFormatter.format(asUtcDate(date))}
+                </option>
+              ))}
+            </select>
+          </label>
 
-      <figure className="metlife-evidence">
-        <img src="/metlife_repository_sanitation_report.png" alt="Reporte de revisión de un repositorio MetLife con hallazgos y acciones de sanitización" />
-        <figcaption>Evidencia: reporte de revisión y sanitización de repositorio.</figcaption>
-      </figure>
-    </section>
-  </div>
-)
+          <section className="metlife-worklog" aria-label="Historial diario de MetLife">
+            <aside className="metlife-history">
+              <div className="metlife-history__heading">
+                <History size={18} aria-hidden="true" />
+                <div>
+                  <h3>Historial</h3>
+                  <p>Selecciona un día</p>
+                </div>
+              </div>
+              <nav aria-label="Fechas con actividad registrada">
+                {dates.map((date) => {
+                  const dailyHours = history[date].reduce((total, task) => total + task.hours, 0)
+                  const isSelected = date === selectedDate
+
+                  return (
+                    <button
+                      key={date}
+                      type="button"
+                      className={`metlife-day ${isSelected ? 'is-selected' : ''}`}
+                      aria-pressed={isSelected}
+                      onClick={() => setSelectedDate(date)}
+                    >
+                      <span className="metlife-day__date">
+                        <strong>{shortDateFormatter.format(asUtcDate(date))}</strong>
+                        <small>{capitalize(weekdayFormatter.format(asUtcDate(date)))}</small>
+                      </span>
+                      <span className="metlife-day__effort">
+                        <span
+                          className="metlife-day__bar"
+                          style={{ '--day-effort': `${(dailyHours / maxDailyHours) * 100}%` }}
+                          aria-hidden="true"
+                        />
+                        <strong>{formatHours(dailyHours)}</strong>
+                      </span>
+                    </button>
+                  )
+                })}
+              </nav>
+            </aside>
+
+            <article className="metlife-day-detail" aria-live="polite">
+              <header className="metlife-day-detail__header">
+                <div>
+                  <p>Jornada seleccionada</p>
+                  <h3>{capitalize(fullDateFormatter.format(asUtcDate(selectedDate)))}</h3>
+                </div>
+                <div className="metlife-day-total">
+                  <strong>{formatHours(selectedHours)}</strong>
+                  <span>{selectedTasks.length === 1 ? '1 actividad' : `${selectedTasks.length} actividades`}</span>
+                </div>
+              </header>
+
+              <ol className="metlife-activity-list">
+                {selectedTasks.map((task) => (
+                  <li key={task.id} className="metlife-activity">
+                    <span className="metlife-activity__marker" aria-hidden="true" />
+                    <div>
+                      <span className="metlife-activity__type">{task.type}</span>
+                      <h4>{task.title}</h4>
+                    </div>
+                    <strong className="metlife-activity__hours">{formatHours(task.hours)}</strong>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          </section>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default MetLife

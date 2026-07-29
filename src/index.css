@@ -1732,3 +1732,486 @@ body {
     color: var(--text-muted);
   }
 }
+
+/* MetLife daily worklog */
+.metlife-daily {
+  --metlife-green: #54d99a;
+  --metlife-green-soft: rgba(84, 217, 154, 0.1);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.metlife-heading {
+  align-items: center;
+}
+
+.metlife-source {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(84, 217, 154, 0.24);
+  border-radius: 0.65rem;
+  color: #bdeed6;
+  background: rgba(84, 217, 154, 0.07);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.metlife-loading {
+  display: grid;
+  gap: 0.75rem;
+  padding-block: 1rem;
+}
+
+.metlife-loading span {
+  display: block;
+  height: 4.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, var(--bg-card), var(--bg-card-hover), var(--bg-card));
+  background-size: 220% 100%;
+  animation: metlife-loading 1.2s ease-in-out infinite;
+}
+
+.metlife-loading span:first-child {
+  height: 6.5rem;
+}
+
+@keyframes metlife-loading {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+.metlife-message {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-message > svg {
+  flex: 0 0 auto;
+  color: var(--metlife-green);
+}
+
+.metlife-message h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1rem;
+}
+
+.metlife-message p {
+  max-width: 62ch;
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.metlife-overview {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line-subtle);
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-overview__lead {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.metlife-overview__lead > svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.55rem;
+  border-radius: 0.65rem;
+  color: #06261a;
+  background: var(--metlife-green);
+}
+
+.metlife-overview__lead strong,
+.metlife-overview__lead span {
+  display: block;
+}
+
+.metlife-overview__lead strong {
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.metlife-overview__lead span {
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.metlife-overview__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metlife-overview__facts > div {
+  min-width: 0;
+  padding-inline: 1.25rem;
+  border-left: 1px solid var(--line-subtle);
+}
+
+.metlife-overview__facts dt {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.metlife-overview__facts dd {
+  margin-top: 0.35rem;
+  overflow: hidden;
+  color: var(--text-main);
+  font-size: 0.93rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.metlife-mobile-picker {
+  display: none;
+}
+
+.metlife-mobile-picker span {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.metlife-mobile-picker select {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.65rem;
+  color: var(--text-main);
+  background: var(--bg-subtle);
+  color-scheme: dark;
+}
+
+.metlife-worklog {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.6fr);
+  min-height: 28rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--border-radius-card);
+  background: rgba(7, 20, 38, 0.42);
+  overflow: hidden;
+}
+
+.metlife-history {
+  padding: 1.25rem 0.9rem;
+  border-right: 1px solid var(--line-subtle);
+  background: rgba(5, 17, 34, 0.58);
+}
+
+.metlife-history__heading {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0 0.45rem 1rem;
+}
+
+.metlife-history__heading > svg {
+  color: var(--metlife-green);
+}
+
+.metlife-history__heading h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+}
+
+.metlife-history__heading p {
+  margin-top: 0.1rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.metlife-history nav {
+  display: grid;
+  max-height: 30rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.metlife-day {
+  display: grid;
+  grid-template-columns: minmax(5.6rem, 0.8fr) minmax(6rem, 1fr);
+  gap: 0.8rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 0.65rem;
+  border: 0;
+  border-top: 1px solid var(--line-subtle);
+  color: var(--text-muted);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: color 180ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.metlife-day:last-child {
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-day:hover {
+  color: var(--text-main);
+  background: rgba(91, 196, 255, 0.06);
+}
+
+.metlife-day.is-selected {
+  color: #eafff4;
+  background: var(--metlife-green-soft);
+  box-shadow: inset 1px 0 0 var(--metlife-green);
+}
+
+.metlife-day__date strong,
+.metlife-day__date small,
+.metlife-day__effort strong {
+  display: block;
+}
+
+.metlife-day__date strong {
+  font-size: 0.82rem;
+}
+
+.metlife-day__date small {
+  margin-top: 0.14rem;
+  color: inherit;
+  font-size: 0.67rem;
+}
+
+.metlife-day__effort {
+  display: grid;
+  grid-template-columns: minmax(2.5rem, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.metlife-day__bar {
+  display: block;
+  position: relative;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background: rgba(174, 189, 206, 0.16);
+  overflow: hidden;
+}
+
+.metlife-day__bar::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--day-effort);
+  border-radius: inherit;
+  background: var(--metlife-green);
+  content: '';
+}
+
+.metlife-day__effort strong {
+  color: inherit;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.metlife-day-detail {
+  min-width: 0;
+  padding: 1.7rem clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.metlife-day-detail__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-day-detail__header p {
+  color: var(--metlife-green);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.metlife-day-detail__header h3 {
+  margin-top: 0.35rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.metlife-day-total {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.metlife-day-total strong,
+.metlife-day-total span {
+  display: block;
+}
+
+.metlife-day-total strong {
+  color: var(--metlife-green);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.metlife-day-total span {
+  margin-top: 0.3rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.metlife-activity-list {
+  list-style: none;
+}
+
+.metlife-activity {
+  display: grid;
+  grid-template-columns: 0.6rem minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-activity__marker {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: 0.35rem;
+  border-radius: 0.15rem;
+  background: var(--metlife-green);
+  box-shadow: 0 0 0 3px rgba(84, 217, 154, 0.09);
+}
+
+.metlife-activity__type {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.metlife-activity h4 {
+  max-width: 68ch;
+  margin-top: 0.28rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.metlife-activity__hours {
+  min-width: 3.1rem;
+  padding-top: 0.15rem;
+  color: #d9f8e9;
+  font-size: 0.84rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.metlife-day:focus-visible,
+.metlife-mobile-picker select:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metlife-loading span {
+    animation: none;
+  }
+
+  .metlife-day {
+    transition-duration: 100ms;
+  }
+}
+
+@media (max-width: 900px) {
+  .metlife-overview {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .metlife-overview__facts > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .metlife-worklog {
+    display: block;
+    min-height: 0;
+  }
+
+  .metlife-mobile-picker {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .metlife-history {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .metlife-heading {
+    align-items: start;
+  }
+
+  .metlife-source {
+    width: fit-content;
+  }
+
+  .metlife-overview__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0;
+  }
+
+  .metlife-overview__facts > div {
+    padding-inline: 0.9rem;
+  }
+
+  .metlife-overview__facts > div:nth-child(2) {
+    border-left: 1px solid var(--line-subtle);
+  }
+
+  .metlife-overview__facts > div:last-child {
+    grid-column: 1 / -1;
+    padding: 0.9rem 0 0;
+    border-top: 1px solid var(--line-subtle);
+    border-left: 0;
+  }
+
+  .metlife-day-detail {
+    padding: 1.25rem;
+  }
+
+  .metlife-day-detail__header {
+    display: grid;
+  }
+
+  .metlife-day-total {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    text-align: left;
+  }
+
+  .metlife-activity {
+    grid-template-columns: 0.55rem minmax(0, 1fr);
+  }
+
+  .metlife-activity__hours {
+    grid-column: 2;
+    text-align: left;
+  }
+}

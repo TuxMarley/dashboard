@@ -38,6 +38,18 @@ python update_dashboard_tasks.py --excel "ruta/al/libro.xlsx" --output "public/d
 
 Al procesar una fecha que ya existe, se reemplaza solamente el registro de ese día; las fechas anteriores se conservan. En el dashboard se puede seleccionar cualquier día disponible desde el bloque **Tareas finalizadas**.
 
+### Registro diario de MetLife
+
+La sección MetLife usa `public/metlife_task_history.json`, generado desde la hoja `Registro` del libro de control de horas. El documento original permanece fuera del repositorio y el extracto publica únicamente fecha, tipo de actividad, tarea y horas.
+
+Para actualizar el historial:
+
+```bash
+python update_metlife_tasks.py --excel "ruta/Control_Horas_Proyecto_MetLife.xlsx"
+```
+
+La vista selecciona automáticamente el día más reciente y conserva todas las fechas incluidas en la hoja.
+
 ## Despliegue
 
 Netlify ejecuta `npm run build` y publica `dist`. Las redirecciones configuradas en `netlify.toml` permiten abrir directamente cada ruta de React.

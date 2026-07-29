@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-29T22:23:15.111007+00:00",
+  "days": {
+    "2026-07-22": [
+      {
+        "id": "2026-07-22-1",
+        "date": "2026-07-22",
+        "type": "Reunión",
+        "title": "Asignasion de tarea",
+        "hours": 1
+      },
+      {
+        "id": "2026-07-22-2",
+        "date": "2026-07-22",
+        "type": "Análisis",
+        "title": "Analisis creacion de Agente",
+        "hours": 1
+      }
+    ],
+    "2026-07-23": [
+      {
+        "id": "2026-07-23-1",
+        "date": "2026-07-23",
+        "type": "Desarrollo / configuración",
+        "title": "Creacion de Agente para sanear y migrar",
+        "hours": 2
+      }
+    ],
+    "2026-07-24": [
+      {
+        "id": "2026-07-24-1",
+        "date": "2026-07-24",
+        "type": "Desarrollo / configuración",
+        "title": "Se lanza Agente en los 3 repositorios",
+        "hours": 4
+      }
+    ],
+    "2026-07-27": [
+      {
+        "id": "2026-07-27-1",
+        "date": "2026-07-27",
+        "type": "Desarrollo / configuración",
+        "title": "Revision y subida de los repositorios",
+        "hours": 3
+      }
+    ],
+    "2026-07-28": [
+      {
+        "id": "2026-07-28-1",
+        "date": "2026-07-28",
+        "type": "Desarrollo / configuración",
+        "title": "Migración repositorio a github",
+        "hours": 2
+      }
+    ],
+    "2026-07-29": [
+      {
+        "id": "2026-07-29-1",
+        "date": "2026-07-29",
+        "type": "Análisis",
+        "title": "Revision accesos a github y repos a sanitizar",
+        "hours": 1
+      }
+    ]
+  }
+}
