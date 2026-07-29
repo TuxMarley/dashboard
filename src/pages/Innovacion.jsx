@@ -1,11 +1,65 @@
 import React from 'react';
-import { Calendar, CheckCircle2, Users, Lightbulb, Clock, AlertTriangle, Code2 } from 'lucide-react';
+import { Bot, Calendar, CheckCircle2, Users, Lightbulb, Clock, AlertTriangle, Code2 } from 'lucide-react';
 
 const Innovacion = () => {
   return (
     <div className="w-full flex-col gap-6">
       <h2 className="text-2xl font-bold mb-4 font-serif">Asesorías QA</h2>
       <p className="text-muted mb-6">Pruebas de concepto y pilotos de Inteligencia Artificial para el equipo QA.</p>
+
+      <div className="glass-card mb-6 flex-col gap-6">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="font-semibold text-xl">Asesoría de Agentes e Inteligencia Artificial</h3>
+          <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
+            <span>ProVida</span>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
+                <Bot size={20} />
+                <span>Implementación de agentes con IA</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Proyecto ProVida: asesoría para agentes e Inteligencia Artificial</h4>
+
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} className="text-cyan" />
+                <span>Miércoles 29 de Julio de 2026</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Asesoría técnica orientada a la implementación de agentes e Inteligencia Artificial para ProVida, considerando su aplicación dentro de los procesos de automatización y calidad del proyecto.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Revisión del contexto técnico y de la automatización existente.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Definición de oportunidades para incorporar agentes e IA al flujo de trabajo.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/provida_agents_consulting.png"
+                  alt="Evidencia de la asesoría para implementación de agentes e inteligencia artificial en ProVida"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Sesión de asesoría técnica para ProVida</p>
+            </div>
+          </div>
+        </div>
+      </div>
       
       <div className="glass-card mb-6 flex-col gap-6">
         <div className="flex justify-between items-center mb-2">
