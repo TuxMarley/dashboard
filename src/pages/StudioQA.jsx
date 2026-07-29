@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Clock, BookOpen, User, Rocket } from 'lucide-react';
+import { Bot, Calendar, CheckCircle2, Clock, BookOpen, User } from 'lucide-react';
 
 const StudioQA = () => {
   return (
@@ -9,30 +9,30 @@ const StudioQA = () => {
       
       <div className="glass-card mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="font-semibold text-xl">Próximas Formaciones</h3>
-          <div className="pill-tag" style={{ background: 'rgba(230, 182, 0, 0.15)', color: 'var(--brand-gold)', borderColor: 'rgba(230, 182, 0, 0.3)' }}>
-            <span>Esta Semana</span>
+          <h3 className="font-semibold text-xl">Formación Argus</h3>
+          <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
+            <span>En curso</span>
           </div>
         </div>
 
         {/* Training Card */}
         <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-full" style={{ background: 'var(--brand-blue)' }}>
-              <Rocket size={24} color="#fff" />
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="p-3 rounded-full" style={{ background: 'var(--brand-blue)', height: 'fit-content' }}>
+              <Bot size={24} color="#fff" />
             </div>
             
-            <div className="flex-col w-full">
-              <h4 className="font-bold text-lg text-white mb-2">Automatización Web con Argus y Agentes IA</h4>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <h4 className="font-bold text-lg text-white mb-2">Argus: automatización con agentes de Inteligencia Artificial</h4>
               
               <div className="flex flex-wrap gap-4 mb-4">
                 <div className="flex items-center gap-2 text-sm text-muted">
                   <Calendar size={16} className="text-cyan" />
-                  <span>Miércoles 29 y Jueves 30 de Julio</span>
+                  <span>Miércoles 29 y Jueves 30 de Julio de 2026</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted">
                   <Clock size={16} className="text-cyan" />
-                  <span>2 Sesiones de 1.5 horas c/u</span>
+                  <span>Teoría hoy · Práctica mañana</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted">
                   <User size={16} className="text-cyan" />
@@ -45,12 +45,34 @@ const StudioQA = () => {
                   <BookOpen size={20} className="text-cyan mt-1 flex-shrink-0" />
                   <p className="text-sm" style={{ color: '#cfd8fc' }}>
                     <strong className="text-white">Argus:</strong> Framework de automatización propietario desarrollado en <strong>Playwright</strong>. 
-                    Su estructura ha sido diseñada específicamente para lograr una integración ideal y un trabajo fluido 
-                    con herramientas de Inteligencia Artificial.
+                    Su estructura permite un trabajo fluido con agentes de Inteligencia Artificial mediante <strong>Access Plugin</strong>, <strong>Codex</strong> o <strong>GitHub Copilot</strong>.
                   </p>
                 </div>
               </div>
 
+              <div className="flex-col gap-2 mt-4">
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#8ee6b0' }}>
+                  <CheckCircle2 size={18} />
+                  <span className="font-semibold">Parte teórica realizada hoy</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted">
+                  <Clock size={18} className="text-purple" />
+                  <span>Parte práctica programada para mañana.</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/argus_training_july_29.png"
+                  alt="Formación teórica de Argus sobre agentes de inteligencia artificial para automatización"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la sesión teórica de formación Argus</p>
             </div>
           </div>
         </div>
