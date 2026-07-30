@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-29T22:23:15.111007+00:00",
+  "updatedAt": "2026-07-30T21:37:30.1051533Z",
   "days": {
     "2026-07-22": [
       {
@@ -61,6 +61,15 @@
         "type": "Análisis",
         "title": "Revision accesos a github y repos a sanitizar",
         "hours": 1
+      }
+    ],
+    "2026-07-30": [
+      {
+        "id": "2026-07-30-1",
+        "date": "2026-07-30",
+        "type": "Desarrollo / configuración",
+        "title": "Migración repositorio a github",
+        "hours": 2
       }
     ]
   }
