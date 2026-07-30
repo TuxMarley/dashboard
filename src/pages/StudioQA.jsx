@@ -11,7 +11,7 @@ const StudioQA = () => {
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-xl">Formación Argus</h3>
           <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
-            <span>En curso</span>
+            <span>Completada</span>
           </div>
         </div>
 
@@ -32,7 +32,7 @@ const StudioQA = () => {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted">
                   <Clock size={16} className="text-cyan" />
-                  <span>Teoría hoy · Práctica mañana</span>
+                  <span>Teoría 29/07 · Práctica 30/07</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted">
                   <User size={16} className="text-cyan" />
@@ -53,17 +53,18 @@ const StudioQA = () => {
               <div className="flex-col gap-2 mt-4">
                 <div className="flex items-center gap-2 text-sm" style={{ color: '#8ee6b0' }}>
                   <CheckCircle2 size={18} />
-                  <span className="font-semibold">Parte teórica realizada hoy</span>
+                  <span className="font-semibold">Parte teórica realizada el 29 de julio</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-muted">
-                  <Clock size={18} className="text-purple" />
-                  <span>Parte práctica programada para mañana.</span>
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#8ee6b0' }}>
+                  <CheckCircle2 size={18} />
+                  <span className="font-semibold">Sesión práctica realizada el 30 de julio</span>
                 </div>
               </div>
 
             </div>
 
-            <div className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+            <div className="flex-col items-center gap-4" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <figure>
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
                 <img
                   src="/argus_training_july_29.png"
@@ -73,6 +74,18 @@ const StudioQA = () => {
                 />
               </div>
               <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la sesión teórica de formación Argus</p>
+              </figure>
+              <figure>
+                <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                  <img
+                    src="/argus_training_july_30.png"
+                    alt="Sesión práctica de formación Argus con agentes de inteligencia artificial"
+                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                    style={{ display: 'block' }}
+                  />
+                </div>
+                <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la sesión práctica de formación Argus</p>
+              </figure>
             </div>
           </div>
         </div>
