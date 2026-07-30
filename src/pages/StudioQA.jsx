@@ -17,12 +17,12 @@ const StudioQA = () => {
 
         {/* Training Card */}
         <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
-          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+          <div className="flex gap-4 items-start">
             <div className="p-3 rounded-full" style={{ background: 'var(--brand-blue)', height: 'fit-content' }}>
               <Bot size={24} color="#fff" />
             </div>
             
-            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+            <div className="flex-col" style={{ flex: '1 1 0' }}>
               <h4 className="font-bold text-lg text-white mb-2">Argus: automatización con agentes de Inteligencia Artificial</h4>
               
               <div className="flex flex-wrap gap-4 mb-4">
@@ -62,8 +62,9 @@ const StudioQA = () => {
               </div>
 
             </div>
+          </div>
 
-            <div className="flex-col items-center gap-4" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+          <div className="studio-qa-evidence">
               <figure>
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
                 <img
@@ -86,7 +87,6 @@ const StudioQA = () => {
                 </div>
                 <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la sesión práctica de formación Argus</p>
               </figure>
-            </div>
           </div>
         </div>
 

@@ -1373,6 +1373,26 @@ body {
   gap: 1.25rem;
 }
 
+.studio-qa-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.studio-qa-evidence figure {
+  min-width: 0;
+}
+
+.studio-qa-evidence img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+}
+
 .tab-list {
   padding: 0.2rem;
   border-radius: 0.75rem;
@@ -1646,6 +1666,7 @@ body {
   .tab-list { width: 100%; overflow-x: auto; }
   .tab-button { white-space: nowrap; }
   .task-history-header { align-items: flex-start; flex-direction: column; }
+  .studio-qa-evidence { grid-template-columns: 1fr; }
   .metlife-details,
   .metlife-grid { grid-template-columns: 1fr; }
   .metlife-update { grid-template-columns: 1fr; }
