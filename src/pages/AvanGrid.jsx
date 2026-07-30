@@ -86,7 +86,7 @@ const AvanGrid = () => {
       <div className="section-heading">
         <div>
           <p className="section-kicker">Programa activo</p>
-          <h2>AvanGrid <span>(Antigravity)</span></h2>
+          <h2>AvanGrid</h2>
           <p>Automatización mobile, integración continua y ejecución de pruebas.</p>
         </div>
 
