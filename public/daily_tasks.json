@@ -1,10 +1,10 @@
 [
   {
-    "date": "2026-07-28",
-    "sheet": "CNG Gas · Manage Payment",
-    "key": "CNG-STG-AUTH0",
-    "name": "Primera ejecución de la regresión Auth0 en STG para la OPCO CNG. Se detectó un error durante la validación del módulo Manage Payment.",
+    "date": "2026-08-03",
+    "sheet": "CNG Gas · Autopay",
+    "key": "CNG-STG-AUTH0-AUTOPAY",
+    "name": "Ejecución de 12 casos de prueba de Autopay para la OPCO CNG en entorno STG-Auth0.",
     "assigned": "Jimmy",
-    "status": "En análisis con QA y Desarrollo"
+    "status": "Ejecutado"
   }
 ]
