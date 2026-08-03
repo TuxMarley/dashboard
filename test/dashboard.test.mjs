@@ -8,6 +8,7 @@ import {
   normalizeMetlifeHistory,
   normalizeTaskHistory,
   normalizeTasks,
+  splitMetlifeHistoryByPeriod,
 } from '../src/utils/dashboard.js'
 
 test('getIsoWeek uses ISO-8601 week numbering at year boundaries', () => {
@@ -78,4 +79,17 @@ test('MetLife summary totals hours and finds the primary activity type', () => {
     totalHours: 7,
     primaryType: 'Desarrollo',
   })
+})
+
+test('MetLife uses the latest month as the active period and archives prior months', () => {
+  const history = {
+    '2026-07-31': [{ id: 'july', type: 'Desarrollo', title: 'Publicar', hours: 2 }],
+    '2026-08-03': [{ id: 'august', type: 'Análisis', title: 'Revisar', hours: 2 }],
+  }
+
+  const periods = splitMetlifeHistoryByPeriod(history)
+
+  assert.equal(periods.activePeriod, '2026-08')
+  assert.deepEqual(Object.keys(periods.activeHistory), ['2026-08-03'])
+  assert.deepEqual(periods.historicalPeriods.map(([period]) => period), ['2026-07'])
 })

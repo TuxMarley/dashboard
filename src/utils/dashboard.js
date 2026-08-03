@@ -72,6 +72,26 @@ export function getLatestMetlifeDate(history) {
   return Object.keys(history).sort().at(-1) ?? ''
 }
 
+export function splitMetlifeHistoryByPeriod(history) {
+  const groupedPeriods = {}
+
+  for (const [date, tasks] of Object.entries(history)) {
+    const period = date.slice(0, 7)
+    if (!groupedPeriods[period]) groupedPeriods[period] = {}
+    groupedPeriods[period][date] = tasks
+  }
+
+  const activePeriod = Object.keys(groupedPeriods).sort().at(-1) ?? ''
+
+  return {
+    activePeriod,
+    activeHistory: groupedPeriods[activePeriod] ?? {},
+    historicalPeriods: Object.entries(groupedPeriods)
+      .filter(([period]) => period !== activePeriod)
+      .sort(([firstPeriod], [secondPeriod]) => secondPeriod.localeCompare(firstPeriod)),
+  }
+}
+
 export function getMetlifeSummary(history) {
   const tasks = Object.values(history).flat()
   const hoursByType = new Map()

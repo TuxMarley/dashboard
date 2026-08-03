@@ -11,6 +11,7 @@ import {
   getLatestMetlifeDate,
   getMetlifeSummary,
   normalizeMetlifeHistory,
+  splitMetlifeHistoryByPeriod,
 } from '../utils/dashboard'
 
 const fullDateFormatter = new Intl.DateTimeFormat('es-CL', {
@@ -26,6 +27,12 @@ const shortDateFormatter = new Intl.DateTimeFormat('es-CL', {
 
 const weekdayFormatter = new Intl.DateTimeFormat('es-CL', {
   weekday: 'long',
+  timeZone: 'UTC',
+})
+
+const periodFormatter = new Intl.DateTimeFormat('es-CL', {
+  month: 'long',
+  year: 'numeric',
   timeZone: 'UTC',
 })
 
@@ -62,13 +69,21 @@ const MetLife = () => {
   }, [])
 
   const dates = useMemo(() => Object.keys(history).sort().reverse(), [history])
-  const selectedTasks = history[selectedDate] ?? []
-  const summary = useMemo(() => getMetlifeSummary(history), [history])
+  const { activePeriod, activeHistory, historicalPeriods } = useMemo(
+    () => splitMetlifeHistoryByPeriod(history),
+    [history],
+  )
+  const activeDates = useMemo(() => Object.keys(activeHistory).sort().reverse(), [activeHistory])
+  const selectedTasks = activeHistory[selectedDate] ?? []
+  const summary = useMemo(() => getMetlifeSummary(activeHistory), [activeHistory])
   const selectedHours = selectedTasks.reduce((total, task) => total + task.hours, 0)
   const maxDailyHours = Math.max(
     1,
-    ...dates.map((date) => history[date].reduce((total, task) => total + task.hours, 0)),
+    ...activeDates.map((date) => activeHistory[date].reduce((total, task) => total + task.hours, 0)),
   )
+  const activePeriodLabel = activePeriod
+    ? capitalize(periodFormatter.format(asUtcDate(`${activePeriod}-01`)))
+    : ''
 
   return (
     <div className="metlife-daily">
@@ -76,7 +91,7 @@ const MetLife = () => {
         <div>
           <p className="section-kicker">Registro operativo</p>
           <h2>MetLife</h2>
-          <p>Actividad diaria y tiempo dedicado, con historial extraído de la hoja Registro.</p>
+          <p>Actividad diaria y tiempo dedicado del período activo, con meses anteriores disponibles como historial.</p>
         </div>
         <div className="metlife-source" aria-label="Origen de los datos">
           <RefreshCw size={15} aria-hidden="true" />
@@ -119,12 +134,12 @@ const MetLife = () => {
               <Clock3 size={22} aria-hidden="true" />
               <div>
                 <strong>{formatHours(summary.totalHours)}</strong>
-                <span>registradas en el periodo</span>
+                <span>registradas en {activePeriodLabel}</span>
               </div>
             </div>
             <dl className="metlife-overview__facts">
               <div>
-                <dt>Días con actividad</dt>
+                <dt>Días activos</dt>
                 <dd>{summary.days}</dd>
               </div>
               <div>
@@ -139,13 +154,13 @@ const MetLife = () => {
           </section>
 
           <label className="metlife-mobile-picker" htmlFor="metlife-history-date">
-            <span>Consultar día</span>
+            <span>Consultar jornada de {activePeriodLabel}</span>
             <select
               id="metlife-history-date"
               value={selectedDate}
               onChange={(event) => setSelectedDate(event.target.value)}
             >
-              {dates.map((date) => (
+              {activeDates.map((date) => (
                 <option key={date} value={date}>
                   {fullDateFormatter.format(asUtcDate(date))}
                 </option>
@@ -153,18 +168,18 @@ const MetLife = () => {
             </select>
           </label>
 
-          <section className="metlife-worklog" aria-label="Historial diario de MetLife">
+          <section className="metlife-worklog" aria-label={`Registro diario de ${activePeriodLabel}`}>
             <aside className="metlife-history">
               <div className="metlife-history__heading">
                 <History size={18} aria-hidden="true" />
                 <div>
-                  <h3>Historial</h3>
-                  <p>Selecciona un día</p>
+                  <h3>{activePeriodLabel}</h3>
+                  <p>Período activo · selecciona un día</p>
                 </div>
               </div>
               <nav aria-label="Fechas con actividad registrada">
-                {dates.map((date) => {
-                  const dailyHours = history[date].reduce((total, task) => total + task.hours, 0)
+                {activeDates.map((date) => {
+                  const dailyHours = activeHistory[date].reduce((total, task) => total + task.hours, 0)
                   const isSelected = date === selectedDate
 
                   return (
@@ -196,7 +211,7 @@ const MetLife = () => {
             <article className="metlife-day-detail" aria-live="polite">
               <header className="metlife-day-detail__header">
                 <div>
-                  <p>Jornada seleccionada</p>
+                  <p>Jornada de {activePeriodLabel}</p>
                   <h3>{capitalize(fullDateFormatter.format(asUtcDate(selectedDate)))}</h3>
                 </div>
                 <div className="metlife-day-total">
@@ -219,6 +234,48 @@ const MetLife = () => {
               </ol>
             </article>
           </section>
+
+          {historicalPeriods.length > 0 && (
+            <section className="metlife-archive" aria-label="Historial de períodos anteriores">
+              <div className="metlife-archive__heading">
+                <History size={18} aria-hidden="true" />
+                <div>
+                  <h3>Historial</h3>
+                  <p>Períodos cerrados</p>
+                </div>
+              </div>
+
+              <div className="metlife-archive__periods">
+                {historicalPeriods.map(([period, periodHistory]) => {
+                  const periodSummary = getMetlifeSummary(periodHistory)
+                  const periodDates = Object.keys(periodHistory).sort().reverse()
+                  const periodLabel = capitalize(periodFormatter.format(asUtcDate(`${period}-01`)))
+
+                  return (
+                    <details key={period} className="metlife-archive-period">
+                      <summary>
+                        <span>
+                          <strong>{periodLabel}</strong>
+                          <small>{periodSummary.tasks} tareas · {periodSummary.days} días</small>
+                        </span>
+                        <b>{formatHours(periodSummary.totalHours)}</b>
+                      </summary>
+                      <ol>
+                        {periodDates.flatMap((date) => periodHistory[date].map((task) => (
+                          <li key={task.id}>
+                            <time dateTime={date}>{shortDateFormatter.format(asUtcDate(date))}</time>
+                            <span>{task.type}</span>
+                            <p>{task.title}</p>
+                            <strong>{formatHours(task.hours)}</strong>
+                          </li>
+                        )))}
+                      </ol>
+                    </details>
+                  )
+                })}
+              </div>
+            </section>
+          )}
         </>
       )}
     </div>
