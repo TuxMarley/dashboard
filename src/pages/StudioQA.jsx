@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Calendar, CheckCircle2, Clock, BookOpen, User } from 'lucide-react';
+import { Bot, Calendar, CheckCircle2, Clock, BookOpen, User, Sparkles, Target } from 'lucide-react';
 
 const StudioQA = () => {
   return (
@@ -90,6 +90,51 @@ const StudioQA = () => {
           </div>
         </div>
 
+      </div>
+
+      <div className="glass-card mb-6">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="font-semibold text-xl">Next-Gen QA</h3>
+          <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
+            <span>Nueva iniciativa</span>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-4 items-start">
+            <div className="p-3 rounded-full" style={{ background: 'var(--brand-blue)', height: 'fit-content' }}>
+              <Sparkles size={24} color="#fff" />
+            </div>
+
+            <div className="flex-col" style={{ flex: '1 1 0' }}>
+              <h4 className="font-bold text-lg text-white mb-2">De QA a AI Engineer</h4>
+              <p className="text-sm leading-relaxed" style={{ color: '#cfd8fc', maxWidth: '70ch' }}>
+                Formación intensiva para transformar perfiles QA y QA Automation en AI Engineers, capaces de diseñar, construir e integrar soluciones de automatización con agentes de inteligencia artificial.
+              </p>
+
+              <div className="studio-qa-initiative__facts">
+                <div>
+                  <Clock size={18} className="text-cyan" />
+                  <span><strong>40 horas</strong> teórico-prácticas</span>
+                </div>
+                <div>
+                  <Target size={18} className="text-cyan" />
+                  <span>Arquitectura agéntica, automatización e impacto escalable</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figure className="studio-qa-initiative__evidence">
+            <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)' }}>
+              <img
+                src="/next_gen_qa.png"
+                alt="Programa Next-Gen QA: formación de 40 horas para transformar perfiles QA en AI Engineers"
+              />
+            </div>
+            <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la iniciativa Next-Gen QA</figcaption>
+          </figure>
+        </div>
       </div>
 
     </div>
