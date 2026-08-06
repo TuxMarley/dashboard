@@ -15,6 +15,52 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        {/* AI First Mindset technical-agent architecture presentation */}
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Presentation size={20} />
+                <span>AI First Mindset</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Agentización de tareas técnicas con IA</h4>
+
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Presentado el 6 de agosto de 2026</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Presentación de la arquitectura de inteligencia artificial utilizada para crear agentes especializados en tareas técnicas. El enfoque integra LLM, RAG, skills, herramientas y Copilot para convertir solicitudes de migración, saneamiento y reparación en flujos repetibles y gobernados.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Arquitectura modular para diseñar agentes especializados por tipo de tarea.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Conexión de conocimiento, herramientas y modelos para automatización técnica trazable.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col items-center" style={{ flex: '1.15 1 300px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/ai_first_mindset_august_6.png"
+                  alt="Presentación AI First Mindset sobre la arquitectura de agentes para tareas técnicas con inteligencia artificial"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la presentación de arquitectura de agentes en AI First Mindset</p>
+            </div>
+          </div>
+        </div>
+
         {/* Scheduled AI news radar card */}
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex-col gap-6">
