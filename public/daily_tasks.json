@@ -1,9 +1,9 @@
 [
   {
-    "date": "2026-08-03",
-    "sheet": "CNG Gas · Autopay",
-    "key": "CNG-STG-AUTH0-AUTOPAY",
-    "name": "Ejecución de 12 casos de prueba de Autopay para la OPCO CNG en entorno STG-Auth0.",
+    "date": "2026-08-06",
+    "sheet": "CMP · Payments Mobile · Outage · Android",
+    "key": "CMP-AUTH0-STG-MOBILE-OUTAGE",
+    "name": "Ejecución del ciclo de pruebas Auth0-STG: 13 casos de CMP Payments Mobile, Outage y Android.",
     "assigned": "Jimmy",
     "status": "Ejecutado"
   }
