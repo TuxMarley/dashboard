@@ -487,10 +487,16 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   line-height: 1.45;
 }
 
+.talent-map__objective strong {
+  color: var(--text-main);
+}
+
 .talent-progression,
 .talent-profile,
 .talent-competencies,
 .talent-achievement-panel,
+.talent-history,
+.talent-method-note,
 .talent-needs,
 .talent-impact,
 .talent-timeline {
@@ -679,6 +685,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .talent-profile,
 .talent-competencies,
 .talent-achievement-panel,
+.talent-history,
 .talent-needs,
 .talent-impact,
 .talent-timeline {
@@ -729,10 +736,60 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   text-wrap: pretty;
 }
 
+.talent-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--talent-line);
+  border-bottom: 1px solid var(--talent-line);
+}
+
+.talent-status-grid > div {
+  min-width: 0;
+  padding: 1rem 0.9rem;
+  border-right: 1px solid var(--talent-line);
+}
+
+.talent-status-grid > div:first-child {
+  padding-left: 0;
+}
+
+.talent-status-grid > div:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.talent-status-grid dt {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.talent-status-grid dd {
+  margin-top: 0.35rem;
+  color: var(--text-main);
+  font-family: 'Noto Serif', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.talent-status-grid > div:nth-child(2) dd {
+  color: var(--talent-gold);
+}
+
+.talent-status-grid p {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
 .talent-profile__verdict {
   margin-top: 1.15rem;
   padding: 1rem;
-  border-left: 3px solid var(--talent-gold);
+  border: 1px solid rgba(230, 182, 0, 0.28);
   background: rgba(230, 182, 0, 0.07);
 }
 
@@ -793,24 +850,29 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .talent-competencies ul {
   display: grid;
-  gap: 0.6rem;
+  gap: 0;
   margin-top: 1.2rem;
 }
 
 .talent-competencies li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: baseline;
-  padding-bottom: 0.6rem;
+  display: block;
+  padding: 0.75rem 0;
   border-bottom: 1px solid rgba(184, 194, 204, 0.13);
-  color: var(--text-muted);
-  font-size: 0.81rem;
 }
 
 .talent-competencies li:last-child {
   border-bottom: 0;
   padding-bottom: 0;
+}
+
+.talent-competency-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  color: var(--text-main);
+  font-size: 0.81rem;
+  font-weight: 700;
 }
 
 .talent-competencies strong {
@@ -823,6 +885,47 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   color: var(--text-muted);
   font-size: 0.68rem;
   font-weight: 600;
+}
+
+.talent-competencies progress {
+  display: block;
+  width: 100%;
+  height: 0.32rem;
+  margin-top: 0.55rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: rgba(184, 194, 204, 0.14);
+  color: var(--talent-blue);
+}
+
+.talent-competencies progress::-webkit-progress-bar {
+  background: rgba(184, 194, 204, 0.14);
+}
+
+.talent-competencies progress::-webkit-progress-value {
+  background: var(--talent-blue);
+}
+
+.talent-competencies progress::-moz-progress-bar {
+  background: var(--talent-blue);
+}
+
+.talent-competency-targets {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.45rem;
+  color: #9eb0c7;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.talent-competencies li > p {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
 }
 
 .talent-growth {
@@ -852,6 +955,33 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   color: var(--text-muted);
   font-size: 0.78rem;
   line-height: 1.5;
+}
+
+.talent-method-note {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(69, 179, 245, 0.22);
+  background: rgba(0, 114, 188, 0.055);
+}
+
+.talent-method-note svg {
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+  color: var(--talent-blue);
+}
+
+.talent-method-note p {
+  max-width: 105ch;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.talent-method-note strong {
+  color: var(--text-main);
 }
 
 .talent-achievements-layout {
@@ -926,21 +1056,105 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .talent-achievement-list h4,
 .talent-needs h4,
-.talent-timeline h4 {
+.talent-timeline h4,
+.talent-history h4 {
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.89rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
+.talent-achievement-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.talent-evidence-status {
+  flex: 0 0 auto;
+  padding: 0.18rem 0.45rem;
+  border: 1px solid rgba(74, 222, 128, 0.28);
+  color: #8ee6b0;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.talent-evidence-status--partial {
+  border-color: rgba(230, 182, 0, 0.34);
+  color: #f3cf37;
+}
+
+.talent-evidence-source {
+  display: block;
+  width: fit-content;
+  margin-top: 0.5rem;
+  color: #9eb0c7;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
 .talent-achievement-list p,
 .talent-needs li p,
 .talent-timeline p,
-.talent-impact > p {
+.talent-impact > p,
+.talent-history p {
   margin-top: 0.25rem;
   color: var(--text-muted);
   font-size: 0.8rem;
   line-height: 1.5;
+}
+
+.talent-evidence-view {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.talent-history {
+  padding: 1.5rem;
+}
+
+.talent-history > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: end;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--talent-line);
+}
+
+.talent-history > header > p {
+  max-width: 55ch;
+  margin: 0;
+  text-align: right;
+}
+
+.talent-history-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--talent-line);
+  border-left: 1px solid var(--talent-line);
+  list-style: none;
+}
+
+.talent-history-list li {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--talent-line);
+  border-bottom: 1px solid var(--talent-line);
+}
+
+.talent-history-list time {
+  color: var(--talent-blue);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.talent-history-list h4 {
+  margin-top: 0.45rem;
 }
 
 .talent-next-steps {
@@ -973,7 +1187,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .talent-needs ul {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 1.4rem;
   border-top: 1px solid var(--talent-line);
   border-left: 1px solid var(--talent-line);
@@ -1091,6 +1305,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-achievement-panel,
   .talent-profile,
   .talent-competencies,
+  .talent-history,
   .talent-needs,
   .talent-impact,
   .talent-timeline {
@@ -1100,6 +1315,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-achievement-panel:hover,
   .talent-profile:hover,
   .talent-competencies:hover,
+  .talent-history:hover,
   .talent-needs:hover,
   .talent-impact:hover,
   .talent-timeline:hover {
@@ -1113,6 +1329,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-achievement-panel,
   .talent-profile,
   .talent-competencies,
+  .talent-history,
   .talent-needs,
   .talent-impact,
   .talent-timeline {
@@ -1156,7 +1373,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   }
 
   .talent-needs ul {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .talent-history-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1747,7 +1968,11 @@ body {
   .talent-tabs {
     width: 100%;
     overflow-x: auto;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+  }
+
+  .talent-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .talent-tab {
@@ -1758,6 +1983,7 @@ body {
   .talent-profile,
   .talent-competencies,
   .talent-achievement-panel,
+  .talent-history,
   .talent-needs,
   .talent-impact,
   .talent-timeline {
@@ -1769,8 +1995,38 @@ body {
   }
 
   .talent-needs ul,
-  .talent-impact dl {
+  .talent-impact dl,
+  .talent-history-list,
+  .talent-status-grid {
     grid-template-columns: 1fr;
+  }
+
+  .talent-status-grid > div {
+    padding: 0.85rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--talent-line);
+  }
+
+  .talent-status-grid > div:last-child {
+    border-bottom: 0;
+  }
+
+  .talent-history > header {
+    display: grid;
+    gap: 0.65rem;
+    align-items: start;
+  }
+
+  .talent-history > header > p {
+    text-align: left;
+  }
+
+  .talent-achievement-title-row {
+    display: grid;
+  }
+
+  .talent-evidence-status {
+    width: fit-content;
   }
 
   .talent-needs li {

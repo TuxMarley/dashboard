@@ -7,10 +7,14 @@ import {
   Briefcase,
   CheckCircle2,
   ChevronRight,
+  ClipboardCheck,
   Code2,
   Flag,
+  Gauge,
+  Network,
   Rocket,
   ShieldCheck,
+  Sparkles,
   Star,
   Target,
   TrendingUp,
@@ -23,149 +27,257 @@ const progression = [
   { role: 'Software Quality Analyst', kind: 'past', icon: Code2 },
   { role: 'Technical Software Quality', kind: 'past', icon: Code2 },
   { role: 'Senior Technical Software Quality', kind: 'official', icon: Star, marker: 'Categoría registrada' },
-  { role: 'Lead Technical Software Quality', kind: 'current', icon: Users, marker: 'Rol recomendado' },
-  { role: 'Expert Technical Software Quality', kind: 'future', icon: Award },
+  { role: 'Lead Technical Software Quality', kind: 'current', icon: Users, marker: 'Nivel funcional evidenciado' },
+  { role: 'Expert Technical Software Quality', kind: 'future', icon: Award, marker: 'Siguiente horizonte' },
 ];
 
 const responsibilities = [
-  'Liderar el diseño e implementación de soluciones de automatización Mobile y Web.',
-  'Definir frameworks, herramientas y directrices técnicas reutilizables para el estudio.',
-  'Diseñar procesos para integrar IA de forma responsable en proyectos y prácticas de QA.',
-  'Coordinar técnicamente a un QA automatizador dentro del equipo de AvanGrid.',
-  'Asesorar a otros proyectos y realizar POCs de automatización e IA para clientes.',
-  'Formar a equipos y practicantes en QA, automatización, IA e integración continua.',
+  'Definir, construir e implantar prácticas, metodologías, herramientas y marcos de calidad reutilizables.',
+  'Diseñar y ejecutar automatización Mobile y Web, planes de prueba complejos y validaciones trazables.',
+  'Integrar IA de forma gobernada en el delivery mediante agentes, LLM, RAG, skills y herramientas especializadas.',
+  'Coordinar técnicamente el trabajo de automatización en AvanGrid y acompañar la ejecución del equipo desde el conocimiento.',
+  'Asesorar a proyectos y clientes como ProVida, BHP, KOSIN y MetLife en automatización, agentes e IA aplicada a QA.',
+  'Formar y transferir conocimiento mediante Argus, Next-Gen QA, sesiones internas y acompañamiento de talento.',
+  'Convertir necesidades de migración, saneamiento, reparación y regresión en flujos técnicos repetibles y verificables.',
 ];
 
 const competencies = [
-  { name: 'Assurance & Testing', level: 3 },
-  { name: 'Orientación a la calidad', level: 3 },
-  { name: 'Desarrollo de personas', level: 2 },
-  { name: 'Gestión de métodos y herramientas', level: 3 },
-  { name: 'Orientación al resultado', level: 3 },
+  {
+    name: 'Assurance & Testing',
+    level: 3,
+    leadRequirement: 3,
+    expertTarget: 4,
+    note: 'Planes complejos, automatización Mobile/Web y validación funcional y técnica.',
+  },
+  {
+    name: 'Orientación a la calidad',
+    level: 3,
+    leadRequirement: 3,
+    expertTarget: 4,
+    note: 'Cobertura, trazabilidad, saneamiento y control de evidencias en distintos proyectos.',
+  },
+  {
+    name: 'Desarrollo de personas',
+    level: 2,
+    leadRequirement: 2,
+    expertTarget: 3,
+    note: 'Formación Argus, iniciativa Next-Gen QA y acompañamiento técnico del equipo.',
+  },
+  {
+    name: 'Gestión de métodos y herramientas',
+    level: 3,
+    leadRequirement: 3,
+    expertTarget: 4,
+    note: 'Argus, ArgusPy, CAOO y agentes técnicos reutilizables en contextos reales.',
+  },
+  {
+    name: 'Orientación al resultado',
+    level: 3,
+    leadRequirement: 3,
+    expertTarget: 4,
+    note: 'Entrega sostenida en AvanGrid, MetLife, Studio QA y asesorías.',
+  },
+  {
+    name: 'Impacto',
+    level: 2,
+    leadRequirement: null,
+    expertTarget: 3,
+    note: 'Influencia visible en equipos y clientes; falta medir adopción y valor transversal sostenido.',
+  },
 ];
 
 const currentAchievements = [
   {
-    title: 'Liderazgo técnico en AvanGrid',
-    description: 'Diseño de automatización Mobile, 134 casos automatizados, integración completa con Jira/Zephyr y coordinación directa de un QA automatizador.',
-    icon: Users,
+    title: 'AvanGrid · automatización y delivery Mobile',
+    description: 'El dashboard registra 40 de 72 casos creados en junio (55,6%) y 134 de 265 casos automatizados en el alcance Mobile. La cartera RAG añade 67 registros CNG asignados, distribuidos entre Android e iOS, con 54 pruebas en estado Passed.',
+    source: 'AvanGrid + cartera RAG',
+    icon: ClipboardCheck,
   },
   {
-    title: 'Soluciones Mobile y Web',
-    description: 'Diseño e implementación de pruebas automatizadas multiplataforma y flujos reutilizables para distintos proyectos.',
-    icon: Code2,
-  },
-  {
-    title: 'Frameworks y herramientas del estudio',
-    description: 'Creación de un framework adoptado transversalmente, ArgusPy para BHP y herramientas internas de QA con IA.',
+    title: 'MetLife · agentes para migración y reparación',
+    description: 'Entre el 22 de julio y el 13 de agosto se registran 21 actividades, 45 horas y 17 días de trabajo: creación y ejecución de agentes sobre tres repositorios, saneamiento, migración, reparación post-migración y smoke tests.',
+    source: 'Historial operativo MetLife',
     icon: ShieldCheck,
   },
   {
-    title: 'IA aplicada al delivery',
-    description: 'CAOO, agente autónomo de automatización web, Radar IA e integración de IA en procesos y proyectos nuevos.',
-    icon: Zap,
+    title: 'Studio QA · formación y evolución del talento',
+    description: 'Impartió las sesiones teórica y práctica de Argus los días 29 y 30 de julio y diseñó Next-Gen QA, una iniciativa teórico-práctica de 40 horas para evolucionar perfiles QA hacia AI Engineer.',
+    source: 'Studio QA',
+    icon: BookOpen,
   },
   {
-    title: 'Asesoría y POCs para clientes',
-    description: 'Apoyo técnico a KOSIN, BHP y MetLife, además de pruebas de concepto de automatización e IA para otros clientes.',
+    title: 'Asesorías QA · soluciones adaptadas a cliente',
+    description: 'Asesoró a KOSIN en planes de prueba con IA y criterios de seguridad, creó ArgusPy para BHP con Python, pytest, Playwright y Allure, y orientó a ProVida en la adopción de agentes e IA.',
+    source: 'KOSIN · BHP · ProVida',
     icon: TrendingUp,
   },
   {
-    title: 'Formación y desarrollo de talento',
-    description: 'Formaciones de automatización, IA e integración continua; acompañamiento de practicantes y referente de IA en la empresa.',
-    icon: BookOpen,
+    title: 'IA aplicada · de la experimentación al uso repetible',
+    description: 'Construyó CAOO, Radar IA y un agente autónomo de automatización web; además presentó una arquitectura de agentización con LLM, RAG, skills y herramientas para tareas técnicas gobernadas.',
+    source: 'Iniciativas de Inteligencia Artificial',
+    icon: Sparkles,
+  },
+  {
+    title: 'Influencia técnica y comunidad',
+    description: 'Actúa como Referente de IA en Chile, participó como Top Adopter y podcaster en IA Sessions y comparte prácticas que conectan QA, automatización, ingeniería de software e inteligencia artificial.',
+    source: 'Comunidad GenAI GDNe',
+    icon: Network,
   },
 ];
 
 const leadAlignment = [
   {
-    title: 'Liderar soluciones de prueba automatizadas',
-    description: 'Cumplido: diseña, implementa y guía soluciones Mobile y Web, con trazabilidad y mejora continua.',
-    icon: Target,
-  },
-  {
-    title: 'Definir prácticas, metodologías y marcos',
-    description: 'Cumplido: ha creado frameworks y herramientas adoptables por el estudio y por proyectos cliente.',
+    title: 'Definir y construir prácticas de calidad',
+    description: 'Argus, ArgusPy, CAOO y los agentes de MetLife demuestran construcción de marcos, herramientas y flujos reutilizables.',
+    status: 'Evidencia sólida',
+    tone: 'strong',
     icon: Activity,
   },
   {
-    title: 'Incorporar IA como diferenciador',
-    description: 'Cumplido: integra IA en proyectos, automatiza procesos y actúa como referente interno en su uso.',
-    icon: Zap,
+    title: 'Implementar y probar soluciones complejas',
+    description: 'La automatización Mobile/Web, la regresión multiplataforma y los smoke tests cubren ejecución y aseguramiento técnico sostenido.',
+    status: 'Evidencia sólida',
+    tone: 'strong',
+    icon: Target,
   },
   {
     title: 'Liderar desde el conocimiento',
-    description: 'Cumplido: coordina a un QA automatizador, forma al equipo y desarrolla practicantes.',
+    description: 'La coordinación técnica en AvanGrid, la formación Argus y Next-Gen QA muestran transferencia de criterio y desarrollo de otras personas.',
+    status: 'Evidencia sólida',
+    tone: 'strong',
     icon: Users,
   },
   {
-    title: 'Asesorar a BUs y clientes',
-    description: 'Cumplido: presta asesorías técnicas y construye POCs que validan viabilidad y diferenciación.',
+    title: 'Asesorar a BUs, proyectos y clientes',
+    description: 'KOSIN, BHP, ProVida y MetLife acreditan diagnóstico, adaptación técnica y definición de soluciones para contextos distintos.',
+    status: 'Evidencia sólida',
+    tone: 'strong',
     icon: TrendingUp,
   },
   {
-    title: 'Gestionar adopción e impacto',
-    description: 'Parcial: existe adopción y evidencia técnica; falta sistematizar métricas de ahorro, productividad y valor transversal.',
-    icon: Award,
+    title: 'Aplicar pensamiento crítico y Tech disruption',
+    description: 'Las decisiones sobre seguridad, arquitectura agéntica, RAG y automatización responsable muestran evaluación de riesgos y alternativas.',
+    status: 'Evidencia sólida',
+    tone: 'strong',
+    icon: Zap,
+  },
+  {
+    title: 'Demostrar impacto transversal sostenido',
+    description: 'Hay adopción, producción técnica e influencia; aún falta una medición común de ahorro, eficiencia, reutilización y resultados de los equipos.',
+    status: 'Por consolidar',
+    tone: 'partial',
+    icon: Gauge,
+  },
+];
+
+const historyMilestones = [
+  {
+    date: '15-30 jun 2026',
+    title: 'Producción sostenida en AvanGrid',
+    description: '40 de 72 casos creados durante junio y avance de la automatización Mobile en Payments, Payment Flow, Outages y Autopay.',
+  },
+  {
+    date: '23 jun 2026',
+    title: 'IA Sessions · Top Adopter',
+    description: 'Participación como podcaster sobre el impacto de la IA en desarrollo y pruebas de código.',
+  },
+  {
+    date: '2 jul 2026',
+    title: 'CAOO y Referente de IA en Chile',
+    description: 'Presentación del orquestador de QA con IA e incorporación a la coordinación de iniciativas GenAI.',
+  },
+  {
+    date: '13-21 jul 2026',
+    title: 'Asesoría KOSIN y Radar IA',
+    description: 'Diseño de un flujo de planes de prueba con IA y puesta en marcha de un radar diario con fuentes oficiales.',
+  },
+  {
+    date: '22 jul-13 ago 2026',
+    title: 'Ciclo de agentes en MetLife',
+    description: 'Creación, despliegue, saneamiento, migración, reparación y pruebas sobre repositorios y aplicativos.',
+  },
+  {
+    date: '29-30 jul 2026',
+    title: 'Formación Argus y asesoría ProVida',
+    description: 'Transferencia teórico-práctica sobre agentes para automatización y orientación de adopción en cliente.',
+  },
+  {
+    date: '6 ago 2026',
+    title: 'Arquitectura de agentización técnica',
+    description: 'Presentación de un enfoque modular y gobernado con LLM, RAG, skills, herramientas y Copilot.',
   },
 ];
 
 const nextLevelNeeds = [
   {
     title: 'Formalizar el alcance Lead',
-    description: 'Documentar responsabilidades, decisiones técnicas, proyectos asesorados y resultados del QA bajo coordinación.',
+    description: 'Presentar un dossier con responsabilidades, decisiones, fechas, fuentes y resultados que sustente la validación interna de categoría.',
     icon: Users,
   },
   {
     title: 'Medir impacto y adopción',
-    description: 'Mantener métricas de cobertura, ahorro, reducción de tiempos, reutilización y adopción por proyecto.',
+    description: 'Definir línea base y seguimiento de cobertura, ahorro, tiempo de ciclo, defectos evitados, reutilización y equipos que adoptan cada solución.',
     icon: TrendingUp,
   },
   {
-    title: 'Gobernar estándares de QA e IA',
-    description: 'Convertir frameworks y buenas prácticas en directrices comunes, con criterios de seguridad y uso responsable.',
-    icon: Activity,
+    title: 'Elevar Assurance y calidad a nivel 4',
+    description: 'Acreditar visión integral, estándares compartidos y planes complejos que maximicen calidad, seguridad, rendimiento y escalabilidad.',
+    icon: ShieldCheck,
   },
   {
-    title: 'Ampliar visión de delivery',
-    description: 'Participar de forma sostenida en estimaciones, capacidad, backlog, prioridades y viabilidad de las soluciones.',
-    icon: Target,
+    title: 'Convertir influencia en Impacto nivel 3',
+    description: 'Documentar decisiones en las que logró alinear a varias personas, responder resistencias y cambiar la forma de ejecutar el trabajo.',
+    icon: Network,
   },
   {
     title: 'Escalar desarrollo de personas',
-    description: 'Definir objetivos, seguimiento y feedback para el QA automatizador y para los practicantes que acompaña.',
+    description: 'Mantener objetivos, delegación, feedback periódico y resultados observables para quienes acompaña o forma.',
     icon: BookOpen,
   },
+  {
+    title: 'Ampliar visión estratégica del delivery',
+    description: 'Participar de forma sostenida en estimaciones, impactos por alcance, prioridades, riesgos, viabilidad y alineación con la estrategia.',
+    icon: Target,
+  },
+];
+
+const impactMetrics = [
+  { label: 'Casos Mobile automatizados', value: '134', detail: 'De 265 casos automatizables.' },
+  { label: 'Creación en junio', value: '40/72', detail: '55,6% de los casos del equipo.' },
+  { label: 'Cartera CNG asignada', value: '67', detail: '34 Android · 33 iOS.' },
+  { label: 'Actividad MetLife', value: '45 h', detail: '21 tareas en 17 días.' },
+  { label: 'Despliegue inicial MetLife', value: '3', detail: 'Repositorios intervenidos por agente.' },
+  { label: 'Programa Next-Gen QA', value: '40 h', detail: 'Formación teórico-práctica diseñada.' },
 ];
 
 const timeline = [
   {
     term: 'Corto plazo',
     range: '0-3 meses',
-    description: 'Presentar la evidencia para formalizar el rol Lead y establecer métricas comunes de impacto, adopción y eficiencia.',
+    description: 'Formalizar Lead con un dossier trazable y activar un cuadro común de métricas de adopción, eficiencia, calidad e impacto.',
     icon: Target,
     state: 'active',
   },
   {
     term: 'Mediano plazo',
     range: '3-9 meses',
-    description: 'Consolidar gobierno técnico en varios proyectos, seguimiento del talento y participación en estimaciones del delivery.',
+    description: 'Escalar estándares de QA e IA a varios equipos, acreditar desarrollo de personas y asumir mayor participación en decisiones de delivery.',
     icon: Activity,
     state: 'active',
   },
   {
     term: 'Largo plazo',
     range: '9-18 meses',
-    description: 'Preparar la ruta a Expert mediante impacto transversal medible, estrategia de QA/IA y liderazgo de planes avanzados de desarrollo.',
+    description: 'Preparar Expert con Assurance y Calidad en nivel 4, Impacto en nivel 3 y resultados transversales sostenidos y alineados con estrategia.',
     icon: Award,
     state: 'future',
   },
 ];
 
 const tabs = [
-  { id: 'profile', label: 'Perfil actual', icon: UserRound },
-  { id: 'achievements', label: 'Logros y cumplimiento', icon: Briefcase },
-  { id: 'nextSteps', label: 'Proyección y próximos pasos', icon: Rocket },
+  { id: 'profile', label: 'Posicionamiento actual', icon: UserRound },
+  { id: 'achievements', label: 'Evidencias e historial', icon: Briefcase },
+  { id: 'nextSteps', label: 'Brechas y plan de avance', icon: Rocket },
 ];
 
 function AchievementList({ items, tone, heading, subtitle }) {
@@ -173,7 +285,7 @@ function AchievementList({ items, tone, heading, subtitle }) {
     <section className={`talent-achievement-panel talent-achievement-panel--${tone}`}>
       <header className="talent-panel-heading">
         <div className="talent-panel-icon">
-          {tone === 'senior' ? <CheckCircle2 aria-hidden="true" /> : <Star aria-hidden="true" />}
+          {tone === 'evidence' ? <CheckCircle2 aria-hidden="true" /> : <Star aria-hidden="true" />}
         </div>
         <div>
           <h3>{heading}</h3>
@@ -191,8 +303,12 @@ function AchievementList({ items, tone, heading, subtitle }) {
                 <Icon size={18} />
               </span>
               <div>
-                <h4>{item.title}</h4>
+                <div className="talent-achievement-title-row">
+                  <h4>{item.title}</h4>
+                  {item.status && <span className={`talent-evidence-status talent-evidence-status--${item.tone}`}>{item.status}</span>}
+                </div>
                 <p>{item.description}</p>
+                {item.source && <span className="talent-evidence-source">{item.source}</span>}
               </div>
             </li>
           );
@@ -205,18 +321,34 @@ function AchievementList({ items, tone, heading, subtitle }) {
 const CareerPath = () => {
   const [activeTab, setActiveTab] = useState('profile');
 
+  const handleTabKeyDown = (event, tabId) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+
+    event.preventDefault();
+    const currentIndex = tabs.findIndex((tab) => tab.id === tabId);
+    const nextIndex = event.key === 'Home'
+      ? 0
+      : event.key === 'End'
+        ? tabs.length - 1
+        : (currentIndex + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+    const nextTab = tabs[nextIndex];
+
+    setActiveTab(nextTab.id);
+    document.getElementById(`talent-tab-${nextTab.id}`)?.focus();
+  };
+
   return (
     <section className="talent-map" aria-labelledby="talent-map-title">
       <header className="talent-map__header">
         <div className="talent-map__intro">
           <p className="talent-map__kicker">Mapa de talento</p>
-          <h2 id="talent-map-title">Mi nivel funcional y proyección en QA</h2>
-          <p>Análisis de funciones: Lead Technical Software Quality · actualizado al 23 de julio de 2026</p>
+          <h2 id="talent-map-title">Mi posicionamiento funcional en QA</h2>
+          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 13 de agosto de 2026</p>
         </div>
 
-        <aside className="talent-map__objective" aria-label="Objetivo del mapa de talento">
+        <aside className="talent-map__objective" aria-label="Conclusión del mapa de talento">
           <Target size={20} aria-hidden="true" />
-          <p>Conclusión: las responsabilidades ejercidas corresponden a Lead. La categoría formal debe validarse mediante el proceso interno.</p>
+          <p><strong>Conclusión:</strong> categoría registrada Senior; nivel funcional evidenciado Lead. El siguiente paso es formalizar Lead y construir evidencia de impacto para avanzar hacia Expert.</p>
         </aside>
       </header>
 
@@ -255,10 +387,12 @@ const CareerPath = () => {
               className={`talent-tab ${isActive ? 'talent-tab--active' : ''}`}
               type="button"
               role="tab"
+              tabIndex={isActive ? 0 : -1}
               aria-selected={isActive}
               aria-controls={`talent-panel-${tab.id}`}
               id={`talent-tab-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
+              onKeyDown={(event) => handleTabKeyDown(event, tab.id)}
             >
               <Icon size={17} aria-hidden="true" />
               {tab.label}
@@ -279,18 +413,36 @@ const CareerPath = () => {
               <header className="talent-profile__header">
                 <div className="talent-monogram" aria-hidden="true">JC</div>
                 <div>
-                  <p>Nivel funcional recomendado</p>
+                  <p>Nivel funcional evidenciado</p>
                   <h3>Lead Technical Software Quality</h3>
                 </div>
               </header>
 
               <p className="talent-profile__summary">
-                Define, construye e implementa prácticas, metodologías, herramientas y marcos de calidad, y lidera desde el conocimiento al equipo para aplicarlos. Su alcance combina automatización Mobile y Web, incorporación de IA, asesoría técnica, desarrollo de talento y coordinación directa de un QA automatizador.
+                El alcance actual ya no se limita a ejecutar automatización. Jimmy define y construye prácticas y herramientas, resuelve problemas técnicos complejos, integra IA en el delivery, asesora a distintos proyectos y desarrolla capacidades en otras personas. Esa combinación coincide con la definición funcional de Lead del Mapa de Talento GDNe.
               </p>
 
+              <dl className="talent-status-grid" aria-label="Resumen del posicionamiento profesional">
+                <div>
+                  <dt>Categoría formal</dt>
+                  <dd>Senior</dd>
+                  <p>Registro actual</p>
+                </div>
+                <div>
+                  <dt>Nivel funcional</dt>
+                  <dd>Lead</dd>
+                  <p>Respaldado por evidencia</p>
+                </div>
+                <div>
+                  <dt>Próximo horizonte</dt>
+                  <dd>Expert</dd>
+                  <p>Requiere nuevas evidencias</p>
+                </div>
+              </dl>
+
               <div className="talent-profile__verdict">
-                <strong>Resultado del análisis</strong>
-                <p>La categoría registrada es Senior, pero el alcance real cubre de forma consistente los criterios de Lead. Aún no corresponde Expert porque falta consolidar gobierno estratégico, planificación económica e impacto transversal medido de manera sostenida.</p>
+                <strong>Resultado del reanálisis</strong>
+                <p>La evidencia cubre de manera consistente el núcleo de Lead: definir, construir, implementar y probar prácticas de calidad, y liderar al equipo desde el conocimiento. Expert todavía no está consolidado porque exige Assurance & Testing y Orientación a la calidad en nivel 4, Impacto en nivel 3 y una referencia estratégica transversal demostrada en el tiempo.</p>
               </div>
 
               <div className="talent-section-title talent-section-title--spaced">
@@ -311,24 +463,37 @@ const CareerPath = () => {
             <aside className="talent-competencies" aria-labelledby="competencies-title">
               <div className="talent-section-title">
                 <Star size={18} aria-hidden="true" />
-                <h3 id="competencies-title">Competencias clave</h3>
+                <h3 id="competencies-title">Lectura de competencias</h3>
               </div>
-              <p className="talent-competencies__intro">Referencias del rol Lead definidas por el Mapa de Talento.</p>
+              <p className="talent-competencies__intro">Estimación funcional basada en evidencias. El proceso interno debe confirmar niveles y promoción.</p>
 
               <ul>
                 {competencies.map((competency) => (
                   <li key={competency.name}>
-                    <span>{competency.name}</span>
-                    <strong aria-label={`${competency.name}: nivel ${competency.level} de 4`}>{competency.level}<span>/4</span></strong>
+                    <div className="talent-competency-heading">
+                      <span>{competency.name}</span>
+                      <strong aria-label={`${competency.name}: nivel funcional estimado ${competency.level} de 4`}>{competency.level}<span>/4</span></strong>
+                    </div>
+                    <progress max="4" value={competency.level} aria-label={`${competency.name}: ${competency.level} de 4`} />
+                    <div className="talent-competency-targets">
+                      <span>{competency.leadRequirement ? `Lead ${competency.leadRequirement}` : 'No crítica en Lead'}</span>
+                      <span>Referencia Expert {competency.expertTarget}</span>
+                    </div>
+                    <p>{competency.note}</p>
                   </li>
                 ))}
               </ul>
 
               <div className="talent-growth">
                 <span>Growth Mindset</span>
-                <strong>Tramo 3 - Preparado para el salto</strong>
-                <p>Existe autonomía, un camino elegido en QA Automation e IA y responsabilidades desafiantes del nivel siguiente. La promoción y el percentil deben confirmarse en la evaluación formal.</p>
+                <strong>Tramo 3 compatible · preparado para el salto</strong>
+                <p>La autonomía, el camino elegido en QA Automation e IA y las asignaciones de reto son compatibles con T3. No se asigna percentil: debe confirmarse en la evaluación formal.</p>
               </div>
+            </aside>
+
+            <aside className="talent-method-note">
+              <ShieldCheck size={18} aria-hidden="true" />
+              <p><strong>Base del análisis:</strong> Mapa de Talento GDNe IBIOL, modelo Growth Mindset, cartera RAG de AvanGrid e historial completo de AvanGrid, MetLife, Studio QA, Asesorías QA e Inteligencia Artificial. Esta lectura orienta la conversación de carrera; no sustituye la validación interna.</p>
             </aside>
           </section>
         )}
@@ -338,20 +503,43 @@ const CareerPath = () => {
             id="talent-panel-achievements"
             role="tabpanel"
             aria-labelledby="talent-tab-achievements"
-            className="talent-achievements-layout"
+            className="talent-evidence-view"
           >
-            <AchievementList
-              items={currentAchievements}
-              tone="senior"
-              heading="Evidencias del trabajo actual"
-              subtitle="AvanGrid, Studio QA, Asesorías QA e Inteligencia Artificial"
-            />
-            <AchievementList
-              items={leadAlignment}
-              tone="lead"
-              heading="Cumplimiento del rol Lead"
-              subtitle="Contraste directo con el Mapa de Talento GDNe"
-            />
+            <div className="talent-achievements-layout">
+              <AchievementList
+                items={currentAchievements}
+                tone="evidence"
+                heading="Evidencias profesionales integradas"
+                subtitle="Actividad actual e histórica hasta el 13 de agosto de 2026"
+              />
+              <AchievementList
+                items={leadAlignment}
+                tone="lead"
+                heading="Ajuste al rol Lead"
+                subtitle="Contraste directo con el Mapa de Talento GDNe"
+              />
+            </div>
+
+            <section className="talent-history" aria-labelledby="talent-history-title">
+              <header>
+                <div className="talent-section-title">
+                  <Briefcase size={18} aria-hidden="true" />
+                  <h3 id="talent-history-title">Historial que sustenta la evolución</h3>
+                </div>
+                <p>Los hitos muestran continuidad entre ejecución, creación de herramientas, asesoría y desarrollo de personas.</p>
+              </header>
+              <ol className="talent-history-list">
+                {historyMilestones.map((milestone) => (
+                  <li key={`${milestone.date}-${milestone.title}`}>
+                    <time>{milestone.date}</time>
+                    <div>
+                      <h4>{milestone.title}</h4>
+                      <p>{milestone.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
           </section>
         )}
 
@@ -366,8 +554,8 @@ const CareerPath = () => {
               <header className="talent-needs__header">
                 <Flag size={22} aria-hidden="true" />
                 <div>
-                  <h3>Qué necesito para consolidar Lead y avanzar hacia Expert</h3>
-                  <p>La prioridad es formalizar y escalar un alcance que ya opera funcionalmente en nivel Lead.</p>
+                  <h3>Qué necesito para formalizar Lead y construir el salto a Expert</h3>
+                  <p>La prioridad inmediata es convertir un alcance Lead ya visible en evidencia comparable, sostenida y validable.</p>
                 </div>
               </header>
 
@@ -393,37 +581,24 @@ const CareerPath = () => {
               <article className="talent-impact">
                 <div className="talent-section-title">
                   <TrendingUp size={19} aria-hidden="true" />
-                  <h3>Impacto actual generado</h3>
+                  <h3>Impacto respaldado por datos</h3>
                 </div>
-                <p>La evidencia combina ejecución, adopción técnica, liderazgo y transferencia de conocimiento.</p>
+                <p>Estas cifras describen el alcance visible; el siguiente paso es vincularlas con ahorro, eficiencia, adopción y calidad obtenida.</p>
                 <dl>
-                  <div>
-                    <dt>QA bajo coordinación</dt>
-                    <dd>1</dd>
-                    <p>Automatizador en AvanGrid.</p>
-                  </div>
-                  <div>
-                    <dt>Casos mobile automatizados</dt>
-                    <dd>134</dd>
-                    <p>Android e iOS.</p>
-                  </div>
-                  <div>
-                    <dt>Trazabilidad Zephyr</dt>
-                    <dd>100%</dd>
-                    <p>Ciclos, resultados y evidencias.</p>
-                  </div>
-                  <div>
-                    <dt>Repositorios MetLife</dt>
-                    <dd>3</dd>
-                    <p>Analizados y saneados.</p>
-                  </div>
+                  {impactMetrics.map((metric) => (
+                    <div key={metric.label}>
+                      <dt>{metric.label}</dt>
+                      <dd>{metric.value}</dd>
+                      <p>{metric.detail}</p>
+                    </div>
+                  ))}
                 </dl>
               </article>
 
               <article className="talent-timeline">
                 <div className="talent-section-title">
                   <Rocket size={19} aria-hidden="true" />
-                  <h3>Próximos pasos en mi carrera</h3>
+                  <h3>Plan de evolución</h3>
                 </div>
                 <ol>
                   {timeline.map((item) => {
