@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-05T22:45:27.0800744Z",
+  "updatedAt": "2026-08-13T15:28:10.9047098Z",
   "days": {
     "2026-07-22": [
       {
@@ -111,8 +111,76 @@
         "id": "2026-08-05-1",
         "date": "2026-08-05",
         "type": "Desarrollo / configuración",
-        "title": "Construcción de agente reparador para aplicativos post-migración: análisis de código, levantamiento, Smoke Tests y reparación",
+        "title": "Construcción de agente reparador para aplicativos post-migración",
         "hours": 4
+      }
+    ],
+    "2026-08-06": [
+      {
+        "id": "2026-08-06-1",
+        "date": "2026-08-06",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion aplicativo BlockClaim Apis Rest",
+        "hours": 3
+      }
+    ],
+    "2026-08-07": [
+      {
+        "id": "2026-08-07-1",
+        "date": "2026-08-07",
+        "type": "Desarrollo / configuración",
+        "title": "Sanacion de nuevo repositorio github",
+        "hours": 2
+      }
+    ],
+    "2026-08-10": [
+      {
+        "id": "2026-08-10-1",
+        "date": "2026-08-10",
+        "type": "Soporte",
+        "title": "Instalacion de build tools para compilacion de apps",
+        "hours": 2
+      }
+    ],
+    "2026-08-11": [
+      {
+        "id": "2026-08-11-1",
+        "date": "2026-08-11",
+        "type": "Pruebas",
+        "title": "SmokeTest sobre repositorios reparador por agente",
+        "hours": 3
+      }
+    ],
+    "2026-08-12": [
+      {
+        "id": "2026-08-12-1",
+        "date": "2026-08-12",
+        "type": "Desarrollo / configuración",
+        "title": "Sanacion repositorio 13848",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-12-2",
+        "date": "2026-08-12",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion repositorio SonrieSeguro",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-12-3",
+        "date": "2026-08-12",
+        "type": "Desarrollo / configuración",
+        "title": "Sanacion repositorio SOAP 13841 migrado a 4.8",
+        "hours": 2
+      }
+    ],
+    "2026-08-13": [
+      {
+        "id": "2026-08-13-1",
+        "date": "2026-08-13",
+        "type": "Pruebas",
+        "title": "Pruebas repositorio Sonrie Seguro",
+        "hours": 2
       }
     ]
   }
