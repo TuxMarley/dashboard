@@ -15,7 +15,7 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
-        {/* Weekly I2Tech AI referents participation */}
+        {/* Weekly AI 2 Tech AI referents participation */}
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
             <div className="flex-col" style={{ flex: '2 1 400px' }}>
@@ -24,7 +24,7 @@ const InteligenciaArtificial = () => {
                 <span>Referentes de Inteligencia Artificial GDNE</span>
               </div>
 
-              <h4 className="font-serif font-bold text-2xl text-white mb-2">I2Tech: participación semanal en iniciativas de IA</h4>
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">AI 2 Tech: participación semanal en iniciativas de IA</h4>
 
               <div className="flex items-center gap-2 text-sm text-muted mb-4">
                 <Calendar size={16} />
@@ -32,7 +32,7 @@ const InteligenciaArtificial = () => {
               </div>
 
               <p className="text-sm text-muted mb-4 leading-relaxed">
-                Participación activa en el I2Tech de referentes de inteligencia artificial de GDNE, espacio semanal para coordinar iniciativas, compartir avances y transformar ideas en actividades de difusión y adopción de IA.
+                Participación activa en AI 2 Tech de referentes de inteligencia artificial de GDNE, espacio semanal para coordinar iniciativas, compartir avances y transformar ideas en actividades de difusión y adopción de IA.
               </p>
 
               <div className="flex-col gap-2 mb-4">
@@ -55,12 +55,12 @@ const InteligenciaArtificial = () => {
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
                 <img
                   src="/i2tech_gdne_weekly.png"
-                  alt="Reunión semanal I2Tech de referentes de inteligencia artificial de GDNE"
+                  alt="Reunión semanal AI 2 Tech de referentes de inteligencia artificial de GDNE"
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                   style={{ display: 'block' }}
                 />
               </div>
-              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la reunión semanal I2Tech de referentes de IA</p>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la reunión semanal AI 2 Tech de referentes de IA</p>
             </div>
           </div>
         </div>
