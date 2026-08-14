@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Calendar, BrainCircuit, CheckCircle2, Newspaper, Presentation } from 'lucide-react';
+import { Bot, Calendar, BrainCircuit, CheckCircle2, Newspaper, Presentation, Users } from 'lucide-react';
 
 const InteligenciaArtificial = () => {
   return (
@@ -12,6 +12,56 @@ const InteligenciaArtificial = () => {
           <h3 className="font-semibold text-xl">Eventos y Herramientas Presentadas</h3>
           <div className="pill-tag" style={{ background: 'rgba(0, 114, 188, 0.15)', color: 'var(--brand-blue)', borderColor: 'rgba(0, 114, 188, 0.3)' }}>
             <span>Hitos Recientes</span>
+          </div>
+        </div>
+
+        {/* Weekly I2Tech AI referents participation */}
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Users size={20} />
+                <span>Referentes de Inteligencia Artificial GDNE</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">I2Tech: participación semanal en iniciativas de IA</h4>
+
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Reunión de planificación semanal</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Participación activa en el I2Tech de referentes de inteligencia artificial de GDNE, espacio semanal para coordinar iniciativas, compartir avances y transformar ideas en actividades de difusión y adopción de IA.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Planificación de eventos y acciones de difusión sobre inteligencia artificial.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Planificación y ejecución de publicaciones de noticias de IA para la comunidad.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Colaboración continua en iniciativas de IA con los referentes de GDNE.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-col items-center" style={{ flex: '1.15 1 300px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/i2tech_gdne_weekly.png"
+                  alt="Reunión semanal I2Tech de referentes de inteligencia artificial de GDNE"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <p className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la reunión semanal I2Tech de referentes de IA</p>
+            </div>
           </div>
         </div>
 
