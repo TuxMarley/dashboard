@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-13T15:28:10.9047098Z",
+  "updatedAt": "2026-08-20T13:20:16.5580139Z",
   "days": {
     "2026-07-22": [
       {
@@ -181,6 +181,56 @@
         "type": "Pruebas",
         "title": "Pruebas repositorio Sonrie Seguro",
         "hours": 2
+      },
+      {
+        "id": "2026-08-13-2",
+        "date": "2026-08-13",
+        "type": "Reunión",
+        "title": "Reunion con equipo Dev para remediacion y con Equipo QA para datos de prueba",
+        "hours": 1
+      }
+    ],
+    "2026-08-14": [
+      {
+        "id": "2026-08-14-1",
+        "date": "2026-08-14",
+        "type": "Desarrollo / configuración",
+        "title": "Migracion -repositorio 13841 a github",
+        "hours": 2
+      }
+    ],
+    "2026-08-17": [
+      {
+        "id": "2026-08-17-1",
+        "date": "2026-08-17",
+        "type": "Desarrollo / configuración",
+        "title": "Levantamiento de permisos para ad_group y jfrog",
+        "hours": 4
+      }
+    ],
+    "2026-08-18": [
+      {
+        "id": "2026-08-18-1",
+        "date": "2026-08-18",
+        "type": "Desarrollo / configuración",
+        "title": "Cambio config repo 11220 en QA",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-18-2",
+        "date": "2026-08-18",
+        "type": "Desarrollo / configuración",
+        "title": "Sanitizado y migrado repo 12666",
+        "hours": 2
+      }
+    ],
+    "2026-08-19": [
+      {
+        "id": "2026-08-19-1",
+        "date": "2026-08-19",
+        "type": "Desarrollo / configuración",
+        "title": "migracion respos 11220 - Conntraloria - Empresa - Prestadores",
+        "hours": 4
       }
     ]
   }
