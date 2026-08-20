@@ -1,10 +1,10 @@
 [
   {
-    "date": "2026-08-06",
-    "sheet": "CMP · Payments Mobile · Outage · Android",
-    "key": "CMP-AUTH0-STG-MOBILE-OUTAGE",
-    "name": "Ejecución del ciclo de pruebas Auth0-STG: 13 casos de CMP Payments Mobile, Outage y Android.",
+    "date": "2026-08-19",
+    "sheet": "BGC · Automation Mobile",
+    "key": "BGC-MOBILE-FIX-26",
+    "name": "Continuación del arreglo de casos automatizados Mobile para BGC: 26 casos corregidos y ejecutados correctamente.",
     "assigned": "Jimmy",
-    "status": "Ejecutado"
+    "status": "26 casos corregidos"
   }
 ]

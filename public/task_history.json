@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-06T00:00:00-04:00",
+  "updatedAt": "2026-08-19T00:00:00-04:00",
   "days": {
     "2026-07-15": [
       {
@@ -53,6 +53,52 @@
         "name": "Ejecución del ciclo de pruebas Auth0-STG: 13 casos de CMP Payments Mobile, Outage y Android.",
         "assigned": "Jimmy",
         "status": "Ejecutado"
+      }
+    ],
+    "2026-08-17": [
+      {
+        "date": "2026-08-17",
+        "sheet": "Automation Mobile · Coordinación",
+        "key": "MOBILE-PLAN-DEV-APPS",
+        "name": "Reuniones con el equipo de Desarrollo para definir las aplicaciones que se probarán y su modalidad de entrega al equipo.",
+        "assigned": "Jimmy",
+        "status": "Completado"
+      },
+      {
+        "date": "2026-08-17",
+        "sheet": "Automation Mobile · Preparación",
+        "key": "MOBILE-PLAN-REGRESSION",
+        "name": "Definición, junto al equipo de Automatización, del proceso de preparación para las próximas regresiones de Automation Mobile.",
+        "assigned": "Jimmy",
+        "status": "Completado"
+      }
+    ],
+    "2026-08-18": [
+      {
+        "date": "2026-08-18",
+        "sheet": "BGC · Automation Mobile",
+        "key": "BGC-MOBILE-TEST-READINESS",
+        "name": "Revisión de datos de prueba, aplicaciones y enlaces; ejecución inicial y ajustes para identificar los casos que requerían corrección.",
+        "assigned": "Jimmy",
+        "status": "Completado"
+      },
+      {
+        "date": "2026-08-18",
+        "sheet": "BGC · Automation Mobile",
+        "key": "BGC-MOBILE-FIX-09",
+        "name": "Corrección de 9 casos de prueba Mobile para BGC, dejándolos operativos.",
+        "assigned": "Jimmy",
+        "status": "9 casos corregidos"
+      }
+    ],
+    "2026-08-19": [
+      {
+        "date": "2026-08-19",
+        "sheet": "BGC · Automation Mobile",
+        "key": "BGC-MOBILE-FIX-26",
+        "name": "Continuación del arreglo de casos automatizados Mobile para BGC: 26 casos corregidos y ejecutados correctamente.",
+        "assigned": "Jimmy",
+        "status": "26 casos corregidos"
       }
     ]
   }
