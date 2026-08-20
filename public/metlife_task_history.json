@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T13:20:16.5580139Z",
+  "updatedAt": "2026-08-20T21:08:34.1790264Z",
   "days": {
     "2026-07-22": [
       {
@@ -231,6 +231,29 @@
         "type": "Desarrollo / configuración",
         "title": "migracion respos 11220 - Conntraloria - Empresa - Prestadores",
         "hours": 4
+      }
+    ],
+    "2026-08-20": [
+      {
+        "id": "2026-08-20-1",
+        "date": "2026-08-20",
+        "type": "Desarrollo / configuración",
+        "title": "Sanitizado y migrado repo BlockClaim",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-20-2",
+        "date": "2026-08-20",
+        "type": "Desarrollo / configuración",
+        "title": "PR repositorios Salud Dental",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-20-3",
+        "date": "2026-08-20",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion entorno de prubas QA - Cambio a 19c",
+        "hours": 1
       }
     ]
   }
