@@ -15,6 +15,47 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        {/* IA Session about AI agents */}
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex-col gap-6">
+            <div className="flex-col">
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Presentation size={20} />
+                <span>IA Sessions</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">IA Sessions: agentes de IA en acción</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Participación en una IA Session dedicada al mundo de los agentes de inteligencia artificial: qué son, cómo se crean y cómo pueden interactuar con tools y skills para ejecutar tareas y resolver problemas.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Conversación sobre la creación y el uso de agentes de IA en contextos técnicos.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Revisión de la interacción de un agente con tools y skills para resolver tareas.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ width: '100%', maxWidth: '420px', alignSelf: 'center' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/ia-2026-08-25-sesion-agentes.jpg"
+                  alt="Afiche de IA Sessions sobre agentes de IA, con los participantes Jimmy Cuevas, Felipe Segovia y Javier Escobar"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Afiche de la IA Session sobre agentes de IA y su interacción con tools y skills</figcaption>
+            </figure>
+          </div>
+        </div>
+
         {/* Weekly AI 2 Tech AI referents participation */}
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
