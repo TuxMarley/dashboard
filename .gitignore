@@ -31,10 +31,15 @@ qa_validation_dates.txt
 # graphify-axet
 .graphify/
 
-# Local AI assistant configuration, skills, and generated workspaces
+# Local AI assistant configuration and generated workspaces.
+# Version the dashboard publishing skill so it is available in every clone.
 .codex/
-.agents/
-skills/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/dashboard-content-publishing/
+!.agents/skills/dashboard-content-publishing/**
+/skills/
 
 # Test, browser automation, and coverage output
 coverage/

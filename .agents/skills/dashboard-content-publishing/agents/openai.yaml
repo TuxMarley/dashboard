@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publicar Dashboard"
+  short_description: "Actualiza publicaciones y evidencia del dashboard"
+  default_prompt: "Actualiza una publicacion del dashboard con contenido, evidencia y validacion."
