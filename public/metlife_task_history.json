@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-20T21:08:34.1790264Z",
+  "updatedAt": "2026-08-25T16:15:01.4547407Z",
   "days": {
     "2026-07-22": [
       {
@@ -254,6 +254,33 @@
         "type": "Desarrollo / configuración",
         "title": "Reparacion entorno de prubas QA - Cambio a 19c",
         "hours": 1
+      }
+    ],
+    "2026-08-21": [
+      {
+        "id": "2026-08-21-1",
+        "date": "2026-08-21",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion entorno de prubas QA - Cambio a 19c",
+        "hours": 4
+      }
+    ],
+    "2026-08-24": [
+      {
+        "id": "2026-08-24-1",
+        "date": "2026-08-24",
+        "type": "Pruebas",
+        "title": "Validaciones y pruebas migracion repo sonrieSeguro",
+        "hours": 6
+      }
+    ],
+    "2026-08-25": [
+      {
+        "id": "2026-08-25-1",
+        "date": "2026-08-25",
+        "type": "Análisis",
+        "title": "Reparación y migracion DB de Oracle 19c",
+        "hours": 2
       }
     ]
   }
