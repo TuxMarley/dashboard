@@ -89,13 +89,13 @@ const competencies = [
 const currentAchievements = [
   {
     title: 'AvanGrid · automatización y delivery Mobile',
-    description: 'El dashboard registra 40 de 72 casos creados en junio (55,6%) y 134 de 265 casos automatizados en el alcance Mobile. La cartera RAG añade 67 registros CNG asignados, distribuidos entre Android e iOS, con 54 pruebas en estado Passed.',
+    description: 'El dashboard registra 40 de 72 casos creados en junio (55,6%) y 134 de 265 casos automatizados en el alcance Mobile. La cartera RAG añade 67 registros CNG asignados, distribuidos entre Android e iOS, con 54 pruebas en estado Passed; en agosto coordinó la preparación de regresiones y dejó operativos 35 casos Mobile de BGC.',
     source: 'AvanGrid + cartera RAG',
     icon: ClipboardCheck,
   },
   {
     title: 'MetLife · agentes para migración y reparación',
-    description: 'Entre el 22 de julio y el 13 de agosto se registran 21 actividades, 45 horas y 17 días de trabajo: creación y ejecución de agentes sobre tres repositorios, saneamiento, migración, reparación post-migración y smoke tests.',
+    description: 'Entre el 22 de julio y el 25 de agosto se registran 33 actividades, 77 horas y 25 días de trabajo: creación y ejecución de agentes, saneamiento y migración de repositorios, reparación post-migración, remediación de entornos de QA y validaciones.',
     source: 'Historial operativo MetLife',
     icon: ShieldCheck,
   },
@@ -119,7 +119,7 @@ const currentAchievements = [
   },
   {
     title: 'Influencia técnica y comunidad',
-    description: 'Actúa como Referente de IA en Chile, participó como Top Adopter y podcaster en IA Sessions y comparte prácticas que conectan QA, automatización, ingeniería de software e inteligencia artificial.',
+    description: 'Actúa como Referente de IA en Chile, participó como Top Adopter y podcaster en IA Sessions y compartió una nueva sesión sobre cómo los agentes de IA interactúan con tools y skills para resolver tareas técnicas.',
     source: 'Comunidad GenAI GDNe',
     icon: Network,
   },
@@ -206,6 +206,16 @@ const historyMilestones = [
     title: 'Arquitectura de agentización técnica',
     description: 'Presentación de un enfoque modular y gobernado con LLM, RAG, skills, herramientas y Copilot.',
   },
+  {
+    date: '17-19 ago 2026',
+    title: 'Coordinación y recuperación Mobile en BGC',
+    description: 'Definición de la preparación de regresiones junto al equipo de Automatización y corrección comprobada de 35 casos Mobile.',
+  },
+  {
+    date: '25 ago 2026',
+    title: 'Sesión IA sobre agentes y continuidad en MetLife',
+    description: 'Participación en una IA Session sobre agentes, tools y skills, junto con actividad de reparación y migración de base de datos en MetLife.',
+  },
 ];
 
 const nextLevelNeeds = [
@@ -245,7 +255,8 @@ const impactMetrics = [
   { label: 'Casos Mobile automatizados', value: '134', detail: 'De 265 casos automatizables.' },
   { label: 'Creación en junio', value: '40/72', detail: '55,6% de los casos del equipo.' },
   { label: 'Cartera CNG asignada', value: '67', detail: '34 Android · 33 iOS.' },
-  { label: 'Actividad MetLife', value: '45 h', detail: '21 tareas en 17 días.' },
+  { label: 'Casos BGC recuperados', value: '35', detail: '9 el 18 de agosto y 26 el 19.' },
+  { label: 'Actividad MetLife', value: '77 h', detail: '33 tareas en 25 días.' },
   { label: 'Despliegue inicial MetLife', value: '3', detail: 'Repositorios intervenidos por agente.' },
   { label: 'Programa Next-Gen QA', value: '40 h', detail: 'Formación teórico-práctica diseñada.' },
 ];
@@ -343,7 +354,7 @@ const CareerPath = () => {
         <div className="talent-map__intro">
           <p className="talent-map__kicker">Mapa de talento</p>
           <h2 id="talent-map-title">Mi posicionamiento funcional en QA</h2>
-          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 13 de agosto de 2026</p>
+          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 25 de agosto de 2026</p>
         </div>
 
         <aside className="talent-map__objective" aria-label="Conclusión del mapa de talento">
@@ -510,7 +521,7 @@ const CareerPath = () => {
                 items={currentAchievements}
                 tone="evidence"
                 heading="Evidencias profesionales integradas"
-                subtitle="Actividad actual e histórica hasta el 13 de agosto de 2026"
+                subtitle="Actividad actual e histórica hasta el 25 de agosto de 2026"
               />
               <AchievementList
                 items={leadAlignment}
