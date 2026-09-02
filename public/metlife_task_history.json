@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-25T16:15:01.4547407Z",
+  "updatedAt": "2026-09-02T15:33:41.858408+00:00",
   "days": {
     "2026-07-22": [
       {
@@ -281,6 +281,88 @@
         "type": "Análisis",
         "title": "Reparación y migracion DB de Oracle 19c",
         "hours": 2
+      },
+      {
+        "id": "2026-08-25-2",
+        "date": "2026-08-25",
+        "type": "Análisis",
+        "title": "Reparacion loop SonrieSeguro Valorizar",
+        "hours": 2
+      }
+    ],
+    "2026-08-26": [
+      {
+        "id": "2026-08-26-1",
+        "date": "2026-08-26",
+        "type": "Reunión",
+        "title": "Proximas migraciones EAIs",
+        "hours": 1
+      },
+      {
+        "id": "2026-08-26-2",
+        "date": "2026-08-26",
+        "type": "Reunión",
+        "title": "11220 vulnerabilidades",
+        "hours": 1
+      },
+      {
+        "id": "2026-08-26-3",
+        "date": "2026-08-26",
+        "type": "Desarrollo / configuración",
+        "title": "Actualizacion main repositorios AZ",
+        "hours": 2
+      }
+    ],
+    "2026-08-27": [
+      {
+        "id": "2026-08-27-1",
+        "date": "2026-08-27",
+        "type": "Desarrollo / configuración",
+        "title": "Solucion conflicto Farmacias IMED - 11291",
+        "hours": 2
+      },
+      {
+        "id": "2026-08-27-2",
+        "date": "2026-08-27",
+        "type": "Desarrollo / configuración",
+        "title": "Actualizacion main repositorios AZ",
+        "hours": 4
+      }
+    ],
+    "2026-08-28": [
+      {
+        "id": "2026-08-28-1",
+        "date": "2026-08-28",
+        "type": "Desarrollo / configuración",
+        "title": "Actualizacion main repositorios AZ",
+        "hours": 4
+      }
+    ],
+    "2026-08-31": [
+      {
+        "id": "2026-08-31-1",
+        "date": "2026-08-31",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion y testeo reposiotrio 11291 - Analisis merge 12142",
+        "hours": 8
+      }
+    ],
+    "2026-09-01": [
+      {
+        "id": "2026-09-01-1",
+        "date": "2026-09-01",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion y testeo reposiotrio 11291 - Analisis merge 12143",
+        "hours": 8
+      }
+    ],
+    "2026-09-02": [
+      {
+        "id": "2026-09-02-1",
+        "date": "2026-09-02",
+        "type": "Análisis",
+        "title": "Revision de tareas DevOps en equipo Claims",
+        "hours": 1
       }
     ]
   }
