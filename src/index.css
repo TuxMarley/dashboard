@@ -2049,6 +2049,143 @@ body {
   gap: 1.5rem;
 }
 
+.metlife-tabs {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.metlife-tabs .tab-button[aria-selected="true"] {
+  color: #06261a;
+  background: var(--metlife-green);
+  box-shadow: none;
+}
+
+.metlife-agentization {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: 0.35rem;
+}
+
+.metlife-agentization__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-agentization__intro h3 {
+  max-width: 26ch;
+  margin-top: 0.35rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.03em;
+}
+
+.metlife-agentization__intro p:not(.section-kicker) {
+  max-width: 66ch;
+  margin-top: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.metlife-agentization__signal {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  align-self: start;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(84, 217, 154, 0.3);
+  border-radius: 0.7rem;
+  color: #d9f8e9;
+  background: var(--metlife-green-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.metlife-agentization__signal svg,
+.metlife-agentization__capabilities > article > svg,
+.metlife-agentization__note > svg {
+  flex: 0 0 auto;
+  color: var(--metlife-green);
+}
+
+.metlife-agentization__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  list-style: none;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.85rem;
+  background: rgba(5, 17, 34, 0.34);
+}
+
+.metlife-agentization__steps li {
+  min-width: 0;
+  padding: 1.3rem;
+  border-left: 1px solid var(--line-subtle);
+}
+
+.metlife-agentization__steps li:first-child {
+  border-left: 0;
+}
+
+.metlife-agentization__steps li > span {
+  color: var(--metlife-green);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.metlife-agentization__steps h4,
+.metlife-agentization__capabilities h4 {
+  margin-top: 1.4rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+}
+
+.metlife-agentization__steps p,
+.metlife-agentization__capabilities p {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.metlife-agentization__capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.metlife-agentization__capabilities > article {
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.85rem;
+  background: rgba(5, 17, 34, 0.34);
+}
+
+.metlife-agentization__capabilities h4 {
+  margin-top: 1.15rem;
+}
+
+.metlife-agentization__note {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border-top: 1px solid rgba(84, 217, 154, 0.32);
+  color: #d9f8e9;
+  background: rgba(84, 217, 154, 0.06);
+  line-height: 1.5;
+}
+
+.metlife-agentization__note p {
+  max-width: 75ch;
+  font-size: 0.86rem;
+}
+
 .metlife-heading {
   align-items: center;
 }
@@ -2574,6 +2711,21 @@ body {
 }
 
 @media (max-width: 900px) {
+  .metlife-agentization__steps,
+  .metlife-agentization__capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .metlife-agentization__steps li,
+  .metlife-agentization__steps li:first-child {
+    border-top: 1px solid var(--line-subtle);
+    border-left: 0;
+  }
+
+  .metlife-agentization__steps li:first-child {
+    border-top: 0;
+  }
+
   .metlife-overview {
     grid-template-columns: 1fr;
     gap: 1.15rem;
@@ -2605,6 +2757,11 @@ body {
 }
 
 @media (max-width: 700px) {
+  .metlife-agentization__intro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   .metlife-heading {
     align-items: start;
   }

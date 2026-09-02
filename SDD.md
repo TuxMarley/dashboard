@@ -187,6 +187,7 @@ dashboard/
 | FR-012 | Must | La ruta initiatives MUST renderizar tarjetas editoriales desde datos configurables no sensibles. |
 | FR-013 | Must | La ruta worklog MUST implementar estados loading, error, empty y ready. |
 | FR-014 | Must | La ruta worklog MUST mostrar resumen agregado, selector de día e información detallada del día seleccionado. |
+| FR-014A | Must | Cuando worklog publique prácticas técnicas estáticas, MUST separarlas de la bitácora mediante tabs accesibles y conservar los estados de datos de la bitácora. |
 | FR-015 | Must | La ruta career MUST ofrecer tabs Perfil, Capacidades y Objetivos con contenido genérico configurable. |
 | FR-016 | Must | Un cambio de fecha MUST actualizar solo el contenido dependiente de la selección sin recargar la página. |
 
@@ -362,7 +363,7 @@ getWorklogSummary(history) -> { days, entries, totalHours, primaryType }
 | AC-004 | FR-006, NFR-004, NFR-005 | Given navegación y tabs, when se usan con teclado, then se puede alcanzar cada control y el foco es visible. | Test E2E + revisión visual. |
 | AC-005 | FR-009, DATA-001 a DATA-005 | Given historial válido con varias fechas, when carga Program, then se selecciona la fecha ISO más reciente y se muestran solo entradas válidas. | Unit + integración. |
 | AC-006 | FR-010 | Given fallo al pedir activity_history.json y snapshot válido, when carga Program, then se muestran actividades de snapshot y no el error terminal. | Test de integración con fetch mock. |
-| AC-007 | FR-013, FR-014, DATA-006 a DATA-010 | Given cada resultado posible de worklog_history.json, when carga Worklog, then muestra loading, error, vacío o bitácora y el resumen coincide con los datos válidos. | Unit + integración. |
+| AC-007 | FR-013, FR-014, FR-014A, DATA-006 a DATA-010 | Given cada resultado posible de worklog_history.json, when carga Worklog, then muestra loading, error, vacío o bitácora y el resumen coincide con los datos válidos; las prácticas técnicas permanecen disponibles en tabs separados. | Unit + integración. |
 | AC-008 | UX-005, UX-010 a UX-013, NFR-003 | Given los cuatro viewports especificados, when se inspecciona cada ruta, then no existe overflow horizontal y los layouts se reorganizan según los breakpoints. | Capturas de regresión visual. |
 | AC-009 | UX-008 | Given un gráfico visible, when se revisa su tarjeta, then existe KPI, tabla o resumen textual equivalente. | Revisión de componente. |
 | AC-010 | SEC-001 a SEC-005 | Given el contenido versionado para despliegue, when se escanean fuente, JSON y assets, then no se encuentran secretos ni datos de origen. | Revisión automatizada + humana. |
