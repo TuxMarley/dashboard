@@ -2111,45 +2111,223 @@ body {
   color: var(--metlife-green);
 }
 
-.metlife-agentization__steps {
+.metlife-agentization__explorer {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(13rem, 0.68fr) minmax(0, 1.32fr);
+  gap: 1.25rem;
+  padding: 1.25rem;
   overflow: hidden;
-  list-style: none;
   border: 1px solid var(--line-subtle);
   border-radius: 0.85rem;
   background: rgba(5, 17, 34, 0.34);
 }
 
-.metlife-agentization__steps li {
-  min-width: 0;
-  padding: 1.3rem;
-  border-left: 1px solid var(--line-subtle);
+.metlife-agentization__explorer-heading h4,
+.metlife-agentization__principles h4 {
+  margin-top: 0.35rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
 }
 
-.metlife-agentization__steps li:first-child {
+.metlife-agentization__explorer-heading > p:not(.section-kicker) {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.metlife-agentization__stage-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column: 1 / -1;
+  overflow: hidden;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.7rem;
+}
+
+.metlife-agentization__stage {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border: 0;
+  border-left: 1px solid var(--line-subtle);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.metlife-agentization__stage:first-child {
   border-left: 0;
 }
 
-.metlife-agentization__steps li > span {
+.metlife-agentization__stage > span {
   color: var(--metlife-green);
   font-size: 0.72rem;
   font-weight: 700;
 }
 
-.metlife-agentization__steps h4,
-.metlife-agentization__capabilities h4 {
-  margin-top: 1.4rem;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 0.95rem;
+.metlife-agentization__stage strong {
+  color: inherit;
+  font-size: 0.82rem;
 }
 
-.metlife-agentization__steps p,
+.metlife-agentization__stage:hover,
+.metlife-agentization__stage.is-selected {
+  color: #eafff4;
+  background: var(--metlife-green-soft);
+}
+
+.metlife-agentization__stage.is-selected {
+  box-shadow: inset 0 -2px 0 var(--metlife-green);
+}
+
+.metlife-agentization__stage:focus-visible,
+.metlife-agentization__layer:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--brand-gold);
+  outline-offset: -3px;
+}
+
+.metlife-agentization__stage-detail {
+  min-width: 0;
+  padding: 0.35rem 0 0 0.25rem;
+}
+
+.metlife-agentization__stage-detail > p:first-child {
+  color: var(--metlife-green);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.metlife-agentization__stage-detail h4,
+.metlife-agentization__capabilities h4 {
+  margin-top: 0.35rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.metlife-agentization__stage-detail > p:not(:first-child),
 .metlife-agentization__capabilities p {
   margin-top: 0.45rem;
   color: var(--text-muted);
   font-size: 0.84rem;
   line-height: 1.55;
+}
+
+.metlife-agentization__stage-detail dl {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.15rem;
+}
+
+.metlife-agentization__stage-detail dl > div {
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line-subtle);
+}
+
+.metlife-agentization__stage-detail dt {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.metlife-agentization__stage-detail dd {
+  margin-top: 0.18rem;
+  color: #d9f8e9;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.metlife-agentization__principles {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 1.35fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding-block: 0.2rem 1.5rem;
+  border-bottom: 1px solid var(--line-subtle);
+}
+
+.metlife-agentization__principles ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  list-style: none;
+}
+
+.metlife-agentization__principles li {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding-left: 0.85rem;
+  border-left: 1px solid rgba(84, 217, 154, 0.45);
+}
+
+.metlife-agentization__principles strong {
+  color: #d9f8e9;
+  font-size: 0.82rem;
+}
+
+.metlife-agentization__principles span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.metlife-agentization__layer-map {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.metlife-agentization__layer,
+.metlife-agentization__agent-core {
+  min-height: 4.25rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.7rem;
+  color: var(--text-muted);
+  background: rgba(5, 17, 34, 0.44);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.metlife-agentization__layer {
+  cursor: pointer;
+}
+
+.metlife-agentization__layer:hover,
+.metlife-agentization__layer.is-selected {
+  color: #eafff4;
+  border-color: rgba(84, 217, 154, 0.55);
+  background: var(--metlife-green-soft);
+}
+
+.metlife-agentization__agent-core {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: center;
+  color: #06261a;
+  background: var(--metlife-green);
+}
+
+.metlife-agentization__detail-callout {
+  margin-top: 1.15rem;
+  padding: 0.75rem 0.9rem;
+  border-top: 1px solid rgba(84, 217, 154, 0.42);
+  color: #d9f8e9;
+  background: rgba(84, 217, 154, 0.06);
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 .metlife-agentization__capabilities {
@@ -2711,19 +2889,14 @@ body {
 }
 
 @media (max-width: 900px) {
-  .metlife-agentization__steps,
-  .metlife-agentization__capabilities {
+  .metlife-agentization__capabilities,
+  .metlife-agentization__principles ul {
     grid-template-columns: 1fr;
   }
 
-  .metlife-agentization__steps li,
-  .metlife-agentization__steps li:first-child {
-    border-top: 1px solid var(--line-subtle);
-    border-left: 0;
-  }
-
-  .metlife-agentization__steps li:first-child {
-    border-top: 0;
+  .metlife-agentization__principles {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .metlife-overview {
@@ -2757,6 +2930,26 @@ body {
 }
 
 @media (max-width: 700px) {
+  .metlife-agentization__explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .metlife-agentization__stage-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metlife-agentization__stage:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .metlife-agentization__stage:nth-child(n + 3) {
+    border-top: 1px solid var(--line-subtle);
+  }
+
+  .metlife-agentization__stage-detail {
+    padding-left: 0;
+  }
+
   .metlife-agentization__intro {
     grid-template-columns: 1fr;
     gap: 1rem;

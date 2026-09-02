@@ -15,11 +15,11 @@ Jimmy necesita revisar la actividad de MetLife por día, confirmar el tiempo ded
 
 ## Content and constraints
 
-La bitácora usa la hoja `Registro`: solo publica fecha, tipo de actividad, tarea y horas. El mes más reciente es el período activo y los meses anteriores se conservan como historial expandible. Dos pestañas editoriales describen, sin métricas, capturas, nombres internos ni datos de repositorio, la automatización agéntica de pruebas y el desarrollo agéntico. La vista debe incluir carga, error y ausencia de datos para la bitácora; ser usable con teclado; y reorganizarse para móvil.
+La bitácora usa la hoja `Registro`: solo publica fecha, tipo de actividad, tarea y horas. El mes más reciente es el período activo y los meses anteriores se conservan como historial expandible. Dos pestañas editoriales describen, sin métricas, capturas, nombres internos ni datos de repositorio, la automatización agéntica de pruebas y el desarrollo agéntico. Cada una contiene un explorador interactivo que cambia el detalle de una fase o componente sin recargar la página. La vista debe incluir carga, error y ausencia de datos para la bitácora; ser usable con teclado; y reorganizarse para móvil.
 
 ## Direction
 
-Bitácora diaria discreta como pestaña inicial: una banda de resumen del período activo, sus fechas compactas y un detalle plano del día seleccionado. Las otras pestañas son guías breves de proceso con una secuencia o capacidades concretas. Los períodos cerrados se consultan en un historial separado. El acento verde identifica MetLife, mientras la estructura y los controles heredan el sistema visual global del dashboard.
+Bitácora diaria discreta como pestaña inicial: una banda de resumen del período activo, sus fechas compactas y un detalle plano del día seleccionado. Las otras pestañas transforman la secuencia y la arquitectura de los PowerPoint en exploradores nativos: una fase o capa activa se destaca y revela recursos, propósito y salida. Los períodos cerrados se consultan en un historial separado. El acento verde identifica MetLife, mientras la estructura y los controles heredan el sistema visual global del dashboard.
 
 ## Memorable moment
 

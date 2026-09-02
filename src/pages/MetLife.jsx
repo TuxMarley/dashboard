@@ -53,6 +53,76 @@ const metlifeTabs = [
   { id: 'development', label: 'Desarrollo agéntico' },
 ]
 
+const testingStages = [
+  {
+    id: 'brief',
+    label: 'Brief funcional',
+    eyebrow: 'Punto de partida',
+    title: 'Un prompt sitúa el objetivo, no reemplaza el proceso',
+    description: 'El caso se inicia con el escenario, la ruta funcional y el criterio de éxito. El detalle operativo queda en las instrucciones y procedimientos reutilizables.',
+    tools: 'Prompt de objetivo · instrucciones · skill especializada',
+    deliverable: 'Alcance de prueba claro y verificable',
+  },
+  {
+    id: 'context',
+    label: 'Contexto del framework',
+    eyebrow: 'Antes de modificar',
+    title: 'Las reglas de calidad se recuperan antes de escribir código',
+    description: 'El agente consulta convenciones de estructura, prácticas de mantenibilidad y criterios de evidencia para decidir cómo debe resolverse el caso.',
+    tools: 'Contexto del repositorio · instrucciones · skills',
+    deliverable: 'Plan alineado con el framework',
+  },
+  {
+    id: 'grounding',
+    label: 'Navegación real',
+    eyebrow: 'Grounding',
+    title: 'La interfaz aporta evidencia para evitar selectores supuestos',
+    description: 'La navegación asistida permite observar roles, textos, estados y flujos reales antes de generar o actualizar la automatización.',
+    tools: 'Playwright MCP · estructura accesible · navegación controlada',
+    deliverable: 'Elementos y recorrido corroborados',
+  },
+  {
+    id: 'validation',
+    label: 'Ejecución y ajuste',
+    eyebrow: 'Cierre',
+    title: 'Una prueba termina cuando deja evidencia de ejecución',
+    description: 'El caso se ejecuta, los hallazgos se analizan y los ajustes se revalidan para que el resultado sea revisable y mantenible.',
+    tools: 'Ejecución · reporte · trazas · nueva validación',
+    deliverable: 'Prueba ejecutada con evidencia disponible',
+  },
+]
+
+const developmentLayers = [
+  {
+    id: 'governance',
+    label: 'Gobernanza',
+    title: 'Instrucciones que delimitan la forma de trabajar',
+    description: 'Las reglas globales definen seguridad, límites, estándares y la forma de reportar antes de que un agente modifique un repositorio.',
+    detail: 'Evita que las decisiones de riesgo queden implícitas o dependan de la conversación.',
+  },
+  {
+    id: 'rag',
+    label: 'Contexto RAG',
+    title: 'Conocimiento recuperable para cada caso técnico',
+    description: 'Documentación de migración, pruebas, restricciones y antecedentes se preparan como contexto específico antes de intervenir un aplicativo.',
+    detail: 'El agente trabaja con información vigente y pertinente, no con suposiciones.',
+  },
+  {
+    id: 'skills',
+    label: 'Skills y agente',
+    title: 'Un rol especializado convierte conocimiento en procedimiento',
+    description: 'El archivo del agente declara objetivo, herramientas, restricciones y criterios de salida; las skills ordenan los pasos repetibles.',
+    detail: 'La capacidad se versiona y se puede mejorar sin empezar desde un prompt aislado.',
+  },
+  {
+    id: 'execution',
+    label: 'Herramientas',
+    title: 'La intervención usa acciones verificables',
+    description: 'Lectura, búsqueda, edición, compilación, pruebas y Git se usan solo cuando el contexto y los límites ya están definidos.',
+    detail: 'La salida combina cambios mínimos, validación técnica e informe accionable.',
+  },
+]
+
 function asUtcDate(date) {
   return new Date(`${date}T12:00:00Z`)
 }
@@ -70,6 +140,8 @@ const MetLife = () => {
   const [selectedDate, setSelectedDate] = useState('')
   const [loadState, setLoadState] = useState('loading')
   const [activeTab, setActiveTab] = useState('worklog')
+  const [selectedTestingStage, setSelectedTestingStage] = useState('brief')
+  const [selectedDevelopmentLayer, setSelectedDevelopmentLayer] = useState('governance')
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}metlife_task_history.json`)
@@ -102,6 +174,8 @@ const MetLife = () => {
   const activePeriodLabel = activePeriod
     ? capitalize(periodFormatter.format(asUtcDate(`${activePeriod}-01`)))
     : ''
+  const testingStage = testingStages.find((stage) => stage.id === selectedTestingStage) ?? testingStages[0]
+  const developmentLayer = developmentLayers.find((layer) => layer.id === selectedDevelopmentLayer) ?? developmentLayers[0]
 
   return (
     <div className="metlife-daily">
@@ -156,33 +230,64 @@ const MetLife = () => {
             </div>
           </header>
 
-          <ol className="metlife-agentization__steps" aria-label="Flujo de automatización de pruebas">
-            <li>
-              <span>01</span>
-              <div>
-                <h4>Del objetivo al contexto</h4>
-                <p>El prompt define el escenario, la ruta funcional y el criterio de éxito; el agente consulta las reglas del framework antes de actuar.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h4>Navegación basada en la aplicación real</h4>
-                <p>La herramienta de navegación permite observar roles, textos y estados accesibles para reducir suposiciones al construir la prueba.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h4>Cierre verificable</h4>
-                <p>El caso se genera o actualiza, se ejecuta y se ajusta con los hallazgos hasta dejar resultados y evidencias revisables.</p>
-              </div>
-            </li>
-          </ol>
+          <section className="metlife-agentization__explorer" aria-labelledby="testing-flow-heading">
+            <div className="metlife-agentization__explorer-heading">
+              <p className="section-kicker">Orquestación del caso</p>
+              <h4 id="testing-flow-heading">Explora cómo avanza una prueba asistida</h4>
+              <p>Selecciona una fase para revisar qué información activa al agente y cuál es el resultado esperado.</p>
+            </div>
+
+            <div className="metlife-agentization__stage-list" aria-label="Fases del flujo de pruebas">
+              {testingStages.map((stage, index) => {
+                const isSelected = stage.id === selectedTestingStage
+
+                return (
+                  <button
+                    key={stage.id}
+                    type="button"
+                    className={`metlife-agentization__stage ${isSelected ? 'is-selected' : ''}`}
+                    aria-pressed={isSelected}
+                    onClick={() => setSelectedTestingStage(stage.id)}
+                  >
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <strong>{stage.label}</strong>
+                  </button>
+                )
+              })}
+            </div>
+
+            <article className="metlife-agentization__stage-detail" aria-live="polite">
+              <p>{testingStage.eyebrow}</p>
+              <h4>{testingStage.title}</h4>
+              <p>{testingStage.description}</p>
+              <dl>
+                <div>
+                  <dt>Recursos activados</dt>
+                  <dd>{testingStage.tools}</dd>
+                </div>
+                <div>
+                  <dt>Salida de la fase</dt>
+                  <dd>{testingStage.deliverable}</dd>
+                </div>
+              </dl>
+            </article>
+          </section>
+
+          <section className="metlife-agentization__principles" aria-labelledby="testing-principles-heading">
+            <div>
+              <p className="section-kicker">Calidad incorporada</p>
+              <h4 id="testing-principles-heading">Lo que vuelve reutilizable al flujo</h4>
+            </div>
+            <ul>
+              <li><strong>Contexto explícito</strong><span>Las reglas del framework acompañan cada caso.</span></li>
+              <li><strong>Interacción comprobable</strong><span>Los elementos se contrastan con la interfaz antes de automatizar.</span></li>
+              <li><strong>Evidencia revisable</strong><span>La ejecución y sus hallazgos forman parte de la entrega.</span></li>
+            </ul>
+          </section>
 
           <aside className="metlife-agentization__note">
             <CheckCircle2 size={20} aria-hidden="true" />
-            <p>El resultado esperado no es solo código generado: es una prueba que puede explicarse, ejecutarse, mantenerse y revisarse.</p>
+            <p>El resultado esperado no es solo código generado: es una prueba que puede explicarse, ejecutarse, mantenerse y revisarse sin depender del historial del chat.</p>
           </aside>
         </section>
       )}
@@ -209,16 +314,53 @@ const MetLife = () => {
             </div>
           </header>
 
+          <section className="metlife-agentization__explorer metlife-agentization__explorer--development" aria-labelledby="development-map-heading">
+            <div className="metlife-agentization__explorer-heading">
+              <p className="section-kicker">Arquitectura agéntica</p>
+              <h4 id="development-map-heading">Una capacidad se construye por capas</h4>
+              <p>Selecciona un componente para conocer su rol dentro de una intervención técnica gobernada.</p>
+            </div>
+
+            <div className="metlife-agentization__layer-map" aria-label="Componentes de la arquitectura agéntica">
+              {developmentLayers.map((layer) => {
+                const isSelected = layer.id === selectedDevelopmentLayer
+
+                return (
+                  <button
+                    key={layer.id}
+                    type="button"
+                    className={`metlife-agentization__layer ${isSelected ? 'is-selected' : ''}`}
+                    aria-pressed={isSelected}
+                    onClick={() => setSelectedDevelopmentLayer(layer.id)}
+                  >
+                    {layer.label}
+                  </button>
+                )
+              })}
+              <div className="metlife-agentization__agent-core" aria-hidden="true">
+                <Bot size={21} />
+                <span>Agente especializado</span>
+              </div>
+            </div>
+
+            <article className="metlife-agentization__stage-detail" aria-live="polite">
+              <p>Componente seleccionado</p>
+              <h4>{developmentLayer.title}</h4>
+              <p>{developmentLayer.description}</p>
+              <div className="metlife-agentization__detail-callout">{developmentLayer.detail}</div>
+            </article>
+          </section>
+
           <div className="metlife-agentization__capabilities">
             <article>
               <Workflow size={20} aria-hidden="true" />
               <h4>Arquitectura contextual</h4>
-              <p>Las instrucciones, el RAG, las skills, el agente y sus herramientas separan reglas, conocimiento y ejecución para lograr resultados trazables.</p>
+              <p>Las instrucciones, el RAG, las skills, el agente y sus herramientas separan reglas, conocimiento y ejecución para lograr resultados trazables y transferibles.</p>
             </article>
             <article>
               <Wrench size={20} aria-hidden="true" />
               <h4>Reparación post-migración</h4>
-              <p>El agente analiza código y configuración, verifica prerrequisitos, levanta el aplicativo, ejecuta smoke tests y aplica el cambio mínimo verificable.</p>
+              <p>El agente analiza código y configuración, verifica prerrequisitos, levanta el aplicativo, ejecuta smoke tests, diagnostica fallas y aplica el cambio mínimo verificable.</p>
             </article>
             <article>
               <GitPullRequest size={20} aria-hidden="true" />
@@ -227,9 +369,21 @@ const MetLife = () => {
             </article>
           </div>
 
+          <section className="metlife-agentization__principles" aria-labelledby="development-principles-heading">
+            <div>
+              <p className="section-kicker">Criterio de salida</p>
+              <h4 id="development-principles-heading">Una intervención técnica deja tres resultados</h4>
+            </div>
+            <ul>
+              <li><strong>Cambio mínimo</strong><span>Solo se modifica lo necesario para resolver el hallazgo.</span></li>
+              <li><strong>Validación técnica</strong><span>Build, ejecución o smoke tests confirman lo que realmente se verificó.</span></li>
+              <li><strong>Informe accionable</strong><span>El resultado comunica causa, corrección, evidencia y pendientes.</span></li>
+            </ul>
+          </section>
+
           <aside className="metlife-agentization__note">
             <Play size={20} aria-hidden="true" />
-            <p>La automatización sistematiza tareas repetibles; las decisiones de riesgo, la lógica de negocio y la aceptación final permanecen bajo revisión humana.</p>
+            <p>La automatización sistematiza tareas repetibles; las decisiones de riesgo, los cambios de lógica de negocio y la aceptación final permanecen bajo revisión humana.</p>
           </aside>
         </section>
       )}
