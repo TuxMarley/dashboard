@@ -1,11 +1,46 @@
 import React from 'react';
-import { Bot, Calendar, CheckCircle2, Clock, BookOpen, User, Sparkles, Target } from 'lucide-react';
+import { Bot, Calendar, CheckCircle2, Clock, BookOpen, User, Sparkles, Target, Users } from 'lucide-react';
 
 const StudioQA = () => {
   return (
     <div className="w-full flex-col gap-6">
       <h2 className="text-2xl font-bold mb-4 font-serif">Studio QA</h2>
       <p className="text-muted mb-6">Formaciones y asesorías para nuevos proyectos de automatización e IA.</p>
+
+      <div className="glass-card mb-6">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="font-semibold text-xl">Entrevistas técnicas</h3>
+          <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
+            <span>Participación activa</span>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-4 items-start">
+            <div className="p-3 rounded-full" style={{ background: 'var(--brand-blue)', height: 'fit-content' }}>
+              <Users size={24} color="#fff" />
+            </div>
+
+            <div className="flex-col" style={{ flex: '1 1 0' }}>
+              <h4 className="font-bold text-lg text-white mb-2">Participación en entrevistas técnicas regionales y de Chile</h4>
+              <p className="text-sm leading-relaxed" style={{ color: '#cfd8fc', maxWidth: '70ch' }}>
+                Participación activa en entrevistas técnicas para oportunidades a nivel regional en Chile, Perú, Brasil y México, además de procesos de selección para Chile.
+              </p>
+
+              <div className="flex-col gap-2 mt-4">
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#b8e5ff' }}>
+                  <CheckCircle2 size={18} />
+                  <span>Evaluación técnica de oportunidades con alcance regional.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#b8e5ff' }}>
+                  <CheckCircle2 size={18} />
+                  <span>Participación en procesos de entrevistas técnicas para Chile.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       
       <div className="glass-card mb-6">
         <div className="flex justify-between items-center mb-4">
