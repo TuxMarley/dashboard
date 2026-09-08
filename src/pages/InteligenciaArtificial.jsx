@@ -15,6 +15,46 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(84, 217, 154, 0.07)', border: '1px solid rgba(84, 217, 154, 0.3)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
+                <BrainCircuit size={20} />
+                <span>Arquitectura multiagéntica</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Caso de éxito: primer bloque de migraciones a GitHub</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Finalización del primer bloque de migraciones desde Azure DevOps a GitHub, con reparación de repositorios que fallaban, migración de repositorios .NET y migración de bases de datos a Oracle 19c.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Reparación, sanitización y migración ejecutadas con agentes de IA especializados.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Agentes creados bajo una misma arquitectura multiagéntica reutilizable.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.3 1 320px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/metlife-2026-09-08-migraciones-multiagenticas.png"
+                  alt="Infografía de una arquitectura multiagéntica para reparar, sanitizar y migrar repositorios a GitHub"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Arquitectura utilizada por los agentes especializados en el bloque de migraciones a GitHub</figcaption>
+            </figure>
+          </div>
+        </div>
+
         {/* IA Session about AI agents */}
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex-col gap-6">
