@@ -299,6 +299,31 @@ const MetLife = () => {
           role="tabpanel"
           aria-labelledby="metlife-tab-development"
         >
+          <section className="metlife-success-case" aria-labelledby="metlife-success-case-heading">
+            <div className="metlife-success-case__content">
+              <p className="section-kicker">Caso de éxito · Completado</p>
+              <h3 id="metlife-success-case-heading">Finalización del primer bloque de migraciones a GitHub</h3>
+              <p>
+                Se completó el primer bloque de migraciones desde Azure DevOps a GitHub, incluyendo la reparación de repositorios que fallaban, la migración de repositorios .NET y la migración de bases de datos a Oracle 19c.
+              </p>
+              <p>
+                El trabajo integró reparación, sanitización y migración mediante agentes de inteligencia artificial especializados, creados bajo una misma arquitectura multiagéntica.
+              </p>
+              <ul>
+                <li><CheckCircle2 size={17} aria-hidden="true" /><span>Repositorios reparados y sanitizados antes de su migración a GitHub.</span></li>
+                <li><CheckCircle2 size={17} aria-hidden="true" /><span>Agentes especializados coordinados dentro de un core reutilizable y gobernado.</span></li>
+              </ul>
+            </div>
+
+            <figure className="metlife-success-case__evidence">
+              <img
+                src="/metlife-2026-09-08-migraciones-multiagenticas.png"
+                alt="Infografía de la arquitectura multiagéntica utilizada para reparar, sanitizar y migrar repositorios a GitHub"
+              />
+              <figcaption>Arquitectura multiagéntica que respalda la reparación, sanitización y migración del primer bloque de repositorios.</figcaption>
+            </figure>
+          </section>
+
           <header className="metlife-agentization__intro">
             <div>
               <p className="section-kicker">Agentización del desarrollo</p>
