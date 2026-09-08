@@ -1866,6 +1866,94 @@ body {
   display: block;
 }
 
+.weekly-readiness {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 1.25rem;
+  background: linear-gradient(105deg, rgba(74, 222, 128, 0.1), rgba(7, 133, 207, 0.08));
+}
+
+.weekly-readiness__header {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.weekly-readiness__header h3 {
+  max-width: 34ch;
+  margin-top: 0.3rem;
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.2;
+}
+
+.weekly-readiness__status {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-radius: var(--border-radius-pill);
+  color: #8ee6b0;
+  background: rgba(74, 222, 128, 0.12);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.weekly-readiness__lead {
+  max-width: 76ch;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.weekly-readiness__items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem 1.25rem;
+  margin: 0;
+  list-style: none;
+}
+
+.weekly-readiness__items li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: var(--text-main);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.weekly-readiness__items svg,
+.weekly-readiness__blocker > svg {
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+  color: #8ee6b0;
+}
+
+.weekly-readiness__blocker {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(74, 222, 128, 0.24);
+  border-radius: 0.85rem;
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.weekly-readiness__blocker strong {
+  color: #8ee6b0;
+  font-size: 0.875rem;
+}
+
+.weekly-readiness__blocker p {
+  margin-top: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     z-index: 20;
@@ -1913,6 +2001,8 @@ body {
   .task-item { grid-template-columns: 1fr; }
   .task-assignee { grid-column: 1; grid-row: auto; }
   .weekly-summary__metrics { max-width: 22rem; }
+  .weekly-readiness__header { align-items: flex-start; flex-direction: column; }
+  .weekly-readiness__items { grid-template-columns: 1fr; }
   .grid-cols-4 { grid-template-columns: 1fr; }
   .md\:grid-cols-2 { grid-template-columns: 1fr; }
   .tab-list { width: 100%; overflow-x: auto; }

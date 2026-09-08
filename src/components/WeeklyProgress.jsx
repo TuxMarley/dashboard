@@ -66,6 +66,35 @@ const WeeklyProgress = () => {
         </div>
       </div>
 
+      <section className="weekly-readiness" aria-labelledby="weekly-readiness-title">
+        <header className="weekly-readiness__header">
+          <div>
+            <p className="section-kicker">Preparación de regresión</p>
+            <h3 id="weekly-readiness-title">Luz verde para iniciar la regresión automatizada</h3>
+          </div>
+          <span className="weekly-readiness__status">Condiciones disponibles</span>
+        </header>
+
+        <p className="weekly-readiness__lead">
+          Se completó la preparación y organización de la próxima regresión, dejando definidos el alcance, los ciclos de prueba y las condiciones necesarias para una ejecución automatizada válida.
+        </p>
+
+        <ul className="weekly-readiness__items">
+          <li><CheckCircle2 size={17} aria-hidden="true" /><span>Equipo organizado y alcance de la regresión definido.</span></li>
+          <li><CheckCircle2 size={17} aria-hidden="true" /><span>Ciclos de prueba creados; casos, aplicaciones y ambientes de automatización analizados.</span></li>
+          <li><CheckCircle2 size={17} aria-hidden="true" /><span>Requerimientos de test data, credenciales y actualización de aplicaciones coordinados.</span></li>
+          <li><CheckCircle2 size={17} aria-hidden="true" /><span>Disponibilidad validada para comenzar una ejecución automatizada válida.</span></li>
+        </ul>
+
+        <aside className="weekly-readiness__blocker">
+          <CheckCircle2 size={20} aria-hidden="true" />
+          <div>
+            <strong>Blocker de QAT resuelto</strong>
+            <p>El impedimento relacionado con el login de las aplicaciones en BrowserStack fue resuelto durante el día de hoy.</p>
+          </div>
+        </aside>
+      </section>
+
       {/* Main Chart and Summary info */}
       <div className="grid grid-cols-2 mb-6">
         <div className="glass-card h-full">
