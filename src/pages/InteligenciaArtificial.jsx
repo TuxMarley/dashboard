@@ -15,6 +15,46 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(0, 114, 188, 0.1)', border: '1px solid rgba(91, 196, 255, 0.28)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Users size={20} />
+                <span>Comunidad de QA e IA</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">NextGen QA Network: primera sesión</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Sesión inaugural de NextGen QA Network para conversar, compartir y mostrar experiencias y herramientas de QA desarrolladas con inteligencia artificial o agentes de IA.
+              </p>
+
+              <div className="flex-col gap-2 mb-4">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Experiencias de QA funcional y automatizado aplicadas con IA.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Herramientas y agentes de IA mostrados como apoyo a la calidad.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 320px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/nextgen-qa-network-2026-09-09.png"
+                  alt="Diapositiva de NextGen QA Network sobre QA e inteligencia artificial"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la sesión inaugural de NextGen QA Network</figcaption>
+            </figure>
+          </div>
+        </div>
+
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(84, 217, 154, 0.07)', border: '1px solid rgba(84, 217, 154, 0.3)' }}>
           <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
             <div className="flex-col" style={{ flex: '2 1 400px' }}>

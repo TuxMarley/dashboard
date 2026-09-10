@@ -9,6 +9,53 @@ const StudioQA = () => {
 
       <div className="glass-card mb-6">
         <div className="flex justify-between items-center mb-4">
+          <h3 className="font-semibold text-xl">NextGen QA Network</h3>
+          <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
+            <span>Primera sesión</span>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Users size={20} />
+                <span>Comunidad de QA e inteligencia artificial</span>
+              </div>
+              <h4 className="font-bold text-lg text-white mb-2">Experiencias y herramientas de QA desarrolladas con IA</h4>
+              <p className="text-sm leading-relaxed" style={{ color: '#cfd8fc', maxWidth: '70ch' }}>
+                Primera sesión de NextGen QA Network, un espacio para conversar, compartir y mostrar experiencias y herramientas de QA desarrolladas con inteligencia artificial o agentes de IA.
+              </p>
+
+              <div className="flex-col gap-2 mt-4">
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#b8e5ff' }}>
+                  <CheckCircle2 size={18} />
+                  <span>Intercambio de experiencias de QA funcional y automatizado con IA.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#b8e5ff' }}>
+                  <CheckCircle2 size={18} />
+                  <span>Presentación de herramientas y agentes de IA aplicados a calidad.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 320px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)' }}>
+                <img
+                  src="/nextgen-qa-network-2026-09-09.png"
+                  alt="Diapositiva de NextGen QA Network sobre la evolución desde QA funcional o automatizado hacia QAI Engineer"
+                  className="w-full h-auto object-cover"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia de la primera sesión de NextGen QA Network</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card mb-6">
+        <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-xl">Entrevistas técnicas</h3>
           <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
             <span>Participación activa</span>
