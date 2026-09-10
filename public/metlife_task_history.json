@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-02T15:33:41.858408+00:00",
+  "updatedAt": "2026-09-10T22:03:40.9577578Z",
   "days": {
     "2026-07-22": [
       {
@@ -354,6 +354,13 @@
         "type": "Desarrollo / configuración",
         "title": "Reparacion y testeo reposiotrio 11291 - Analisis merge 12143",
         "hours": 8
+      },
+      {
+        "id": "2026-09-01-2",
+        "date": "2026-09-01",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion y testeo reposiotrio IMED Farmacia",
+        "hours": 8
       }
     ],
     "2026-09-02": [
@@ -363,6 +370,72 @@
         "type": "Análisis",
         "title": "Revision de tareas DevOps en equipo Claims",
         "hours": 1
+      },
+      {
+        "id": "2026-09-02-2",
+        "date": "2026-09-02",
+        "type": "Desarrollo / configuración",
+        "title": "Reparacion Error enviar - Sonrie seguro",
+        "hours": 2
+      },
+      {
+        "id": "2026-09-02-3",
+        "date": "2026-09-02",
+        "type": "Pruebas",
+        "title": "Validaciones y pruebas migracion para enviar en Claims",
+        "hours": 2
+      }
+    ],
+    "2026-09-03": [
+      {
+        "id": "2026-09-03-1",
+        "date": "2026-09-03",
+        "type": "Desarrollo / configuración",
+        "title": "Revision y analiss proyecto Claims",
+        "hours": 4
+      }
+    ],
+    "2026-09-04": [
+      {
+        "id": "2026-09-04-1",
+        "date": "2026-09-04",
+        "type": "Desarrollo / configuración",
+        "title": "Revision y reparacion Windows Server / DLL Datos",
+        "hours": 4
+      }
+    ],
+    "2026-09-07": [
+      {
+        "id": "2026-09-07-1",
+        "date": "2026-09-07",
+        "type": "Pruebas",
+        "title": "Validacion cambio realizaden QA - Paso a Prod",
+        "hours": 4
+      }
+    ],
+    "2026-09-08": [
+      {
+        "id": "2026-09-08-1",
+        "date": "2026-09-08",
+        "type": "Desarrollo / configuración",
+        "title": "Merge de ultimos repositorios por Migracion ADO - Github",
+        "hours": 4
+      }
+    ],
+    "2026-09-09": [
+      {
+        "id": "2026-09-09-1",
+        "date": "2026-09-09",
+        "type": "Reunión",
+        "title": "Planificacion proximas asignaciones / Apoyo otros equipos",
+        "hours": 2
+      },
+      {
+        "id": "2026-09-09-2",
+        "date": "2026-09-09",
+        "type": "Reunión",
+        "title": "Validacion de Changues para subida a Prod / creacion de credenciales QA",
+        "hours": 2
       }
     ]
   }
