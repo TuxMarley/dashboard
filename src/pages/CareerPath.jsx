@@ -39,6 +39,7 @@ const responsibilities = [
   'Asesorar a proyectos y clientes como ProVida, BHP, KOSIN y MetLife en automatización, agentes e IA aplicada a QA.',
   'Formar y transferir conocimiento mediante Argus, Next-Gen QA, sesiones internas y acompañamiento de talento.',
   'Convertir necesidades de migración, saneamiento, reparación y regresión en flujos técnicos repetibles y verificables.',
+  'Aplicar una arquitectura multiagéntica reutilizable para reparar, sanitizar y migrar repositorios y componentes de datos.',
 ];
 
 const competencies = [
@@ -95,13 +96,13 @@ const currentAchievements = [
   },
   {
     title: 'MetLife · agentes para migración y reparación',
-    description: 'Entre el 22 de julio y el 25 de agosto se registran 33 actividades, 77 horas y 25 días de trabajo: creación y ejecución de agentes, saneamiento y migración de repositorios, reparación post-migración, remediación de entornos de QA y validaciones.',
-    source: 'Historial operativo MetLife',
+    description: 'Entre el 22 de julio y el 9 de septiembre se registran 52 actividades, 142 horas y 36 días de trabajo. El primer bloque de migraciones desde Azure DevOps a GitHub incorporó reparación y sanitización de repositorios, migración de repositorios .NET y de bases de datos a Oracle 19c mediante agentes especializados.',
+    source: 'Historial operativo MetLife + caso de éxito publicado',
     icon: ShieldCheck,
   },
   {
     title: 'Studio QA · formación y evolución del talento',
-    description: 'Impartió las sesiones teórica y práctica de Argus los días 29 y 30 de julio y diseñó Next-Gen QA, una iniciativa teórico-práctica de 40 horas para evolucionar perfiles QA hacia AI Engineer.',
+    description: 'Impartió las sesiones teórica y práctica de Argus los días 29 y 30 de julio, participó en entrevistas técnicas regionales y de Chile, y abrió la primera sesión de NextGen QA Network para compartir experiencias y herramientas de QA desarrolladas con IA.',
     source: 'Studio QA',
     icon: BookOpen,
   },
@@ -113,7 +114,7 @@ const currentAchievements = [
   },
   {
     title: 'IA aplicada · de la experimentación al uso repetible',
-    description: 'Construyó CAOO, Radar IA y un agente autónomo de automatización web; además presentó una arquitectura de agentización con LLM, RAG, skills y herramientas para tareas técnicas gobernadas.',
+    description: 'Construyó CAOO, Radar IA y un agente autónomo de automatización web; además presentó una arquitectura de agentización con LLM, RAG, skills y herramientas que se utilizó para coordinar agentes especializados en reparación, sanitización y migración técnica.',
     source: 'Iniciativas de Inteligencia Artificial',
     icon: Sparkles,
   },
@@ -135,7 +136,7 @@ const leadAlignment = [
   },
   {
     title: 'Implementar y probar soluciones complejas',
-    description: 'La automatización Mobile/Web, la regresión multiplataforma y los smoke tests cubren ejecución y aseguramiento técnico sostenido.',
+    description: 'La automatización Mobile/Web, la regresión multiplataforma, los smoke tests y la reparación validada de repositorios cubren ejecución y aseguramiento técnico sostenido.',
     status: 'Evidencia sólida',
     tone: 'strong',
     icon: Target,
@@ -156,7 +157,7 @@ const leadAlignment = [
   },
   {
     title: 'Aplicar pensamiento crítico y Tech disruption',
-    description: 'Las decisiones sobre seguridad, arquitectura agéntica, RAG y automatización responsable muestran evaluación de riesgos y alternativas.',
+    description: 'El diagnóstico de conflictos, vulnerabilidades y reparaciones post-migración, junto con la arquitectura multiagéntica gobernada, muestra evaluación de riesgos, alternativas y tecnologías emergentes.',
     status: 'Evidencia sólida',
     tone: 'strong',
     icon: Zap,
@@ -216,6 +217,16 @@ const historyMilestones = [
     title: 'Sesión IA sobre agentes y continuidad en MetLife',
     description: 'Participación en una IA Session sobre agentes, tools y skills, junto con actividad de reparación y migración de base de datos en MetLife.',
   },
+  {
+    date: '8 sep 2026',
+    title: 'Primer bloque de migraciones a GitHub completado',
+    description: 'Migración desde Azure DevOps a GitHub con reparación y sanitización de repositorios, migración de repositorios .NET y bases de datos a Oracle 19c mediante agentes especializados.',
+  },
+  {
+    date: '9 sep 2026',
+    title: 'Primera sesión de NextGen QA Network',
+    description: 'Espacio de comunidad para compartir experiencias y herramientas de QA funcional y automatizado desarrolladas con IA y agentes.',
+  },
 ];
 
 const nextLevelNeeds = [
@@ -245,6 +256,11 @@ const nextLevelNeeds = [
     icon: BookOpen,
   },
   {
+    title: 'Validar la rama de Software Engineering',
+    description: 'Documentar la responsabilidad técnica end-to-end en modernización, seguridad y migración, y acordar el encaje formal si ese alcance pasa a ser sostenido.',
+    icon: Code2,
+  },
+  {
     title: 'Ampliar visión estratégica del delivery',
     description: 'Participar de forma sostenida en estimaciones, impactos por alcance, prioridades, riesgos, viabilidad y alineación con la estrategia.',
     icon: Target,
@@ -256,8 +272,8 @@ const impactMetrics = [
   { label: 'Creación en junio', value: '40/72', detail: '55,6% de los casos del equipo.' },
   { label: 'Cartera CNG asignada', value: '67', detail: '34 Android · 33 iOS.' },
   { label: 'Casos BGC recuperados', value: '35', detail: '9 el 18 de agosto y 26 el 19.' },
-  { label: 'Actividad MetLife', value: '77 h', detail: '33 tareas en 25 días.' },
-  { label: 'Despliegue inicial MetLife', value: '3', detail: 'Repositorios intervenidos por agente.' },
+  { label: 'Actividad MetLife', value: '142 h', detail: '52 tareas en 36 días.' },
+  { label: 'Primer bloque de migraciones', value: 'Completado', detail: 'Azure DevOps a GitHub, repositorios .NET y Oracle 19c.' },
   { label: 'Programa Next-Gen QA', value: '40 h', detail: 'Formación teórico-práctica diseñada.' },
 ];
 
@@ -272,7 +288,7 @@ const timeline = [
   {
     term: 'Mediano plazo',
     range: '3-9 meses',
-    description: 'Escalar estándares de QA e IA a varios equipos, acreditar desarrollo de personas y asumir mayor participación en decisiones de delivery.',
+    description: 'Escalar estándares de QA e IA a varios equipos, acreditar desarrollo de personas y validar el alcance técnico de modernización y seguridad.',
     icon: Activity,
     state: 'active',
   },
@@ -353,8 +369,8 @@ const CareerPath = () => {
       <header className="talent-map__header">
         <div className="talent-map__intro">
           <p className="talent-map__kicker">Mapa de talento</p>
-          <h2 id="talent-map-title">Mi posicionamiento funcional en QA</h2>
-          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 25 de agosto de 2026</p>
+          <h2 id="talent-map-title">Mi posicionamiento funcional en QA e ingeniería</h2>
+          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 9 de septiembre de 2026</p>
         </div>
 
         <aside className="talent-map__objective" aria-label="Conclusión del mapa de talento">
@@ -430,7 +446,7 @@ const CareerPath = () => {
               </header>
 
               <p className="talent-profile__summary">
-                El alcance actual ya no se limita a ejecutar automatización. Jimmy define y construye prácticas y herramientas, resuelve problemas técnicos complejos, integra IA en el delivery, asesora a distintos proyectos y desarrolla capacidades en otras personas. Esa combinación coincide con la definición funcional de Lead del Mapa de Talento GDNe.
+                El alcance actual ya no se limita a ejecutar automatización. Jimmy define y construye prácticas y herramientas, resuelve problemas técnicos complejos, integra IA en el delivery, asesora a distintos proyectos y desarrolla capacidades en otras personas. Esa combinación coincide con la definición funcional de Lead del Mapa de Talento GDNe; el trabajo reciente de MetLife añade un alcance técnico de modernización, migración y seguridad.
               </p>
 
               <dl className="talent-status-grid" aria-label="Resumen del posicionamiento profesional">
@@ -453,7 +469,7 @@ const CareerPath = () => {
 
               <div className="talent-profile__verdict">
                 <strong>Resultado del reanálisis</strong>
-                <p>La evidencia cubre de manera consistente el núcleo de Lead: definir, construir, implementar y probar prácticas de calidad, y liderar al equipo desde el conocimiento. Expert todavía no está consolidado porque exige Assurance & Testing y Orientación a la calidad en nivel 4, Impacto en nivel 3 y una referencia estratégica transversal demostrada en el tiempo.</p>
+                <p>La evidencia cubre de manera consistente el núcleo de Lead: definir, construir, implementar y probar prácticas de calidad, y liderar al equipo desde el conocimiento. La migración multiagéntica de MetLife respalda además una recomendación funcional complementaria de Senior Software Engineer para ese alcance técnico, pendiente de validación formal. Expert todavía no está consolidado porque exige Assurance & Testing y Orientación a la calidad en nivel 4, Impacto en nivel 3 y una referencia estratégica transversal demostrada en el tiempo.</p>
               </div>
 
               <div className="talent-section-title talent-section-title--spaced">
@@ -521,7 +537,7 @@ const CareerPath = () => {
                 items={currentAchievements}
                 tone="evidence"
                 heading="Evidencias profesionales integradas"
-                subtitle="Actividad actual e histórica hasta el 25 de agosto de 2026"
+                subtitle="Actividad actual e histórica hasta el 9 de septiembre de 2026"
               />
               <AchievementList
                 items={leadAlignment}
