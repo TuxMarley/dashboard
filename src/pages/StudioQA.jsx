@@ -56,6 +56,57 @@ const StudioQA = () => {
 
       <div className="glass-card mb-6">
         <div className="flex justify-between items-center mb-4">
+          <h3 className="font-semibold text-xl">Programa piloto QAI Engineering</h3>
+          <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
+            <span>Formación iniciada</span>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <BookOpen size={20} />
+                <span>Transformación de perfiles QA</span>
+              </div>
+              <h4 className="font-bold text-lg text-white mb-2">De QA a QA Engineering</h4>
+              <p className="text-sm leading-relaxed" style={{ color: '#cfd8fc', maxWidth: '70ch' }}>
+                Inicio de un programa piloto para transformar perfiles QA en QA Engineering. La formación contempla 32 horas continuas, con contenido teórico y tareas técnicas asociadas.
+              </p>
+
+              <div className="studio-qa-initiative__facts">
+                <div>
+                  <Clock size={18} className="text-cyan" />
+                  <span><strong>32 horas</strong> de formación continua</span>
+                </div>
+                <div>
+                  <Calendar size={18} className="text-cyan" />
+                  <span>Dos clases semanales de una hora</span>
+                </div>
+                <div>
+                  <CheckCircle2 size={18} className="text-cyan" />
+                  <span>Tareas técnicas registradas también en Nexo TT</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 320px', minWidth: '260px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)' }}>
+                <img
+                  src="/studio-qa-2026-09-25-qai-engineering-piloto.png"
+                  alt="Diapositiva de kickoff del programa piloto QAI Engineering para perfiles QA"
+                  className="w-full h-auto object-cover"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Evidencia del kickoff del programa piloto QAI Engineering</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card mb-6">
+        <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-xl">Entrevistas técnicas</h3>
           <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.12)', color: '#b8e5ff', borderColor: 'rgba(91, 196, 255, 0.3)' }}>
             <span>Participación activa</span>
