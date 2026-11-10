@@ -26,17 +26,17 @@ const Innovacion = () => {
               <h4 className="font-serif font-bold text-2xl text-white mb-2">Plan de formación en IA para el equipo de QA</h4>
 
               <p className="text-sm text-muted mb-4 leading-relaxed">
-                Participación activa en el plan de formación de QSD de oficina para impulsar un equipo de QA funcional con Inteligencia Artificial. La formación GDN se presenta como guía de referencia y se participa en la propuesta de mejoras al itinerario. Además, se considera la exposición de contenidos sobre contexto, RAG y herramientas de Inteligencia Artificial.
+                Participación activa en el plan de formación de QSD de oficina para impulsar un equipo de QA funcional con Inteligencia Artificial. El plan continúa en curso y ya se realizó la primera formación piloto de AI Engineering para QA, dirigida especialmente al equipo de MetLife para las nuevas asignaciones de QA, con participación de personal de oficina y GDN-e y resultados exitosos. La formación GDN se presenta como guía de referencia y se participa en la propuesta de mejoras al itinerario. Además, se considera la exposición de contenidos sobre contexto, RAG y herramientas de Inteligencia Artificial.
               </p>
 
               <div className="flex-col gap-2">
                 <div className="flex items-center gap-2 text-sm text-white">
                   <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Formación GDN presentada como guía para el plan.</span>
+                  <span>Primera formación piloto de AI Engineering para QA realizada con el equipo de MetLife.</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white mt-1">
                   <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Participación en la propuesta de mejoras del itinerario formativo.</span>
+                  <span>Formación GDN presentada como guía y participación en mejoras del itinerario formativo.</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white mt-1">
                   <CheckCircle2 size={16} className="text-cyan" />
