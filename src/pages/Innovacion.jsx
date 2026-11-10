@@ -26,21 +26,21 @@ const Innovacion = () => {
               <h4 className="font-serif font-bold text-2xl text-white mb-2">Plan de formación en IA para el equipo de QA</h4>
 
               <p className="text-sm text-muted mb-4 leading-relaxed">
-                Participación activa en el plan de formación de QSD de oficina para impulsar un equipo de QA funcional con Inteligencia Artificial. El plan continúa en curso y ya se realizó la primera formación piloto de AI Engineering para QA, dirigida especialmente al equipo de MetLife para las nuevas asignaciones de QA, con participación de personal de oficina y GDN-e y resultados exitosos. La formación GDN se presenta como guía de referencia y se participa en la propuesta de mejoras al itinerario. Además, se considera la exposición de contenidos sobre contexto, RAG y herramientas de Inteligencia Artificial.
+                Plan de formación de IA de oficina para el equipo de QA, actualmente en curso. La participación se centra en apoyar con el material formativo y exponer uno de sus módulos sobre contexto, RAG y herramientas de Inteligencia Artificial.
               </p>
 
               <div className="flex-col gap-2">
                 <div className="flex items-center gap-2 text-sm text-white">
                   <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Primera formación piloto de AI Engineering para QA realizada con el equipo de MetLife.</span>
+                  <span>Apoyo con material formativo para el plan de oficina.</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white mt-1">
                   <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Formación GDN presentada como guía y participación en mejoras del itinerario formativo.</span>
+                  <span>Formación GDN utilizada como guía para preparar el material.</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white mt-1">
                   <CheckCircle2 size={16} className="text-cyan" />
-                  <span>Exposición considerada para contexto, RAG y herramientas de IA.</span>
+                  <span>Exposición de un módulo sobre contexto, RAG y herramientas de IA.</span>
                 </div>
               </div>
             </div>
@@ -56,6 +56,45 @@ const Innovacion = () => {
               </div>
               <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Material de la sesión que presenta el itinerario de formación en IA para QA.</figcaption>
             </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card mb-6 flex-col gap-6">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="font-semibold text-xl">Formación piloto de AI Engineering para QA</h3>
+          <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
+            <span>Piloto realizado</span>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex-col gap-4">
+            <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
+              <Bot size={20} />
+              <span>Formación GDNE para MetLife</span>
+            </div>
+
+            <h4 className="font-serif font-bold text-2xl text-white">Piloto de AI Engineering para QA con MetLife</h4>
+
+            <p className="text-sm text-muted leading-relaxed">
+              Formación independiente del plan de oficina, dirigida exclusivamente a GDNE para las nuevas asignaciones de QA de MetLife. En su fase piloto participaron algunas personas de oficina y se obtuvieron resultados exitosos.
+            </p>
+
+            <div className="flex-col gap-2">
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                <span>Iniciativa separada, con alcance formativo exclusivo para GDNE.</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white mt-1">
+                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                <span>Fase piloto con participación de algunas personas de oficina.</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white mt-1">
+                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                <span>Resultados exitosos en la primera formación piloto.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
