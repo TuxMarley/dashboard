@@ -9,6 +9,59 @@ const Innovacion = () => {
 
       <div className="glass-card mb-6 flex-col gap-6">
         <div className="flex justify-between items-center mb-2">
+          <h3 className="font-semibold text-xl">Formación funcional con Inteligencia Artificial</h3>
+          <div className="pill-tag" style={{ background: 'rgba(0, 188, 212, 0.12)', color: '#79dce8', borderColor: 'rgba(0, 188, 212, 0.3)' }}>
+            <span>En curso</span>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm font-semibold text-cyan">
+                <Bot size={20} />
+                <span>Plan de formación QSD de oficina</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Plan de formación en IA para el equipo de QA</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Participación activa en el plan de formación de QSD de oficina para impulsar un equipo de QA funcional con Inteligencia Artificial. La formación GDN se presenta como guía de referencia y se participa en la propuesta de mejoras al itinerario. Además, se considera la exposición de contenidos sobre contexto, RAG y herramientas de Inteligencia Artificial.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Formación GDN presentada como guía para el plan.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Participación en la propuesta de mejoras del itinerario formativo.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} className="text-cyan" />
+                  <span>Exposición considerada para contexto, RAG y herramientas de IA.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/asesorias-qa-plan-formacion-ia.png"
+                  alt="Diapositiva del plan de formación en Inteligencia Artificial para el equipo de QA"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Material de la sesión que presenta el itinerario de formación en IA para QA.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card mb-6 flex-col gap-6">
+        <div className="flex justify-between items-center mb-2">
           <h3 className="font-semibold text-xl">Asesoría de Agentes e Inteligencia Artificial</h3>
           <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
             <span>ProVida</span>
