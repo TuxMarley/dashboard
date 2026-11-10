@@ -69,32 +69,46 @@ const Innovacion = () => {
         </div>
 
         <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
-          <div className="flex-col gap-4">
-            <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
-              <Bot size={20} />
-              <span>Formación GDNE para MetLife</span>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col gap-4" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
+                <Bot size={20} />
+                <span>Formación GDNE para MetLife</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white">Piloto de AI Engineering para QA con MetLife</h4>
+
+              <p className="text-sm text-muted leading-relaxed">
+                Formación independiente del plan de oficina, dirigida exclusivamente a GDNE para las nuevas asignaciones de QA de MetLife. En su fase piloto participaron algunas personas de oficina y se obtuvieron resultados exitosos.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Iniciativa separada, con alcance formativo exclusivo para GDNE.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Fase piloto con participación de algunas personas de oficina.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Resultados exitosos en la primera formación piloto.</span>
+                </div>
+              </div>
             </div>
 
-            <h4 className="font-serif font-bold text-2xl text-white">Piloto de AI Engineering para QA con MetLife</h4>
-
-            <p className="text-sm text-muted leading-relaxed">
-              Formación independiente del plan de oficina, dirigida exclusivamente a GDNE para las nuevas asignaciones de QA de MetLife. En su fase piloto participaron algunas personas de oficina y se obtuvieron resultados exitosos.
-            </p>
-
-            <div className="flex-col gap-2">
-              <div className="flex items-center gap-2 text-sm text-white">
-                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
-                <span>Iniciativa separada, con alcance formativo exclusivo para GDNE.</span>
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/asesorias-qa-piloto-ai-engineering-modulo-3.png"
+                  alt="Diapositiva del módulo 3 sobre tools, skills, CLI y MCP del piloto de AI Engineering para QA"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
               </div>
-              <div className="flex items-center gap-2 text-sm text-white mt-1">
-                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
-                <span>Fase piloto con participación de algunas personas de oficina.</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white mt-1">
-                <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
-                <span>Resultados exitosos en la primera formación piloto.</span>
-              </div>
-            </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Módulo 3 del piloto sobre tools, skills, CLI y MCP.</figcaption>
+            </figure>
           </div>
         </div>
       </div>
