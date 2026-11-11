@@ -170,6 +170,59 @@ const AvanGrid = () => {
         <p className="data-notice" role="status">No fue posible cargar la actualización diaria. El resto del dashboard sigue disponible.</p>
       )}
 
+      <section className="glass-card mb-6 flex-col gap-6" aria-labelledby="mobile-stabilization-title">
+        <div className="flex justify-between items-center mb-2">
+          <h3 id="mobile-stabilization-title" className="font-semibold text-xl">Estabilización de automatización Mobile</h3>
+          <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
+            <span>En curso</span>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '1.5 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm font-semibold text-cyan">
+                <Smartphone size={20} />
+                <span>Estabilización Mobile · BGC</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Inicio de la estabilización de automatización Mobile</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Comenzó el proceso de estabilización de la automatización Mobile. Los primeros 62 casos del BGC ya fueron estabilizados conforme al plan, con resultados iniciales favorables.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle size={16} style={{ color: '#4ade80' }} />
+                  <span>Proceso de estabilización iniciado para la automatización Mobile.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle size={16} style={{ color: '#4ade80' }} />
+                  <span>62 casos del BGC estabilizados según el plan.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle size={16} style={{ color: '#4ade80' }} />
+                  <span>Seguimiento del avance operativo por estado y plataforma.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.35 1 400px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/avangrid-mobile-stabilization-dashboard.png"
+                  alt="Dashboard de estabilización Mobile con métricas de estado y gráficos comparativos de avance para iOS y Android"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Dashboard de estabilización Mobile con el avance operativo de iOS y Android.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       {activeTab === 'weekly' && <WeeklyProgress />}
 
       {activeTab === 'june' && (
