@@ -115,6 +115,59 @@ const Innovacion = () => {
 
       <div className="glass-card mb-6 flex-col gap-6">
         <div className="flex justify-between items-center mb-2">
+          <h3 className="font-semibold text-xl">Resultados del piloto de AI Engineering</h3>
+          <div className="pill-tag" style={{ background: 'rgba(74, 222, 128, 0.12)', color: '#8ee6b0', borderColor: 'rgba(74, 222, 128, 0.3)' }}>
+            <span>Piloto completado</span>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex gap-6 items-start" style={{ flexWrap: 'wrap-reverse' }}>
+            <div className="flex-col" style={{ flex: '2 1 400px' }}>
+              <div className="flex items-center gap-2 mb-2 text-sm font-semibold" style={{ color: '#8ee6b0' }}>
+                <Users size={20} />
+                <span>Formación y adopción agéntica</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">Seis agentes creados durante la formación piloto</h4>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Finalizó el piloto de formación de AI Engineering impartido a los primeros seis colaboradores, con perfiles junior, QA y de desarrollo, obteniendo resultados exitosos. Cada participante completó la formación creando su propio agente con la arquitectura enseñada. Además, ya aplican lo aprendido en sus respectivos proyectos y en otras plataformas, como GitHub Copilot.
+              </p>
+
+              <div className="flex-col gap-2">
+                <div className="flex items-center gap-2 text-sm text-white">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Seis participantes finalizaron la formación con un agente propio.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Arquitectura agéntica aplicada a tareas de QA y automatización.</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-white mt-1">
+                  <CheckCircle2 size={16} style={{ color: '#8ee6b0' }} />
+                  <span>Aplicación de lo aprendido en proyectos y plataformas como GitHub Copilot.</span>
+                </div>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ flex: '1.2 1 300px', minWidth: '280px' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/asesorias-qa-ai-engineering-piloto-seis-agentes.png"
+                  alt="Infografía de la formación piloto AI Engineering con seis agentes creados por los participantes"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Resultados de la formación piloto: seis agentes creados con arquitectura agéntica.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="glass-card mb-6 flex-col gap-6">
+        <div className="flex justify-between items-center mb-2">
           <h3 className="font-semibold text-xl">Participación en Greenhouse semanal de oficina</h3>
           <div className="pill-tag" style={{ background: 'rgba(0, 188, 212, 0.12)', color: '#79dce8', borderColor: 'rgba(0, 188, 212, 0.3)' }}>
             <span>Presentación realizada</span>
