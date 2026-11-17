@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Activity,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   Code2,
   Flag,
   Gauge,
+  ListChecks,
   Network,
   Rocket,
   ShieldCheck,
@@ -40,6 +42,8 @@ const responsibilities = [
   'Formar y transferir conocimiento mediante Argus, Next-Gen QA, sesiones internas y acompañamiento de talento.',
   'Convertir necesidades de migración, saneamiento, reparación y regresión en flujos técnicos repetibles y verificables.',
   'Aplicar una arquitectura multiagéntica reutilizable para reparar, sanitizar y migrar repositorios y componentes de datos.',
+  'Asumir POC e iniciativas de automatización de alta complejidad, resolver su viabilidad técnica y convertirlas en entregables comprobables.',
+  'Definir y apoyar frameworks, pipelines e integración continua para incorporar pruebas, evidencias y controles de calidad al delivery.',
 ];
 
 const competencies = [
@@ -62,7 +66,7 @@ const competencies = [
     level: 2,
     leadRequirement: 2,
     expertTarget: 3,
-    note: 'Formación Argus, iniciativa Next-Gen QA y acompañamiento técnico del equipo.',
+    note: 'Formación Argus, programa QAI Engineering y piloto AI Engineering con seis participantes que completaron un agente propio.',
   },
   {
     name: 'Gestión de métodos y herramientas',
@@ -85,6 +89,13 @@ const competencies = [
     expertTarget: 3,
     note: 'Influencia visible en equipos y clientes; falta medir adopción y valor transversal sostenido.',
   },
+  {
+    name: 'Pensamiento crítico y Tech Disruption',
+    level: 3,
+    leadRequirement: null,
+    expertTarget: 3,
+    note: 'Resolución de POC complejas, arquitecturas agénticas y selección de soluciones de IA aplicadas a QA; falta sistematizar decisiones y resultados.',
+  },
 ];
 
 const currentAchievements = [
@@ -96,25 +107,25 @@ const currentAchievements = [
   },
   {
     title: 'MetLife · agentes para migración y reparación',
-    description: 'Entre el 22 de julio y el 9 de septiembre se registran 52 actividades, 142 horas y 36 días de trabajo. El primer bloque de migraciones desde Azure DevOps a GitHub incorporó reparación y sanitización de repositorios, migración de repositorios .NET y de bases de datos a Oracle 19c mediante agentes especializados.',
+    description: 'Entre el 22 de julio y el 9 de septiembre se registran 52 actividades, 142 horas y 36 días de trabajo. Además del bloque de migraciones y reparación con agentes, la sección documenta un flujo de pruebas agénticas desde el objetivo funcional y el contexto del framework hasta la ejecución, el ajuste y la evidencia revisable.',
     source: 'Historial operativo MetLife + caso de éxito publicado',
     icon: ShieldCheck,
   },
   {
     title: 'Studio QA · formación y evolución del talento',
-    description: 'Impartió las sesiones teórica y práctica de Argus los días 29 y 30 de julio, participó en entrevistas técnicas regionales y de Chile, y abrió la primera sesión de NextGen QA Network para compartir experiencias y herramientas de QA desarrolladas con IA.',
+    description: 'Impartió las sesiones teórica y práctica de Argus, participó en entrevistas técnicas regionales y de Chile, abrió NextGen QA Network e inició un programa piloto QAI Engineering de 32 horas para transformar perfiles QA.',
     source: 'Studio QA',
     icon: BookOpen,
   },
   {
     title: 'Asesorías QA · soluciones adaptadas a cliente',
-    description: 'Asesoró a KOSIN en planes de prueba con IA y criterios de seguridad, creó ArgusPy para BHP con Python, pytest, Playwright y Allure, y orientó a ProVida en la adopción de agentes e IA.',
+    description: 'Asesoró a KOSIN, creó ArgusPy para BHP y orientó a ProVida. Además, completó un piloto AI Engineering en el que seis participantes construyeron un agente propio y presentó Quality Engineering Agéntica en el Greenhouse de oficina.',
     source: 'KOSIN · BHP · ProVida',
     icon: TrendingUp,
   },
   {
     title: 'IA aplicada · de la experimentación al uso repetible',
-    description: 'Construyó CAOO, Radar IA y un agente autónomo de automatización web; además presentó una arquitectura de agentización con LLM, RAG, skills y herramientas que se utilizó para coordinar agentes especializados en reparación, sanitización y migración técnica.',
+    description: 'Construyó CAOO, Radar IA y un agente autónomo de automatización web; presentó una arquitectura con LLM, RAG, skills y herramientas, y realizó el workshop AI Boost sobre arquitectura agéntica aplicada a escenarios y casos de prueba.',
     source: 'Iniciativas de Inteligencia Artificial',
     icon: Sparkles,
   },
@@ -136,14 +147,14 @@ const leadAlignment = [
   },
   {
     title: 'Implementar y probar soluciones complejas',
-    description: 'La automatización Mobile/Web, la regresión multiplataforma, los smoke tests y la reparación validada de repositorios cubren ejecución y aseguramiento técnico sostenido.',
+    description: 'La automatización Mobile/Web, el flujo agéntico de MetLife desde el objetivo funcional hasta la ejecución con evidencia, los smoke tests y la reparación validada cubren ejecución y aseguramiento sostenido.',
     status: 'Evidencia sólida',
     tone: 'strong',
     icon: Target,
   },
   {
     title: 'Liderar desde el conocimiento',
-    description: 'La coordinación técnica en AvanGrid, la formación Argus y Next-Gen QA muestran transferencia de criterio y desarrollo de otras personas.',
+    description: 'La coordinación en AvanGrid, Argus, NextGen QA, QAI Engineering y el piloto AI Engineering muestran transferencia de criterio; seis participantes finalizaron este último con un agente propio.',
     status: 'Evidencia sólida',
     tone: 'strong',
     icon: Users,
@@ -168,6 +179,148 @@ const leadAlignment = [
     status: 'Por consolidar',
     tone: 'partial',
     icon: Gauge,
+  },
+];
+
+const traceabilityGroups = [
+  {
+    id: 'lead',
+    title: 'Lead Technical Software Quality',
+    reference: 'Mapa de Talento GDNe · páginas 58-60',
+    marker: 'Nivel funcional evidenciado',
+    summary: 'El núcleo del rol está cubierto por evidencias de construcción, liderazgo técnico, asesoría y desarrollo de capacidades. La validación de categoría sigue siendo formal.',
+    items: [
+      {
+        criterion: 'Responsabilizarse de definir, construir, implementar y probar prácticas, metodologías, herramientas y marcos de calidad.',
+        evidence: [
+          { label: 'ArgusPy y asesorías QA', to: '/innovacion' },
+          { label: 'Pruebas y desarrollo agéntico en MetLife', to: '/metlife' },
+          { label: 'Agente autónomo de automatización web', to: '/ia' },
+        ],
+        status: 'Evidencia sólida',
+        tone: 'strong',
+        reading: 'La evidencia muestra capacidades reutilizables y aplicadas en proyectos, no solo ejecución individual de casos.',
+        next: 'Formalizar el ownership, las versiones adoptadas y los equipos que utilizan cada activo.',
+      },
+      {
+        criterion: 'Liderar soluciones y arquitecturas de pruebas automatizadas, su alcance, ejecución, trazabilidad y uso responsable de IA.',
+        evidence: [
+          { label: 'AvanGrid · automatización Mobile', to: '/avangrid' },
+          { label: 'MetLife · flujo desde el objetivo hasta la evidencia', to: '/metlife' },
+          { label: 'Quality Engineering Agéntica', to: '/innovacion' },
+        ],
+        status: 'Evidencia sólida',
+        tone: 'strong',
+        reading: 'El piloto de MetLife documenta el ciclo completo: brief, contexto del framework, navegación real, ejecución, ajuste y evidencia revisable.',
+        next: 'Añadir líneas base de tiempo, cobertura, estabilidad y mantenimiento para cuantificar la mejora.',
+      },
+      {
+        criterion: 'Actuar como referente metodológico, transferir conocimiento e impulsar el aprendizaje y la adopción de nuevas tecnologías de prueba.',
+        evidence: [
+          { label: 'Studio QA · Argus, NextGen y QAI Engineering', to: '/studio-qa' },
+          { label: 'Piloto AI Engineering · seis agentes', to: '/innovacion' },
+          { label: 'Workshop AI Boost', to: '/ia' },
+        ],
+        status: 'Evidencia sólida',
+        tone: 'strong',
+        reading: 'Existe formación teórica y práctica, comunidad y una primera evidencia de adopción: seis participantes terminaron con un agente propio y aplican lo aprendido.',
+        next: 'Mantener seguimiento de objetivos, feedback, autonomía y resultados posteriores de las personas formadas.',
+      },
+      {
+        criterion: 'Asesorar a proyectos y BUs, sustentar propuestas técnicas y garantizar viabilidad, calidad y diferenciación de la solución.',
+        evidence: [
+          { label: 'Asesorías KOSIN, BHP y ProVida', to: '/innovacion' },
+          { label: 'MetLife · migración y remediación', to: '/metlife' },
+          { label: 'Arquitectura multiagéntica', to: '/ia' },
+        ],
+        status: 'Evidencia sólida',
+        tone: 'strong',
+        reading: 'Los casos publicados muestran diagnóstico, adaptación de frameworks y resolución de iniciativas de alta complejidad hasta obtener entregables verificables.',
+        next: 'Registrar para cada POC el problema, riesgo de viabilidad, decisión técnica, alternativa descartada y resultado aceptado.',
+      },
+      {
+        criterion: 'Gestionar estimaciones y avances de pruebas y evaluar la efectividad de la IA para aportar visibilidad al delivery.',
+        evidence: [
+          { label: 'AvanGrid · métricas de casos y recuperación', to: '/avangrid' },
+          { label: 'MetLife · 142 horas y 52 actividades', to: '/metlife' },
+          { label: 'Piloto AI Engineering · adopción inicial', to: '/innovacion' },
+        ],
+        status: 'Por consolidar',
+        tone: 'partial',
+        reading: 'Hay volumen, continuidad y resultados, pero no un cuadro común que conecte esfuerzo con ahorro, calidad, adopción y valor.',
+        next: 'Definir una línea base y medir tiempo de ciclo, defectos evitados, reutilización, adopción y eficiencia.',
+      },
+    ],
+  },
+  {
+    id: 'expert',
+    title: 'Expert Technical Software Quality',
+    reference: 'Mapa de Talento GDNe · páginas 61-64',
+    marker: 'Horizonte en construcción',
+    summary: 'Ya existen señales de referencia técnica, complejidad e influencia. El salto exige convertirlas en estrategia, métricas comparables y resultados transversales sostenidos.',
+    items: [
+      {
+        criterion: 'Liderar la definición de prácticas y desarrollos de calidad complejos, alineados con la estrategia y sostenibles en el tiempo.',
+        evidence: [
+          { label: 'MetLife · arquitectura gobernada y migraciones', to: '/metlife' },
+          { label: 'ArgusPy y Quality Engineering Agéntica', to: '/innovacion' },
+          { label: 'Arquitectura de agentes y AI Boost', to: '/ia' },
+        ],
+        status: 'Evidencia emergente',
+        tone: 'partial',
+        reading: 'La complejidad técnica y la reutilización están demostradas; falta acreditar que estas prácticas operan como estándar transversal alineado con la estrategia.',
+        next: 'Consolidar lineamientos comunes de QA e IA y documentar su adopción en varios equipos o unidades.',
+      },
+      {
+        criterion: 'Alcanzar Assurance & Testing nivel 4 y Orientación a la calidad nivel 4 con visión integral de seguridad, rendimiento, escalabilidad y delivery.',
+        evidence: [
+          { label: 'AvanGrid · cobertura y regresión multiplataforma', to: '/avangrid' },
+          { label: 'MetLife · validación, smoke tests y remediación', to: '/metlife' },
+          { label: 'Asesorías QA · frameworks y seguridad', to: '/innovacion' },
+        ],
+        status: 'Nivel 3 evidenciado',
+        tone: 'partial',
+        reading: 'La evidencia actual cubre con solidez el nivel requerido para Lead; todavía no prueba una visión integral nivel 4 aplicada y sostenida en el conjunto del delivery.',
+        next: 'Acreditar estrategia integral de pruebas, criterios de salida, riesgos no funcionales y resultados comparables entre proyectos.',
+      },
+      {
+        criterion: 'Demostrar Impacto nivel 3 como referente experto ante clientes, stakeholders y comunidades técnicas.',
+        evidence: [
+          { label: 'Entrevistas y comunidad NextGen QA', to: '/studio-qa' },
+          { label: 'Greenhouse y asesorías a proyectos', to: '/innovacion' },
+          { label: 'Referente IA, IA Sessions y AI Boost', to: '/ia' },
+        ],
+        status: 'En construcción',
+        tone: 'partial',
+        reading: 'Hay visibilidad local y regional, exposición y recurrencia como referente; falta evidenciar decisiones transversales modificadas y resultados sostenidos por esa influencia.',
+        next: 'Registrar decisiones, personas o equipos alineados, resistencias resueltas, adopción conseguida y resultado posterior.',
+      },
+      {
+        criterion: 'Definir y validar métricas, planificar alcance y backlog, medir la efectividad de IA y supervisar la viabilidad del delivery.',
+        evidence: [
+          { label: 'AvanGrid · producción y recuperación Mobile', to: '/avangrid' },
+          { label: 'MetLife · historial operativo y caso completado', to: '/metlife' },
+          { label: 'Programas formativos y adopción inicial', to: '/innovacion' },
+        ],
+        status: 'Brecha principal',
+        tone: 'gap',
+        reading: 'El dashboard conserva actividad y algunos resultados, pero aún no demuestra control estratégico de presupuesto, estimaciones, SLA, productividad ni efectividad de IA.',
+        next: 'Crear un cuadro de mando con baseline, objetivo, resultado, ahorro, calidad, adopción, owner y periodo de observación.',
+      },
+      {
+        criterion: 'Diseñar y liderar desarrollo avanzado de personas, especialización, autonomía y transferencia de conocimiento.',
+        evidence: [
+          { label: 'QAI Engineering · programa de 32 horas', to: '/studio-qa' },
+          { label: 'Piloto AI Engineering · seis participantes', to: '/innovacion' },
+          { label: 'Argus y NextGen QA', to: '/studio-qa' },
+          { label: 'Workshop AI Boost', to: '/ia' },
+        ],
+        status: 'Evidencia emergente',
+        tone: 'partial',
+        reading: 'La formación ya produce entregables y adopción inicial. Para Expert se necesita probar evolución sostenida, especialización y autonomía de las personas acompañadas.',
+        next: 'Definir objetivos por cohorte, evaluar antes y después, observar aplicación en proyecto y registrar feedback de responsables.',
+      },
+    ],
   },
 ];
 
@@ -227,6 +380,16 @@ const historyMilestones = [
     title: 'Primera sesión de NextGen QA Network',
     description: 'Espacio de comunidad para compartir experiencias y herramientas de QA funcional y automatizado desarrolladas con IA y agentes.',
   },
+  {
+    date: '25 sep 2026',
+    title: 'Inicio del programa piloto QAI Engineering',
+    description: 'Programa de 32 horas con contenido teórico y tareas técnicas para evolucionar perfiles QA hacia QA Engineering.',
+  },
+  {
+    date: '29 sep 2026',
+    title: 'Workshop AI Boost para QA',
+    description: 'Exposición sobre arquitectura agéntica aplicada a escenarios y casos de prueba para ampliar capacidades de IA en QA.',
+  },
 ];
 
 const nextLevelNeeds = [
@@ -256,8 +419,8 @@ const nextLevelNeeds = [
     icon: BookOpen,
   },
   {
-    title: 'Validar la rama de Software Engineering',
-    description: 'Documentar la responsabilidad técnica end-to-end en modernización, seguridad y migración, y acordar el encaje formal si ese alcance pasa a ser sostenido.',
+    title: 'Consolidar AI Engineering dentro de Software Quality',
+    description: 'Documentar cómo agentes, pipelines, migraciones y remediación fortalecen la arquitectura de calidad, la trazabilidad y la eficiencia del delivery.',
     icon: Code2,
   },
   {
@@ -275,6 +438,8 @@ const impactMetrics = [
   { label: 'Actividad MetLife', value: '142 h', detail: '52 tareas en 36 días.' },
   { label: 'Primer bloque de migraciones', value: 'Completado', detail: 'Azure DevOps a GitHub, repositorios .NET y Oracle 19c.' },
   { label: 'Programa Next-Gen QA', value: '40 h', detail: 'Formación teórico-práctica diseñada.' },
+  { label: 'Programa QAI Engineering', value: '32 h', detail: 'Formación continua con tareas técnicas.' },
+  { label: 'Piloto AI Engineering', value: '6 agentes', detail: 'Un agente creado por cada participante.' },
 ];
 
 const timeline = [
@@ -288,7 +453,7 @@ const timeline = [
   {
     term: 'Mediano plazo',
     range: '3-9 meses',
-    description: 'Escalar estándares de QA e IA a varios equipos, acreditar desarrollo de personas y validar el alcance técnico de modernización y seguridad.',
+    description: 'Escalar estándares de QA e IA a varios equipos, acreditar desarrollo de personas y consolidar AI Engineering como capacidad de Software Quality.',
     icon: Activity,
     state: 'active',
   },
@@ -303,6 +468,7 @@ const timeline = [
 
 const tabs = [
   { id: 'profile', label: 'Posicionamiento actual', icon: UserRound },
+  { id: 'traceability', label: 'Trazabilidad Lead → Expert', icon: ListChecks },
   { id: 'achievements', label: 'Evidencias e historial', icon: Briefcase },
   { id: 'nextSteps', label: 'Brechas y plan de avance', icon: Rocket },
 ];
@@ -345,6 +511,56 @@ function AchievementList({ items, tone, heading, subtitle }) {
   );
 }
 
+function TraceabilityGroup({ group }) {
+  return (
+    <section className={`talent-traceability-group talent-traceability-group--${group.id}`} aria-labelledby={`traceability-${group.id}-title`}>
+      <header className="talent-traceability-group__header">
+        <div>
+          <span>{group.reference}</span>
+          <h3 id={`traceability-${group.id}-title`}>{group.title}</h3>
+          <p>{group.summary}</p>
+        </div>
+        <strong>{group.marker}</strong>
+      </header>
+
+      <div className="talent-traceability-columns" aria-hidden="true">
+        <span>Criterio oficial sintetizado</span>
+        <span>Evidencia publicada</span>
+        <span>Lectura y próximo paso</span>
+      </div>
+
+      <ol className="talent-traceability-list">
+        {group.items.map((item) => (
+          <li key={item.criterion}>
+            <div className="talent-traceability-criterion">
+              <span>Criterio</span>
+              <h4>{item.criterion}</h4>
+            </div>
+
+            <div className="talent-traceability-evidence">
+              <span>Hechos publicados</span>
+              <div>
+                {item.evidence.map((source) => (
+                  <Link key={`${source.to}-${source.label}`} to={source.to}>
+                    {source.label}
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="talent-traceability-assessment">
+              <span className={`talent-traceability-status talent-traceability-status--${item.tone}`}>{item.status}</span>
+              <p><strong>Lectura:</strong> {item.reading}</p>
+              <p><strong>Para cerrar:</strong> {item.next}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 const CareerPath = () => {
   const [activeTab, setActiveTab] = useState('profile');
 
@@ -369,8 +585,8 @@ const CareerPath = () => {
       <header className="talent-map__header">
         <div className="talent-map__intro">
           <p className="talent-map__kicker">Mapa de talento</p>
-          <h2 id="talent-map-title">Mi posicionamiento funcional en QA e ingeniería</h2>
-          <p>Reanálisis completo · Lead Technical Software Quality · evidencia actualizada al 9 de septiembre de 2026</p>
+          <h2 id="talent-map-title">Mi posicionamiento como líder técnico de Software Quality</h2>
+          <p>Reanálisis completo · Lead Technical Software Quality · evidencia revisada al 17 de noviembre de 2026</p>
         </div>
 
         <aside className="talent-map__objective" aria-label="Conclusión del mapa de talento">
@@ -446,7 +662,7 @@ const CareerPath = () => {
               </header>
 
               <p className="talent-profile__summary">
-                El alcance actual ya no se limita a ejecutar automatización. Jimmy define y construye prácticas y herramientas, resuelve problemas técnicos complejos, integra IA en el delivery, asesora a distintos proyectos y desarrolla capacidades en otras personas. Esa combinación coincide con la definición funcional de Lead del Mapa de Talento GDNe; el trabajo reciente de MetLife añade un alcance técnico de modernización, migración y seguridad.
+                El alcance actual ya no se limita a ejecutar automatización. Jimmy define prácticas y arquitecturas de pruebas, construye frameworks, resuelve POC complejas, integra IA e integración continua en el delivery, asesora a distintos proyectos y desarrolla capacidades en otras personas. Esa combinación sitúa su encaje principal en Lead Technical Software Quality; las tareas de AI Engineering y modernización amplían la profundidad técnica del rol sin desplazar su eje de calidad.
               </p>
 
               <dl className="talent-status-grid" aria-label="Resumen del posicionamiento profesional">
@@ -469,7 +685,7 @@ const CareerPath = () => {
 
               <div className="talent-profile__verdict">
                 <strong>Resultado del reanálisis</strong>
-                <p>La evidencia cubre de manera consistente el núcleo de Lead: definir, construir, implementar y probar prácticas de calidad, y liderar al equipo desde el conocimiento. La migración multiagéntica de MetLife respalda además una recomendación funcional complementaria de Senior Software Engineer para ese alcance técnico, pendiente de validación formal. Expert todavía no está consolidado porque exige Assurance & Testing y Orientación a la calidad en nivel 4, Impacto en nivel 3 y una referencia estratégica transversal demostrada en el tiempo.</p>
+                <p>La evidencia cubre de manera consistente el núcleo de Lead: definir, construir, implementar y probar prácticas de calidad, liderar desde el conocimiento y desarrollar capacidades en otras personas. MetLife, ArgusPy y Quality Engineering Agéntica refuerzan el posicionamiento como referente técnico de Software Quality con capacidades de AI Engineering. Expert todavía no está consolidado porque exige Assurance & Testing y Orientación a la calidad en nivel 4, Impacto en nivel 3 y una referencia estratégica transversal demostrada con métricas y continuidad.</p>
               </div>
 
               <div className="talent-section-title talent-section-title--spaced">
@@ -525,6 +741,50 @@ const CareerPath = () => {
           </section>
         )}
 
+        {activeTab === 'traceability' && (
+          <section
+            id="talent-panel-traceability"
+            role="tabpanel"
+            aria-labelledby="talent-tab-traceability"
+            className="talent-traceability"
+          >
+            <header className="talent-traceability__intro">
+              <div className="talent-section-title">
+                <ListChecks size={19} aria-hidden="true" />
+                <h3>Trazabilidad entre el mapa oficial y mi evidencia</h3>
+              </div>
+              <p>Cada fila separa el criterio sintetizado del Mapa de Talento, los hechos navegables dentro del dashboard y la interpretación profesional. Los estados describen la solidez de la evidencia; no sustituyen la evaluación formal.</p>
+
+              <dl aria-label="Resumen de la trazabilidad profesional">
+                <div>
+                  <dt>Lead</dt>
+                  <dd>Núcleo cubierto</dd>
+                  <p>Construcción, automatización, asesoría y desarrollo de personas.</p>
+                </div>
+                <div>
+                  <dt>Expert</dt>
+                  <dd>En construcción</dd>
+                  <p>Hay complejidad y referencia; falta consolidar estrategia e impacto transversal.</p>
+                </div>
+                <div>
+                  <dt>Brecha principal</dt>
+                  <dd>Métricas comparables</dd>
+                  <p>Adopción, eficiencia, calidad, ahorro y resultados sostenidos.</p>
+                </div>
+              </dl>
+            </header>
+
+            {traceabilityGroups.map((group) => (
+              <TraceabilityGroup key={group.id} group={group} />
+            ))}
+
+            <aside className="talent-traceability__boundary">
+              <ShieldCheck size={19} aria-hidden="true" />
+              <p><strong>Límite de la evidencia:</strong> el dashboard acredita POC, frameworks, automatizaciones, formaciones y entregas completadas, pero no documenta qué iniciativas habían sido descartadas previamente ni por quién. Para usar ese contexto en una solicitud de promoción, conviene añadir un registro verificable del problema, la inviabilidad percibida, la decisión adoptada y el resultado obtenido.</p>
+            </aside>
+          </section>
+        )}
+
         {activeTab === 'achievements' && (
           <section
             id="talent-panel-achievements"
@@ -537,7 +797,7 @@ const CareerPath = () => {
                 items={currentAchievements}
                 tone="evidence"
                 heading="Evidencias profesionales integradas"
-                subtitle="Actividad actual e histórica hasta el 9 de septiembre de 2026"
+                subtitle="Actividad actual e histórica revisada al 17 de noviembre de 2026"
               />
               <AchievementList
                 items={leadAlignment}

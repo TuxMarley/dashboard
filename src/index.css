@@ -499,7 +499,10 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .talent-method-note,
 .talent-needs,
 .talent-impact,
-.talent-timeline {
+.talent-timeline,
+.talent-traceability__intro,
+.talent-traceability-group,
+.talent-traceability__boundary {
   border: 1px solid var(--glass-border);
   background: var(--talent-surface);
 }
@@ -688,7 +691,10 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .talent-history,
 .talent-needs,
 .talent-impact,
-.talent-timeline {
+.talent-timeline,
+.talent-traceability__intro,
+.talent-traceability-group,
+.talent-traceability__boundary {
   border-radius: 1rem;
 }
 
@@ -1100,11 +1106,238 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .talent-needs li p,
 .talent-timeline p,
 .talent-impact > p,
-.talent-history p {
+.talent-history p,
+.talent-traceability p {
   margin-top: 0.25rem;
   color: var(--text-muted);
   font-size: 0.8rem;
   line-height: 1.5;
+}
+
+.talent-traceability {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.talent-traceability__intro {
+  padding: 1.5rem;
+}
+
+.talent-traceability__intro > p {
+  max-width: 78ch;
+  margin-top: 0.7rem;
+}
+
+.talent-traceability__intro dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.35rem;
+  border-top: 1px solid var(--talent-line);
+  border-left: 1px solid var(--talent-line);
+}
+
+.talent-traceability__intro dl > div {
+  min-width: 0;
+  padding: 1rem;
+  border-right: 1px solid var(--talent-line);
+  border-bottom: 1px solid var(--talent-line);
+}
+
+.talent-traceability__intro dt,
+.talent-traceability-columns span,
+.talent-traceability-criterion > span,
+.talent-traceability-evidence > span {
+  color: #9eb0c7;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.talent-traceability__intro dd {
+  margin-top: 0.4rem;
+  color: var(--text-main);
+  font-family: 'Noto Serif', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.talent-traceability-group {
+  overflow: hidden;
+}
+
+.talent-traceability-group--lead {
+  border-color: rgba(230, 182, 0, 0.3);
+}
+
+.talent-traceability-group__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.4rem 1.5rem;
+  border-bottom: 1px solid var(--talent-line);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.talent-traceability-group__header > div {
+  max-width: 74ch;
+}
+
+.talent-traceability-group__header span {
+  color: var(--talent-blue);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.talent-traceability-group__header h3 {
+  margin-top: 0.35rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.talent-traceability-group__header strong {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(69, 179, 245, 0.32);
+  color: #b8e5ff;
+  font-size: 0.67rem;
+  letter-spacing: 0.025em;
+}
+
+.talent-traceability-group--lead .talent-traceability-group__header span {
+  color: #f3cf37;
+}
+
+.talent-traceability-group--lead .talent-traceability-group__header strong {
+  border-color: rgba(230, 182, 0, 0.38);
+  color: #f3cf37;
+}
+
+.talent-traceability-columns,
+.talent-traceability-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr) minmax(0, 1.15fr);
+  gap: 1.25rem;
+}
+
+.talent-traceability-columns {
+  padding: 0.7rem 1.5rem;
+  border-bottom: 1px solid var(--talent-line);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.talent-traceability-list {
+  list-style: none;
+}
+
+.talent-traceability-list li {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--talent-line);
+}
+
+.talent-traceability-list li:last-child {
+  border-bottom: 0;
+}
+
+.talent-traceability-criterion,
+.talent-traceability-evidence,
+.talent-traceability-assessment {
+  min-width: 0;
+}
+
+.talent-traceability-criterion h4 {
+  margin-top: 0.45rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.talent-traceability-evidence > div {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+.talent-traceability-evidence a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.65rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.52rem 0.65rem;
+  border: 1px solid rgba(69, 179, 245, 0.24);
+  border-radius: 0.55rem;
+  color: #b8e5ff;
+  background: rgba(0, 114, 188, 0.08);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.talent-traceability-evidence a:hover {
+  border-color: rgba(69, 179, 245, 0.55);
+  color: #ffffff;
+}
+
+.talent-traceability-evidence a:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+.talent-traceability-evidence a svg {
+  flex: 0 0 auto;
+}
+
+.talent-traceability-status {
+  display: block;
+  width: fit-content;
+  margin-bottom: 0.55rem;
+  padding: 0.22rem 0.48rem;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #8ee6b0;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.talent-traceability-status--partial {
+  border-color: rgba(230, 182, 0, 0.38);
+  color: #f3cf37;
+}
+
+.talent-traceability-status--gap {
+  border-color: rgba(255, 145, 145, 0.38);
+  color: #ffb2b2;
+}
+
+.talent-traceability-assessment p {
+  margin-top: 0.45rem;
+}
+
+.talent-traceability-assessment p strong {
+  color: var(--text-main);
+}
+
+.talent-traceability__boundary {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.15rem;
+}
+
+.talent-traceability__boundary svg {
+  flex: 0 0 auto;
+  margin-top: 0.12rem;
+  color: var(--talent-gold);
+}
+
+.talent-traceability__boundary p {
+  margin: 0;
+}
+
+.talent-traceability__boundary strong {
+  color: var(--text-main);
 }
 
 .talent-evidence-view {
@@ -1308,7 +1541,8 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-history,
   .talent-needs,
   .talent-impact,
-  .talent-timeline {
+  .talent-timeline,
+  .talent-traceability-group {
     transition: border-color 180ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -1318,7 +1552,8 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-history:hover,
   .talent-needs:hover,
   .talent-impact:hover,
-  .talent-timeline:hover {
+  .talent-timeline:hover,
+  .talent-traceability-group:hover {
     border-color: rgba(69, 179, 245, 0.3);
     background: var(--bg-card-hover);
   }
@@ -1332,7 +1567,8 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   .talent-history,
   .talent-needs,
   .talent-impact,
-  .talent-timeline {
+  .talent-timeline,
+  .talent-traceability-group {
     transition-duration: 100ms;
   }
 
@@ -1378,6 +1614,15 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
   .talent-history-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .talent-traceability-columns {
+    display: none;
+  }
+
+  .talent-traceability-list li {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -2076,7 +2321,11 @@ body {
   .talent-history,
   .talent-needs,
   .talent-impact,
-  .talent-timeline {
+  .talent-timeline,
+  .talent-traceability__intro,
+  .talent-traceability-group__header,
+  .talent-traceability-list li,
+  .talent-traceability__boundary {
     padding: 1.15rem;
   }
 
@@ -2087,8 +2336,18 @@ body {
   .talent-needs ul,
   .talent-impact dl,
   .talent-history-list,
-  .talent-status-grid {
+  .talent-status-grid,
+  .talent-traceability__intro dl {
     grid-template-columns: 1fr;
+  }
+
+  .talent-traceability-group__header {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .talent-traceability-group__header strong {
+    width: fit-content;
   }
 
   .talent-status-grid > div {
