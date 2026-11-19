@@ -1,9 +1,9 @@
 /**
- * THESIS: MetLife conecta la bitácora diaria con dos prácticas agénticas sin mezclar sus ritmos.
+ * THESIS: MetLife muestra avances relevantes y conserva la bitácora y las prácticas agénticas como consulta.
  * OWN-WORLD: Azul profundo heredado, líneas sobrias y verde MetLife para selección, tiempo y estados de proceso.
- * STORY: Consultar horas, entender cómo se automatizan pruebas y revisar la arquitectura de desarrollo agéntico.
- * FIRST VIEWPORT: Encabezado, pestañas de propósito y la bitácora abierta como vista predeterminada.
- * FORM: Extensión Operate; registro cronológico para la operación y guías breves para capacidades técnicas.
+ * STORY: Revisar el estado de las iniciativas, consultar horas y explorar las capacidades técnicas.
+ * FIRST VIEWPORT: Encabezado, pestañas de propósito y los avances abiertos como vista predeterminada.
+ * FORM: Extensión Operate; avances editoriales, registro histórico y guías breves para capacidades técnicas.
  */
 import { useEffect, useMemo, useState } from 'react'
 import {
@@ -48,7 +48,8 @@ const periodFormatter = new Intl.DateTimeFormat('es-CL', {
 })
 
 const metlifeTabs = [
-  { id: 'worklog', label: 'Bitácora diaria' },
+  { id: 'updates', label: 'Avances' },
+  { id: 'worklog', label: 'Historial de horas' },
   { id: 'testing', label: 'Pruebas agénticas' },
   { id: 'development', label: 'Desarrollo agéntico' },
 ]
@@ -139,7 +140,7 @@ const MetLife = () => {
   const [history, setHistory] = useState({})
   const [selectedDate, setSelectedDate] = useState('')
   const [loadState, setLoadState] = useState('loading')
-  const [activeTab, setActiveTab] = useState('worklog')
+  const [activeTab, setActiveTab] = useState('updates')
   const [selectedTestingStage, setSelectedTestingStage] = useState('brief')
   const [selectedDevelopmentLayer, setSelectedDevelopmentLayer] = useState('governance')
 
@@ -181,13 +182,13 @@ const MetLife = () => {
     <div className="metlife-daily">
       <header className="section-heading metlife-heading">
         <div>
-          <p className="section-kicker">Registro operativo</p>
+          <p className="section-kicker">Seguimiento de iniciativas</p>
           <h2>MetLife</h2>
-          <p>Bitácora diaria y prácticas de agentización para pruebas automatizadas y desarrollo técnico.</p>
+          <p>Avances de remediación, cobertura y apoyo a QA; historial de horas y prácticas agénticas disponibles para consulta.</p>
         </div>
         <div className="metlife-source" aria-label="Alcance de la sección">
           <RefreshCw size={15} aria-hidden="true" />
-          <span>Bitácora y capacidades agénticas</span>
+          <span>Avances y capacidades agénticas</span>
         </div>
       </header>
 
@@ -207,6 +208,61 @@ const MetLife = () => {
           </button>
         ))}
       </div>
+
+      {activeTab === 'updates' && (
+        <section id="metlife-panel-updates" className="metlife-updates" role="tabpanel" aria-labelledby="metlife-tab-updates">
+          <div className="metlife-updates__heading">
+            <div>
+              <p className="section-kicker">Trabajo reciente</p>
+              <h3>Avances importantes</h3>
+              <p>Seguimiento de entregas y trabajo en curso, organizado por iniciativa.</p>
+            </div>
+            <span className="metlife-updates__count">3 frentes de trabajo</span>
+          </div>
+
+          <div className="metlife-updates__list">
+            <article className="metlife-update metlife-update--lead">
+              <div className="metlife-update__rail">
+                <span className="metlife-update__category">Remediación de repositorios</span>
+                <span className="metlife-update__status">En seguimiento</span>
+              </div>
+              <div className="metlife-update__body">
+                <h4>Sonríe Seguro API: primeros cambios integrados</h4>
+                <p>Continúa el seguimiento de alertas para la remediación de repositorios de Sonríe Seguro. Los primeros cambios de la API ya se integraron mediante merge y se probaron en QA.</p>
+                <p>También se completó la compilación y el paso por Veracode para su revisión. El paso a producción queda como etapa posterior a esa revisión.</p>
+                <div className="metlife-update__steps" aria-label="Estado del avance de Sonríe Seguro API">
+                  <span><CheckCircle2 size={16} aria-hidden="true" /> Merge realizado</span>
+                  <span><CheckCircle2 size={16} aria-hidden="true" /> Pruebas en QA</span>
+                  <span><CheckCircle2 size={16} aria-hidden="true" /> Compilación y Veracode</span>
+                  <span className="is-pending">Revisión y paso a producción pendientes</span>
+                </div>
+              </div>
+            </article>
+
+            <article className="metlife-update">
+              <div className="metlife-update__rail">
+                <span className="metlife-update__category">Diseño funcional</span>
+                <span className="metlife-update__status">En desarrollo</span>
+              </div>
+              <div className="metlife-update__body">
+                <h4>SDD para cobertura de pólizas no vigentes</h4>
+                <p>Está en elaboración el SDD de una cobertura que permita reportar y hacer seguimiento a solicitudes de devolución asociadas a pólizas vencidas. El alcance contempla un plazo de 70 días para presentar el reporte.</p>
+              </div>
+            </article>
+
+            <article className="metlife-update">
+              <div className="metlife-update__rail">
+                <span className="metlife-update__category">Apoyo a automatización QA</span>
+                <span className="metlife-update__status">En curso</span>
+              </div>
+              <div className="metlife-update__body">
+                <h4>Habilitación para automatización con IA</h4>
+                <p>Se apoyó a los QA automatizadores en la creación de tickets para solicitar acceso a GitHub Copilot y a los repositorios necesarios. El objetivo es aplicar la automatización con inteligencia artificial en el framework abordado durante las formaciones.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      )}
 
       {activeTab === 'testing' && (
         <section
@@ -438,7 +494,7 @@ const MetLife = () => {
               <CalendarDays size={22} aria-hidden="true" />
               <div>
                 <h3>Aún no hay actividades registradas</h3>
-                <p>Cuando la hoja Registro contenga tareas con fecha y horas, aparecerán aquí por día.</p>
+                <p>El historial de horas está vacío. Los avances importantes siguen disponibles en su pestaña.</p>
               </div>
             </section>
           )}
