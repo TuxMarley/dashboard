@@ -1,0 +1,8 @@
+{"id":"I-01","categoria":"interfaz","prioridad":"P1","fuentes_politica":["POL-1","POL-2"],"version_politica":2,"requiere_revision":true}
+{"id":"I-02","categoria":"api","prioridad":"P2","fuentes_politica":["POL-1","POL-2"],"version_politica":2,"requiere_revision":true}
+{"id":"I-03","categoria":"datos","prioridad":"P2","fuentes_politica":["POL-1","POL-2"],"version_politica":2,"requiere_revision":true}
+{"id":"I-04","categoria":"acceso","prioridad":"P1","fuentes_politica":["POL-1","POL-2"],"version_politica":2,"requiere_revision":true}
+{"id":"I-05","categoria":"interfaz","prioridad":"P3","fuentes_politica":["POL-1","POL-2"],"version_politica":2,"requiere_revision":false}
+{"id":"I-06","categoria":"desconocido","prioridad":"por_confirmar","fuentes_politica":["POL-3"],"version_politica":2,"requiere_revision":true}
+{"id":"I-07","categoria":"acceso","prioridad":"P1","fuentes_politica":["POL-1","POL-2","POL-3"],"version_politica":2,"requiere_revision":true}
+{"id":"I-08","categoria":"interfaz","prioridad":"P3","fuentes_politica":["POL-1","POL-2","POL-3"],"version_politica":2,"requiere_revision":false}
