@@ -465,6 +465,45 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        {/* Upcoming IA Session */}
+        <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
+          <div className="flex-col gap-6">
+            <div className="flex-col">
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Presentation size={20} />
+                <span>IA Sessions · Tercera participación</span>
+              </div>
+
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">MagIA que inspira: tokens, modelos y eficiencia</h4>
+
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Miércoles 9 de diciembre de 2026 · 16:00 a 17:00 · Teams</span>
+              </div>
+
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Próxima participación en IA Sessions, enfocada en comprender el consumo de inteligencia artificial detrás de cada interacción y usar los recursos de forma más eficiente. La conversación abordará tokens de entrada, salida y caché, elección de modelos y revisión de costos para optimizar el trabajo sin aumentar el presupuesto.
+              </p>
+
+              <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.1)', color: 'var(--brand-blue-light)', borderColor: 'rgba(91, 196, 255, 0.28)' }}>
+                <span>Programada</span>
+              </div>
+            </div>
+
+            <figure className="flex-col items-center" style={{ width: '100%', maxWidth: '760px', alignSelf: 'center' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/ia-sessions-2026-12-09-tokens-modelos-costos.png"
+                  alt="Afiche de IA Sessions MagIA que inspira, con los tres expositores y temas sobre tokens, modelos y eficiencia de costos"
+                  className="w-full h-auto object-cover"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Afiche de la sesión programada para el 9 de diciembre sobre consumo de IA y uso eficiente de recursos.</figcaption>
+            </figure>
+          </div>
+        </div>
+
         {/* IA Session Podcaster Card */}
         <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex-col gap-6">
