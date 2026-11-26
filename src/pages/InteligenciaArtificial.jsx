@@ -504,6 +504,39 @@ const InteligenciaArtificial = () => {
           </div>
         </div>
 
+        <div className="p-6 rounded-3xl" style={{ background: 'rgba(0, 114, 188, 0.1)', border: '1px solid rgba(91, 196, 255, 0.28)' }}>
+          <div className="flex-col gap-6">
+            <div className="flex-col">
+              <div className="flex items-center gap-2 mb-2 text-sm text-cyan font-semibold">
+                <Presentation size={20} />
+                <span>AI Level Up · Relator</span>
+              </div>
+              <h4 className="font-serif font-bold text-2xl text-white mb-2">AI Level Up: avanzar del nivel 1 al nivel 2 de madurez en IA</h4>
+              <div className="flex items-center gap-2 text-sm text-muted mb-4">
+                <Calendar size={16} />
+                <span>Martes 1 de diciembre de 2026 · 17:00 a 18:00</span>
+              </div>
+              <p className="text-sm text-muted mb-4 leading-relaxed">
+                Participación programada como relator en AI Level Up, un espacio para acompañar a colaboradores que se encuentran en el nivel 1 y ayudarles a avanzar hacia el nivel 2 de madurez en el uso de inteligencia artificial, compartiendo herramientas, consejos y ejemplos para incorporar la IA en sus actividades cotidianas.
+              </p>
+              <div className="pill-tag" style={{ background: 'rgba(91, 196, 255, 0.1)', color: 'var(--brand-blue-light)', borderColor: 'rgba(91, 196, 255, 0.28)' }}>
+                <span>Programada</span>
+              </div>
+            </div>
+            <figure className="flex-col items-center" style={{ width: '100%', maxWidth: '760px', alignSelf: 'center' }}>
+              <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'var(--glass-border)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)' }}>
+                <img
+                  src="/ia-level-up-2026-12-01-invitacion-recortada.png"
+                  alt="Invitación a AI Level Up sobre el avance del nivel 1 al nivel 2 de madurez en inteligencia artificial"
+                  className="w-full h-auto object-cover"
+                  style={{ display: 'block' }}
+                />
+              </div>
+              <figcaption className="text-xs text-muted text-center mt-2 font-serif italic">Recorte de la invitación con fecha, horario y propósito de AI Level Up.</figcaption>
+            </figure>
+          </div>
+        </div>
+
         {/* IA Session Podcaster Card */}
         <div className="p-6 rounded-3xl mt-4" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--glass-border)' }}>
           <div className="flex-col gap-6">
